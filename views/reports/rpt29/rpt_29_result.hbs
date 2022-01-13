@@ -1,0 +1,179 @@
+<div class="table-responsive">
+    <!-- START BLOCK FOR PRINT  -->
+    <div id="printReport">
+        <div class="text-center">
+            <p><b><h4>Процент пациентов обследованных на холестерин, глюкозу</h4></b></p>
+        </div>
+        <div class="text-left">
+            <div>ЛПУ: {{titleData.lpu_title}}</div>
+            <div>
+            <span>Отчетный период:
+              <span>{{dateFormat titleData.sdate}}</span> -
+              <span>{{dateFormat titleData.edate}}</span>
+            </span>
+            </div>
+        </div>
+        <div id="printBtnId">
+            <button class="btn btn-primary print-btn" target-print="printReport" id="printBtnId">
+                <span class="glyphicon glyphicon-print" aria-hidden="true"></span> Печать
+            </button>
+        </div>
+
+        <div class="result-data">
+            {{#if data.length}}
+                <table class="table table-responsive rpt_table">
+                    <thead class="thead-dark">
+                        <tr class="tr" style="background: lightgray">
+                            <th class="th" colspan="7">
+                                Всего случаев поликлинического обслуживания(абс. число)
+                            </th>
+                            <th class="th" colspan="6">
+                                Холестерин(абс. число)
+                            </th>
+                            <th class="th" colspan="6">
+                                Сахар(абс. число)
+                            </th>
+                        </tr>
+                        <tr class="tr">
+                            <th class="th" rowspan="2">Всего</th>
+                            <th class="th" colspan="2">до 30 лет</th>
+                            <th class="th" colspan="2">30-40 лет</th>
+                            <th class="th" colspan="2">40 и старще</th>
+                            <th class="th" colspan="2">до 30 лет</th>
+                            <th class="th" colspan="2">30-40 лет</th>
+                            <th class="th" colspan="2">40 и старще</th>
+                            <th class="th" colspan="2">до 30 лет</th>
+                            <th class="th" colspan="2">30-40 лет</th>
+                            <th class="th" colspan="2">40 и старще</th>
+                        </tr>
+                        <tr>
+                            <td class="td">муж</td>
+                            <td class="td">жен</td>
+                            <td class="td">муж</td>
+                            <td class="td">жен</td>
+                            <td class="td">муж</td>
+                            <td class="td">жен</td>
+                            <td class="td">муж</td>
+                            <td class="td">жен</td>
+                            <td class="td">муж</td>
+                            <td class="td">жен</td>
+                            <td class="td">муж</td>
+                            <td class="td">жен</td>
+                            <td class="td">муж</td>
+                            <td class="td">жен</td>
+                            <td class="td">муж</td>
+                            <td class="td">жен</td>
+                            <td class="td">муж</td>
+                            <td class="td">жен</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {{#each data}}
+                        <tr class="tr">
+                            <td class="td">{{this.c1}}</td>
+                            <td class="td">{{this.c2}}</td>
+                            <td class="td">{{this.c3}}</td>
+                            <td class="td">{{this.c4}}</td>
+                            <td class="td">{{this.c5}}</td>
+                            <td class="td">{{this.c6}}</td>
+                            <td class="td">{{this.c7}}</td>
+                            <td class="td">{{this.c8}}</td>
+                            <td class="td">{{this.c9}}</td>
+                            <td class="td">{{this.c10}}</td>
+                            <td class="td">{{this.c11}}</td>
+                            <td class="td">{{this.c12}}</td>
+                            <td class="td">{{this.c13}}</td>
+                            <td class="td">{{this.c14}}</td>
+                            <td class="td">{{this.c15}}</td>
+                            <td class="td">{{this.c16}}</td>
+                            <td class="td">{{this.c17}}</td>
+                            <td class="td">{{this.c18}}</td>
+                            <td class="td">{{this.c19}}</td>
+                        </tr>
+                        <tr>
+                            <td class="td" colspan="19"></td>
+                        </tr>
+                        <tr class="tr" style="background: lightgray">
+                            <th class="th" colspan="19">
+                                на 100 обративщихся в ОЗ
+                            </th>
+                        </tr>
+                        <tr class="tr" style="background: lightgray">
+                            <th class="th" colspan="7">
+                                Всего случаев поликлинического обслуживания(абс. число)
+                            </th>
+                            <th class="th" colspan="6">
+                                Холестерин(%)
+                            </th>
+                            <th class="th" colspan="6">
+                                Сахар(%)
+                            </th>
+                        </tr>
+                        <tr class="tr">
+                            <th class="th" rowspan="2">Всего</th>
+                            <th class="th" colspan="2">до 30 лет</th>
+                            <th class="th" colspan="2">30-40 лет</th>
+                            <th class="th" colspan="2">40 и старще</th>
+                            <th class="th" colspan="2">до 30 лет</th>
+                            <th class="th" colspan="2">30-40 лет</th>
+                            <th class="th" colspan="2">40 и старще</th>
+                            <th class="th" colspan="2">до 30 лет</th>
+                            <th class="th" colspan="2">30-40 лет</th>
+                            <th class="th" colspan="2">40 и старще</th>
+                        </tr>
+                        <tr>
+                            <td class="td">муж</td>
+                            <td class="td">жен</td>
+                            <td class="td">муж</td>
+                            <td class="td">жен</td>
+                            <td class="td">муж</td>
+                            <td class="td">жен</td>
+                            <td class="td">муж</td>
+                            <td class="td">жен</td>
+                            <td class="td">муж</td>
+                            <td class="td">жен</td>
+                            <td class="td">муж</td>
+                            <td class="td">жен</td>
+                            <td class="td">муж</td>
+                            <td class="td">жен</td>
+                            <td class="td">муж</td>
+                            <td class="td">жен</td>
+                            <td class="td">муж</td>
+                            <td class="td">жен</td>
+                        </tr>
+                        <tr class="tr">
+                            <td class="td">{{this.c1}}</td>
+                            <td class="td">{{this.c2}}</td>
+                            <td class="td">{{this.c3}}</td>
+                            <td class="td">{{this.c4}}</td>
+                            <td class="td">{{this.c5}}</td>
+                            <td class="td">{{this.c6}}</td>
+                            <td class="td">{{this.c7}}</td>
+                            <td class="td">{{this.c8_percent}}%</td>
+                            <td class="td">{{this.c9_percent}}%</td>
+                            <td class="td">{{this.c10_percent}}%</td>
+                            <td class="td">{{this.c11_percent}}%</td>
+                            <td class="td">{{this.c12_percent}}%</td>
+                            <td class="td">{{this.c13_percent}}%</td>
+                            <td class="td">{{this.c14_percent}}%</td>
+                            <td class="td">{{this.c15_percent}}%</td>
+                            <td class="td">{{this.c16_percent}}%</td>
+                            <td class="td">{{this.c17_percent}}%</td>
+                            <td class="td">{{this.c18_percent}}%</td>
+                            <td class="td">{{this.c19_percent}}%</td>
+                        </tr>
+                    {{/each}}
+                    </tbody>
+                </table>
+            {{/if}}
+        </div>
+
+    </div>
+    <!-- END BLOCK FOR PRINT  -->
+
+    <div id="printBtnId">
+        <button class="btn btn-primary print-btn" target-print="printReport" id="printBtnId">
+            <span class="glyphicon glyphicon-print" aria-hidden="true"></span> Печать
+        </button>
+    </div>
+</div>

@@ -1,0 +1,176 @@
+<div class="table-responsive">
+    <!-- START BLOCK FOR PRINT  -->
+    <div id="printReport">
+        <div class="text-center">
+            <p><b><h4>Охрана здоровья детского населения</h4></b></p>
+        </div>
+        <div class="text-left">
+            <div>ЛПУ: {{titleData.lpu_title}}</div>
+            <div>
+                <span>Отчетный период:
+                  <span>{{dateFormat titleData.sdate}}</span> -
+                  <span>{{dateFormat titleData.edate}}</span>
+                </span>
+            </div>
+        </div>
+        <div id="printBtnId">
+            <button class="btn btn-primary print-btn" target-print="printReport" id="printBtnId">
+                <span class="glyphicon glyphicon-print" aria-hidden="true"></span> Печать
+            </button>
+        </div>
+
+        <div class="result-data">
+            {{#if data.length }}
+            <div><strong>5. Охрана здоровья детского населения</strong></div>
+            <table class="table table-responsive rpt_table">
+                <thead class="thead-dark">
+                    <tr class="tr" style="background: lightgray">
+                        <th class="th-1" rowspan="2">Ребенок посещен в первые три дня после выписки из роддома</th>
+                        <th class="th" rowspan="2">Выявлены тревожные признаки у новорожденного</th>
+                        <th class="th" colspan="7">Посещения на дому детского населения по возрастам</th>
+                    </tr>
+                    <tr class="tr" style="background: lightgray">
+                        <th class="th">7-14 день</th>
+                        <th class="th">21 день</th>
+                        <th class="th">1,5 мес</th>
+                        <th class="th">7 мес</th>
+                        <th class="th">1.5 года</th>
+                        <th class="th">2,5 года</th>
+                        <th class="th">3,5 года</th>
+                    </tr>
+                    <tr class="tr" style="background: lightgray">
+                    <th class="th">1</th>
+                    <th class="th">2</th>
+                    <th class="th">3</th>
+                    <th class="th">4</th>
+                    <th class="th">5</th>
+                    <th class="th">6</th>
+                    <th class="th">7</th>
+                    <th class="th">8</th>
+                    <th class="th">9</th>
+                </tr>
+                </thead>
+                <tbody>
+                    {{#each data}}
+                    <tr class="tr">
+                        <td class="td">{{this.s5_c1}}</td>
+                        <td class="td">{{this.s5_c2}}</td>
+                        <td class="td">{{this.s5_c3}}</td>
+                        <td class="td">{{this.s5_c4}}</td>
+                        <td class="td">{{this.s5_c5}}</td>
+                        <td class="td">{{this.s5_c6}}</td>
+                        <td class="td">{{this.s5_c7}}</td>
+                        <td class="td">{{this.s5_c8}}</td>
+                        <td class="td">{{this.s5_c9}}</td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+
+            <div><strong>5.1</strong></div>
+            <table class="table table-responsive rpt_table">
+                <!-- Таблица 5.1-->
+                <thead class="thead-dark">
+                    <tr class="tr" style="background: lightgray">
+                        <th class="th">Число детей, достигших в отчетном году 1 года 1.</th>
+                        <th class="th">из  них находилось исключительно на грудном  до 3-х месячного возраста</th>
+                        <th class="th">1.1	до 6-ти месячного возраста </th>
+                        <th class="th">до 1 года 1.3 </th>
+                    </tr>
+                    <tr class="tr" style="background: lightgray">
+                        <th class="th">1</th>
+                        <th class="th">2</th>
+                        <th class="th">3</th>
+                        <th class="th">4</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each data}}
+                    <tr class="tr">
+                        <td class="td">{{this.s5_1_c1}}</td>
+                        <td class="td">{{this.s5_1_c2}}</td>
+                        <td class="td">{{this.s5_1_c3}}</td>
+                        <td class="td">{{this.s5_1_c4}}</td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+
+            <div><strong>5.2</strong></div>
+            <table class="table table-responsive rpt_table">
+                <!-- Таблица 5.2-->
+                <thead class="thead-dark">
+                    <tr class="tr" style="background: lightgray">
+                        <th class="th">Проведена оценка развития ребенка 7 мес</th>
+                        <th class="th">1,5 года</th>
+                        <th class="th">2,5 года</th>
+                        <th class="th">3,5 года</th>
+                    </tr>
+                    <tr class="tr" style="background: lightgray">
+                        <th class="th">1</th>
+                        <th class="th">2</th>
+                        <th class="th">3</th>
+                        <th class="th">4</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each data}}
+                    <tr class="tr">
+                        <td class="td">{{this.s5_2_c1}}</td>
+                        <td class="td">{{this.s5_2_c2}}</td>
+                        <td class="td">{{this.s5_2_c3}}</td>
+                        <td class="td">{{this.s5_2_c4}}</td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+
+            <div><strong>Контингент беременных</strong></div>
+            <table class="table table-responsive rpt_table">
+                <!-- Таблица 7-->
+                <thead class="thead-dark">
+                    <tr class="tr" style="background: lightgray">
+                        <th class="th">Состоит на учете по беременности</th>
+                        <th class="th">Принимает фолиевую кислоту</th>
+                        <th class="th">Принимает препараты железа</th>
+                        <th class="th">Принимает препараты йода</th>
+                        <th class="th">Выявлены тревожные признаки  у беременной</th>
+                        <th class="th">Выявлены тревожные признаки у родильницы</th>
+                        <th class="th">Посещена в первые три дня после выписки из стационара</th>
+                    </tr>
+                    <tr class="tr" style="background: lightgray">
+                    <th class="th">1</th>
+                    <th class="th">2</th>
+                    <th class="th">3</th>
+                    <th class="th">4</th>
+                    <th class="th">5</th>
+                    <th class="th">6</th>
+                    <th class="th">7</th>
+                </tr>
+                </thead>
+                <tbody>
+                    {{#each data}}
+                    <tr class="tr">
+                        <td class="td">{{this.t7_c1}}</td>
+                        <td class="td">{{this.t7_c2}}</td>
+                        <td class="td">{{this.t7_c3}}</td>
+                        <td class="td">{{this.t7_c4}}</td>
+                        <td class="td">{{this.t7_c5}}</td>
+                        <td class="td">{{this.t7_c6}}</td>
+                        <td class="td">{{this.t7_c7}}</td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+            {{/if}}
+        </div>
+
+    </div>
+    <!-- END BLOCK FOR PRINT  -->
+
+    <div id="printBtnId">
+        <button class="btn btn-primary print-btn" target-print="printReport" id="printBtnId">
+            <span class="glyphicon glyphicon-print" aria-hidden="true"></span> Печать
+        </button>
+    </div>
+</div>

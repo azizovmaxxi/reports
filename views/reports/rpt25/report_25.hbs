@@ -1,0 +1,31 @@
+<div>
+  <div>
+    <form id="rptFormParams" action="/report/report_25" method="POST">
+      <div class="page-title">
+        <div class="title_left">
+          <div class="form-group">
+              {{> select_ter}}
+              <div class="clearfix"></div>
+              <div class="form-group">
+                  <label for="visit_num_id">Визиты с ГБ</label>
+                  <select class="form-control" id="visit_num_id" name="visit_num">
+                      <option></option>
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5">5</option>
+                      <option value="6">6</option>
+                  </select>
+              </div>
+              </br>
+              <button type="submit" class="btn btn-primary">Открыть Отчет</button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <div class="clearfix"></div>
+  <div id="rptResult" class="container" style="background: #ffffff; margin-top: 20px; padding: 0px 20px;"></div>
+</div>

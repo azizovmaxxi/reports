@@ -1,0 +1,56 @@
+<div class="table-responsive">
+    <!-- START BLOCK FOR PRINT  -->
+    <div id="printReport">
+        <div class="text-center">
+            <p><b><h4>Число случаев насилия</h4></b></p>
+        </div>
+        <div class="text-left">
+            <div>ЛПУ: {{titleData.lpu_title}}</div>
+            <div>
+                <span>Отчетный период:
+                  <span>{{dateFormat titleData.sdate}}</span> -
+                  <span>{{dateFormat titleData.edate}}</span>
+                </span>
+            </div>
+        </div>
+        <div id="printBtnId">
+            <button class="btn btn-primary print-btn" target-print="printReport" id="printBtnId">
+                <span class="glyphicon glyphicon-print" aria-hidden="true"></span> Печать
+            </button>
+        </div>
+
+        <div class="result-data">
+            {{#if data.length }}
+            <div><strong>Число случаев насилия</strong></div>
+            <table class="table table-responsive rpt_table">
+                <thead class="thead-dark">
+                    <tr class="tr" style="background: lightgray">
+                        <th class="th-1">Число случаев насилия</th>
+                        <th class="th">Проведено косультирование(Информирование)</th>
+                    </tr>
+                    <tr class="tr" style="background: lightgray">
+                        <th class="th-1">1.1</th>
+                        <th class="th">1.2</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each data}}
+                    <tr class="tr">
+                        <td class="td">{{this.c1}}</td>
+                        <td class="td">{{this.c2}}</td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+            {{/if}}
+        </div>
+
+    </div>
+    <!-- END BLOCK FOR PRINT  -->
+
+    <div id="printBtnId">
+        <button class="btn btn-primary print-btn" target-print="printReport" id="printBtnId">
+            <span class="glyphicon glyphicon-print" aria-hidden="true"></span> Печать
+        </button>
+    </div>
+</div>

@@ -1,0 +1,86 @@
+<div class="table-responsive">
+    <!-- START BLOCK FOR PRINT  -->
+    <div id="printReport">
+        <div class="text-center">
+            <p><b><h4>Процент женщин у которых проведен осмотр шейки матки</h4></b></p>
+        </div>
+        <div class="text-left">
+            <div>ЛПУ: {{titleData.lpu_title}}</div>
+            <div>
+            <span>Отчетный период:
+              <span>{{dateFormat titleData.sdate}}</span> -
+              <span>{{dateFormat titleData.edate}}</span>
+            </span>
+            </div>
+        </div>
+        <div id="printBtnId">
+            <button class="btn btn-primary print-btn" target-print="printReport" id="printBtnId">
+                <span class="glyphicon glyphicon-print" aria-hidden="true"></span> Печать
+            </button>
+        </div>
+
+        <div class="result-data">
+            {{#if data.length}}
+                <table class="table table-responsive rpt_table">
+                    <thead class="thead-dark">
+                        <tr class="tr" style="background: lightgray">
+                            <th class="th" rowspan="3">Всего случаев поликлинического обслуживания(абс. число)</th>
+                            <th class="th" colspan="14">
+                                Процент женщин у которых проведен осмотр шейки матки
+                            </th>
+                        </tr>
+                        <tr class="tr" style="background: lightgray">
+                            <th class="th" colspan="2">Всего</th>
+                            <th class="th" colspan="2">18-20 лет</th>
+                            <th class="th" colspan="2">21-30 лет</th>
+                            <th class="th" colspan="2">31-40 лет</th>
+                            <th class="th" colspan="2">41-49 лет</th>
+                            <th class="th" colspan="2">50 лет и старше</th>
+                        </tr>
+                        <tr class="tr" style="background: lightgray">
+                            <th class="th">абс.</th>
+                            <th class="th">%</th>
+                            <th class="th">абс.</th>
+                            <th class="th">%</th>
+                            <th class="th">абс.</th>
+                            <th class="th">%</th>
+                            <th class="th">абс.</th>
+                            <th class="th">%</th>
+                            <th class="th">абс.</th>
+                            <th class="th">%</th>
+                            <th class="th">абс.</th>
+                            <th class="th">%</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {{#each data}}
+                        <tr class="tr">
+                            <td class="td">{{this.c1}}</td>
+                            <td class="td">{{this.c2}}</td>
+                            <td class="td">{{this.c2_percent}}</td>
+                            <td class="td">{{this.c3}}</td>
+                            <td class="td">{{this.c3_percent}}</td>
+                            <td class="td">{{this.c4}}</td>
+                            <td class="td">{{this.c4_percent}}</td>
+                            <td class="td">{{this.c5}}</td>
+                            <td class="td">{{this.c5_percent}}</td>
+                            <td class="td">{{this.c6}}</td>
+                            <td class="td">{{this.c6_percent}}</td>
+                            <td class="td">{{this.c7}}</td>
+                            <td class="td">{{this.c7_percent}}</td>
+                        </tr>
+                    {{/each}}
+                    </tbody>
+                </table>
+            {{/if}}
+        </div>
+
+    </div>
+    <!-- END BLOCK FOR PRINT  -->
+
+    <div id="printBtnId">
+        <button class="btn btn-primary print-btn" target-print="printReport" id="printBtnId">
+            <span class="glyphicon glyphicon-print" aria-hidden="true"></span> Печать
+        </button>
+    </div>
+</div>

@@ -1,0 +1,76 @@
+<div class="table-responsive">
+    <!-- START BLOCK FOR PRINT  -->
+    <div id="printReport">
+        <div class="text-center">
+            <p><b><h4>Посещение населения старше 18 лет в организации здравоохранения ПМСП в разрезе по полу</h4></b></p>
+        </div>
+        <div class="text-left">
+            <div>ЛПУ: {{titleData.lpu_title}}</div>
+            <div>
+            <span>Отчетный период:
+              <span>{{dateFormat titleData.sdate}}</span> -
+              <span>{{dateFormat titleData.edate}}</span>
+            </span>
+            </div>
+        </div>
+        <div id="printBtnId">
+            <button class="btn btn-primary print-btn" target-print="printReport" id="printBtnId">
+                <span class="glyphicon glyphicon-print" aria-hidden="true"></span> Печать
+            </button>
+        </div>
+
+        <div class="result-data">
+            {{#if data.length}}
+                <table class="table table-responsive rpt_table">
+                    <thead class="thead-dark">
+                        <tr class="tr" style="background: lightgray">
+                            <th class="th" rowspan="2">Посещение населения старше 18 лет</th>
+                            
+                        </tr>
+                        <tr class="tr" style="background: lightgray">
+                            
+                            <th class="th" colspan="2">Общее население старше 18 лет</th>
+                            <th class="th" colspan="2">Количество посещение старше 18 лет</th>
+                            <th class="th" colspan="2">Количество больных, зарегистрированных с ГБ</th>
+                            <th class="th" colspan="2">Количество больных, достигших целевого уровня 140/90</th>
+                        </tr>
+                        <tr class="tr" style="background: lightgray">
+                            <th class="th"></th>
+                            <th class="th">муж.</th>
+                            <th class="th">жен.</th>
+                            <th class="th">муж.</th>
+                            <th class="th">жен.</th>
+                            <th class="th">муж.</th>
+                            <th class="th">жен.</th>
+                            <th class="th">муж.</th>
+                            <th class="th">жен.</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {{#each data}}
+                        <tr class="tr">
+                            <td class="td"></td>
+                            <td class="td">{{this.c1}}</td>
+                            <td class="td">{{this.c2}}</td>                            
+                            <td class="td">{{this.c3}}</td>                            
+                            <td class="td">{{this.c4}}</td>                            
+                            <td class="td">{{this.c5}}</td>
+                            <td class="td">{{this.c6}}</td>
+                            <td class="td">{{this.c7}}</td>
+                            <td class="td">{{this.c8}}</td>                                                        
+                        </tr>
+                    {{/each}}
+                    </tbody>
+                </table>
+            {{/if}}
+        </div>
+
+    </div>
+    <!-- END BLOCK FOR PRINT  -->
+
+    <div id="printBtnId">
+        <button class="btn btn-primary print-btn" target-print="printReport" id="printBtnId">
+            <span class="glyphicon glyphicon-print" aria-hidden="true"></span> Печать
+        </button>
+    </div>
+</div>

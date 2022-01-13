@@ -1,0 +1,108 @@
+<div class="table-responsive">
+    <!-- START BLOCK FOR PRINT  -->
+    <div id="printReport">
+        <div class="text-center">
+            <p><b><h4>Форма №12-1. Штаты, деятельность ГСВ</h4></b></p>
+        </div>
+        <div class="text-left">
+            <div>ЛПУ: {{titleData.lpu_title}}</div>
+            <div>
+            <span>Отчетный период:
+              <span>{{dateFormat titleData.sdate}}</span> -
+              <span>{{dateFormat titleData.edate}}</span>
+            </span>
+            </div>
+        </div>
+
+        <div>
+            <table class="table table-responsive rpt_table">
+                <thead class="thead-dark">
+                <tr class="tr">
+                    <th class="th-1" rowspan="2">Наименование подразделения</th>
+                    <th class="th" rowspan="2">Население</th>
+                    <th class="th" colspan="3">Штаты врачей поликлиники</th>
+                    <th class="th" colspan="2">Число посещений</th>
+                    <th class="th" rowspan="2">Число случаев поликлинического обслуживания</th>
+                    <th class="th" rowspan="2">В т.ч. по поводу заболевания</th>
+                    <th class="th" rowspan="2">Число направленных на госпитализацию</th>
+                    <th class="th" rowspan="2">Число направленных к узким специалистам по болезни</th>
+                </tr>
+                <tr class="tr">
+                    <th class="th">Всего должностей</th>
+                    <th class="th">Занятых должностей</th>
+                    <th class="th">Физических лиц</th>
+                    <th class="th">Всего</th>
+                    <th class="th">в т.ч. по болезни</th>
+                </tr>
+                <tr class="tr" style="background: lightgray">
+                    <td class="td">A</td>
+                    <td class="td">1</td>
+                    <td class="td">2</td>
+                    <td class="td">3</td>
+                    <td class="td">4</td>
+                    <td class="td">5</td>
+                    <td class="td">6</td>
+                    <td class="td">7</td>
+                    <td class="td">8</td>
+                    <td class="td">9</td>
+                    <td class="td">10</td>
+                </tr>
+                {{#each data}}
+                    <tr class="tr">
+                        <td class="td-1">{{this.short_name}}</td>
+                        <td class="td"></td>
+                        <td class="td"></td>
+                        <td class="td"></td>
+                        <td class="td"></td>
+                        <td class="td">{{this.c5}}</td>
+                        <td class="td">{{this.c6}}</td>
+                        <td class="td">{{this.c7}}</td>
+                        <td class="td">{{this.c8}}</td>
+                        <td class="td">{{this.c9}}</td>
+                        <td class="td">{{this.c10}}</td>
+                    </tr>
+                {{/each}}
+                </thead>
+            </table>
+        </div>
+
+        <div class="clearfix"></div>
+        <div>
+            {{#each data}}
+                {{#iif this.id "==" ../titleData.lpu_id }}
+                    <div class="row">
+                        <div class="col-md-4 text-right">Число населения, осмотренного при подворных обходах(всего)</div>
+                        <div class="col-md-1"><span class="single-span">{{this.a1}}</span></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4 text-right">в т.ч. взрослого</div>
+                        <div class="col-md-1"><span class="single-span">{{this.a2}}</span></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4 text-right">выявлено лиц с повыщенным артериальным давлением</div>
+                        <div class="col-md-1"><span class="single-span">{{this.a3}}</span></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4 text-right">в т.ч. новых случаев артериальной гипертензии</div>
+                        <div class="col-md-1"><span class="single-span">{{this.a4}}</span></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4 text-right">с подозрением на туберкулез</div>
+                        <div class="col-md-1"><span class="single-span">{{this.a5}}</span></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4 text-right">беременных женщин не состоящих на учете</div>
+                        <div class="col-md-1"><span class="single-span">{{this.a6}}</span></div>
+                    </div>
+                {{/iif}}
+            {{/each}}
+        </div>
+    </div>
+    <!-- END BLOCK FOR PRINT  -->
+
+    <div>
+        <button class="btn btn-primary print-btn" target-print="printReport">
+            <span class="glyphicon glyphicon-print" aria-hidden="true"></span> Печать
+        </button>
+    </div>
+</div>

@@ -1,0 +1,108 @@
+<div class="table-responsive">
+    <!-- START BLOCK FOR PRINT  -->
+    <div id="printReport">
+        <div class="text-center">
+            <p><b><h4>Медицинская помощь при неотложных состояниях</h4></b></p>
+        </div>
+        <div class="text-left">
+            {{#iif titleData.lpu_title '==' 'undefined'}}
+            <div>ЛПО(ГСВ): {{titleData.gsvname}} </div>
+            {{else}}
+             <div>ЛПО(ГСВ): {{titleData.lpu_title}} </div>              
+            {{/iif}} 
+            <div>
+            <span>Отчетный период:
+              <span>{{dateFormat titleData.sdate}}</span> -
+              <span>{{dateFormat titleData.edate}}</span>
+            </span>
+            </div>
+            <div> Врачи: <span>{{titleData.doctorname}}</span> </div>
+        </div>
+        <div id="printBtnId">
+            <button class="btn btn-primary print-btn" target-print="printReport" id="printBtnId">
+                <span class="glyphicon glyphicon-print" aria-hidden="true"></span> Печать
+            </button>
+        </div>
+
+        <div class="result-data">
+            {{#if data.length}}
+                <table class="table table-responsive rpt_table">
+                    <thead class="thead-dark">
+                    <tr class="tr">
+                        <th class="th" rowspan="2">ГСВ</th>
+                        <th class="th" rowspan="2">№ стр.</th>
+                        <th class="th" rowspan="2">ВСЕГО</th>
+                        <th class="th" rowspan="2">Гипертон. болезнь <div>I10-I13</div></th>
+                        <th class="th" rowspan="2">Язвенная б-нь желудка и 12п. кишки <div>K25-K26</div></th>
+                        <th class="th" rowspan="2">Бронхиальная астма J45</th>
+                        <th class="th" colspan="2">Железодефицитная анемия D50, O99.0</th>
+                        <th class="th" colspan="2">ОРИ <div>J00-J06,J20-J22</div></th>
+                        <th class="th" colspan="2">ОКИ <div>A03, A04, A08</div></th>
+                        <th class="th" rowspan="2">ХЗЛ J40-J44</th>
+                        <th class="th" colspan="2">Пневмония <div>J12-J18</div></th>
+                        <th class="th" rowspan="2">Ишем. б-нь сердца <div>I20-I25</div></th>
+                    </tr>
+                    <tr class="tr">
+                        <th class="th">Всего</th>
+                        <th class="th">в т.ч. дет. от 0-5 лет</th>
+                        <th class="th">Всего</th>
+                        <th class="th">в т.ч. дет. от 0-5 лет</th>
+                        <th class="th">Всего</th>
+                        <th class="th">в т.ч. дет. от 0-5 лет</th>
+                        <th class="th">Всего</th>
+                        <th class="th">в т.ч. дет. от 0-5 лет</th>
+                    </tr>
+                    <tr class="tr" style="background: lightgray">
+                        <td class="td">А</td>
+                        <td class="td">Б</td>
+                        <td class="td">1</td>
+                        <td class="td">2</td>
+                        <td class="td">3</td>
+                        <td class="td">4</td>
+                        <td class="td">5</td>
+                        <td class="td">6</td>
+                        <td class="td">7</td>
+                        <td class="td">8</td>
+                        <td class="td">9</td>
+                        <td class="td">10</td>
+                        <td class="td">11</td>
+                        <td class="td">12</td>
+                        <td class="td">13</td>
+                        <td class="td">14</td>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {{#each data}}
+                        <tr class="tr">
+                            <td class="td">{{this.short_name}}</td>
+                            <td class="td">{{this.code}}</td>
+                            <td class="td">{{this.c1}}</td>
+                            <td class="td">{{this.c2}}</td>
+                            <td class="td">{{this.c3}}</td>
+                            <td class="td">{{this.c4}}</td>
+                            <td class="td">{{this.c5}}</td>
+                            <td class="td">{{this.c6}}</td>
+                            <td class="td">{{this.c7}}</td>
+                            <td class="td">{{this.c8}}</td>
+                            <td class="td">{{this.c9}}</td>
+                            <td class="td">{{this.c10}}</td>
+                            <td class="td">{{this.c11}}</td>
+                            <td class="td">{{this.c12}}</td>
+                            <td class="td">{{this.c13}}</td>
+                            <td class="td">{{this.c14}}</td>
+                        </tr>
+                    {{/each}}
+                    </tbody>
+                </table>
+            {{/if}}
+        </div>
+
+    </div>
+    <!-- END BLOCK FOR PRINT  -->
+
+    <div id="printBtnId">
+        <button class="btn btn-primary print-btn" target-print="printReport" id="printBtnId">
+            <span class="glyphicon glyphicon-print" aria-hidden="true"></span> Печать
+        </button>
+    </div>
+</div>

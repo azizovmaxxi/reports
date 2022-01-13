@@ -1,0 +1,117 @@
+<div class="table-responsive">
+    <!-- START BLOCK FOR PRINT  -->
+    <div id="printReport">
+        <div class="text-center">
+            <p><b><h4>2.0. Посещения к врачам, ведущим амбулаторно-поликлинический прием</h4></b></p>
+        </div>
+        <div class="text-left lpo-name">
+            {{#iif titleData.lpu_title '==' 'undefined'}}
+            <div>ЛПО(ГСВ): {{titleData.gsvname}} </div>
+            {{else}}
+             <div>ЛПО(ГСВ): {{titleData.lpu_title}} </div>              
+            {{/iif}}                                
+        </div>
+        <div>
+            <span>Отчетный период:
+                <span>{{dateFormat titleData.sdate}}</span> -
+                <span>{{dateFormat titleData.edate}}</span>
+            </span>
+        </div>
+        <div> Врачи: <span>{{titleData.doctorname}}</span> </div>
+        <div id="printBtnId">
+            <button class="btn btn-primary print-btn" target-print="printReport" id="printBtnId">
+                <span class="glyphicon glyphicon-print" aria-hidden="true"></span> Печать
+            </button>
+            <button class="btn btn-primary" id="exportXLS">
+                <span class="glyphicon glyphicon-export" aria-hidden="true"></span> Экспорт в Excel
+            </button>
+        </div>
+
+        <div class="result-data">
+            {{#if data.length}}
+                <table class="table table-responsive rpt_table">
+                    <thead class="thead-dark">
+                        <tr class="tr" style="background: lightgray">
+                        <th class="th" rowspan="4">Наименование</th>
+                        <th class="th" rowspan="4">Код <br/> строки</th>
+                        <th colspan="6" rowspan="2" class="th">Число посещений (визитов)</th>
+                        <th colspan="8" class="th">в том числе</th>
+                        </tr>
+                        <tr class="tr" style="background: lightgray">
+                        <th class="th" colspan="2">подростков (15-17лет. 11мес. 29 дней)</th>
+                        <th class="th" colspan="6">детей в возрасте (дети 0-14 лет 11 мес. 29 дней)</th>
+                        </tr>
+                        <tr class="tr" style="background: lightgray">
+                        <th class="th" rowspan="2">Всего</th>
+                        <th class="th" colspan="3">в т.ч. жен. пола</th>
+                        <th class="th" colspan="2">в т.ч. по болезни</th>
+                        <th class="th" rowspan="2">Всего</th>
+                        <th class="th" rowspan="2">в т.ч. жен. пола</th>
+                        <th class="th" rowspan="2">Всего</th>
+                        <th class="th" rowspan="2">в т.ч. девочки</th>
+                        <th class="th" colspan="4">из графы 7 в возрасте</th>
+                        </tr>
+                        <tr class="tr" style="background: lightgray">
+                        <th class="th">Всего</th>
+                        <th class="th">60 лет и стар.</th>
+                        <th class="th">15-49 лет</th>
+                        <th class="th">Всего</th>
+                        <th class="th">в т.ч. жен. пола</th>
+                        <th class="th">до 1 года</th>
+                        <th class="th">в т.ч. 0-6 мес.</th>
+                        <th class="th">7-23 мес.</th>
+                        <th class="th">24-60 мес.</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {{#each data}}
+                        <tr class="tr">
+                            <td class="td" style="text-align: left;">{{this.full_name}}</td>
+                            <td class="td">&nbsp;{{this.code}}</td>
+                            <td class="td">{{this.a1}}</td>
+                            <td class="td">{{this.a2}}</td>
+                            <td class="td">{{this.a13}}</td>
+                            <td class="td">{{this.a14}}</td>
+                            <td class="td">{{this.a3}}</td>
+                            <td class="td">{{this.a4}}</td>
+                            <td class="td">{{this.a5}}</td>
+                            <td class="td">{{this.a6}}</td>
+                            <td class="td">{{this.a7}}</td>
+                            <td class="td">{{this.a8}}</td>
+                            <td class="td">{{this.a9}}</td>
+                            <td class="td">{{this.a10}}</td>
+                            <td class="td">{{this.a11}}</td>
+                            <td class="td">{{this.a12}}</td>
+                        </tr>
+                    {{/each}}
+                    </tbody>
+                </table>
+            {{/if}}
+        </div>
+
+    </div>
+    <!-- END BLOCK FOR PRINT  -->
+
+    <div id="printBtnId">
+        <button class="btn btn-primary print-btn" target-print="printReport" id="printBtnId">
+            <span class="glyphicon glyphicon-print" aria-hidden="true"></span> Печать
+        </button>
+    </div>
+</div>
+ 
+<script>
+    $(document).ready(function(){
+        $("#exportXLS").click(function(){
+            let fName = $(".lpo-name").text()
+                .trim()
+                .substr(10);
+            $("#printReport").table2excel({
+                exclude:".noExl",
+                name:"report",
+                filename:fName,
+                fileext:".xls"
+            });
+        });
+    });
+</script>
+<script src="/js/jquery.table2excel.js"></script>

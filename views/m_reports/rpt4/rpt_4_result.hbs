@@ -1,0 +1,61 @@
+<div class="table-responsive">
+    <!-- START BLOCK FOR PRINT  -->
+    <div id="printReport">
+        <div class="text-center">
+            <p><b><h4>Раздел амбулаторно-поликлинические посещения и охрана здоровья матери и ребенка</h4></b></p>
+        </div>
+        <div class="text-left">
+            <div>ЛПУ: {{titleData.lpu_title}}</div>
+            <div>
+                <span>Отчетный период:
+                  <span>{{dateFormat titleData.sdate}}</span> -
+                  <span>{{dateFormat titleData.edate}}</span>
+                </span>
+            </div>
+        </div>
+        <div id="printBtnId">
+            <button class="btn btn-primary print-btn" target-print="printReport" id="printBtnId">
+                <span class="glyphicon glyphicon-print" aria-hidden="true"></span> Печать
+            </button>
+        </div>
+
+        <div class="result-data">
+            {{#if data.length}}
+            <table class="table table-responsive rpt_table">
+                <thead class="thead-dark">
+                    <tr class="tr" style="background: lightgray">
+                        <th class="th-1">Всего посещений(на ФАП/ГСВ и на дому)</th>
+                        <th class="th">в том числе по поводу заболевания</th>
+                        <th class="th">в том числе на дому</th>
+                        <th class="th">Случай поликлинического обслуживания</th>
+                    </tr>
+                    <tr class="tr" style="background: lightgray">
+                        <th class="th">1</th>
+                        <th class="th">2</th>
+                        <th class="th">3</th>
+                        <th class="th">4</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {{#each data}}
+                <tr class="tr">
+                    <td class="td">{{this.c1}}</td>
+                    <td class="td">{{this.c2}}</td>
+                    <td class="td">{{this.c3}}</td>
+                    <td class="td">{{this.c4}}</td>
+                </tr>
+                {{/each}}
+                </tbody>
+            </table>
+            {{/if}}
+        </div>
+
+    </div>
+    <!-- END BLOCK FOR PRINT  -->
+
+    <div id="printBtnId">
+        <button class="btn btn-primary print-btn" target-print="printReport" id="printBtnId">
+            <span class="glyphicon glyphicon-print" aria-hidden="true"></span> Печать
+        </button>
+    </div>
+</div>

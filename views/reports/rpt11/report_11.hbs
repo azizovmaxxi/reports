@@ -1,0 +1,32 @@
+<div>
+  <div>
+    <form id="rptFormParams" action="/report/report_11" method="POST">
+      <div class="page-title">
+        <div class="title_left">
+          <div class="form-group">
+              {{> select_ter}}
+              <div class="form-group" style="margin-top: 10px">
+                  <div class="col-md-12 col-sm-12" style="text-align: center">
+                      <label>Диагноз по МКБ-10</label>
+                  </div>
+                  <div class="col-md-6 col-sm-12" style="padding: 0px 0px 0px 0px">
+                      <!--                            <label for="icd10-start">С</label>-->
+                      <select class="form-control icd10-select" id="icd10-start" name="icd10_start"></select>
+                  </div>
+                  <div class="col-md-6 col-sm-12" style="padding: 0px 0px 0px 0px">
+                      <!--                            <label for="icd10-end">ПО</label>-->
+                      <select class="form-control icd10-select" id="icd10-end" name="icd10_end"></select>
+                  </div>
+              </div>
+              <div class="clearfix"></div>
+              </br>
+              <button type="submit" class="btn btn-primary">Открыть Отчет</button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <div class="clearfix"></div>
+  <div id="rptResult" class="container" style="background: #ffffff; margin-top: 20px; padding: 0px 20px;"></div>
+</div>

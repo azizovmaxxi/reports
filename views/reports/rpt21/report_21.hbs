@@ -1,0 +1,33 @@
+<div>
+  <div>
+    <form id="rptFormParams" action="/report/report_21" method="POST">
+      <div class="page-title">
+        <div class="title_left">
+          <div class="form-group">
+              {{> select_ter}}
+              <div class="form-group" style="margin-top: 10px">
+                  <div class="form-check">
+                      <input class="form-check-input" type="radio" name="type_rpt" id="type_rpt1" value="diseases" checked>
+                      <label class="form-check-label" for="type_rpt1">
+                          По заболеваниям
+                      </label>
+                  </div>
+                  <div class="form-check">
+                      <input class="form-check-input" type="radio" name="type_rpt" id="type_rpt2" value="patients">
+                      <label class="form-check-label" for="type_rpt2">
+                          По пациентам
+                      </label>
+                  </div>
+              </div>
+
+              </br>
+              <button type="submit" class="btn btn-primary">Открыть Отчет</button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <div class="clearfix"></div>
+  <div id="rptResult" class="container" style="background: #ffffff; margin-top: 20px; padding: 0px 20px;"></div>
+</div>

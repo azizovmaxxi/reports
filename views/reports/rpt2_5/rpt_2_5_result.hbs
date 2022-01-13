@@ -1,0 +1,76 @@
+<div class="table-responsive">
+    <!-- START BLOCK FOR PRINT  -->
+    <div id="printReport">
+        <div class="text-center">
+            <p><b><h4>Медицинское обслуживание женщин репродуктивного возраста</h4></b></p>
+            <p><b><h6>Использование контрацептивов</h6></b></p>
+        </div>
+        <div class="text-left">
+            <div>ЛПУ: {{titleData.lpu_title}}</div>
+            <div>
+                <span>Отчетный период:
+                  <span>{{dateFormat titleData.sdate}}</span> -
+                  <span>{{dateFormat titleData.edate}}</span>
+                </span>
+            </div>
+        </div>
+        <div id="printBtnId">
+            <button class="btn btn-primary print-btn" target-print="printReport" id="printBtnId">
+                <span class="glyphicon glyphicon-print" aria-hidden="true"></span> Печать
+            </button>
+        </div>
+
+        <div class="result-data">
+            {{#if data.length}}
+                <table class="table table-responsive rpt_table">
+                    <thead class="thead-dark">
+                        <tr class="tr" style="background: lightgray">
+                            <th class="th">Наименование</th>
+                            <th class="th">Код строки</th>
+                            <th class="th">Всего</th>
+                            <th class="th">12</th>
+                            <th class="th">13</th>
+                            <th class="th">14</th>
+                            <th class="th">15-17</th>
+                            <th class="th">18-19</th>
+                            <th class="th">20-24</th>
+                            <th class="th">25-29</th>
+                            <th class="th">30-34</th>
+                            <th class="th">35-39</th>
+                            <th class="th">40-44</th>
+                            <th class="th">45-49</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {{#each data}}
+                        <tr class="tr">
+                            <td class="td" style="text-align: left;width: 300px">{{this.full_name}}</td>
+                            <td class="td">{{this.code}}</td>
+                            <td class="td">{{this.c1}}</td>
+                            <td class="td">{{this.c2}}</td>
+                            <td class="td">{{this.c3}}</td>
+                            <td class="td">{{this.c4}}</td>
+                            <td class="td">{{this.c5}}</td>
+                            <td class="td">{{this.c6}}</td>
+                            <td class="td">{{this.c7}}</td>
+                            <td class="td">{{this.c8}}</td>
+                            <td class="td">{{this.c9}}</td>
+                            <td class="td">{{this.c10}}</td>
+                            <td class="td">{{this.c11}}</td>
+                            <td class="td">{{this.c12}}</td>
+                        </tr>
+                    {{/each}}
+                    </tbody>
+                </table>
+            {{/if}}
+        </div>
+
+    </div>
+    <!-- END BLOCK FOR PRINT  -->
+
+    <div id="printBtnId">
+        <button class="btn btn-primary print-btn" target-print="printReport" id="printBtnId">
+            <span class="glyphicon glyphicon-print" aria-hidden="true"></span> Печать
+        </button>
+    </div>
+</div>

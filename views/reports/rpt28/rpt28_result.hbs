@@ -1,0 +1,71 @@
+<div class="table-responsive">
+    <!-- START BLOCK FOR PRINT  -->
+    <div id="printReport">
+        <div class="text-center">
+            <p><b><h5>КАРТА ОЦЕНКИ РЕЗУЛЬТАТОВ РАБОТЫ СЕМЕЙНЫХ ВРАЧЕЙ/ВРАЧЕЙ ОБЩЕЙ ПРАКТИКИ</h5></b></p>
+        </div>
+        <div class="text-left">
+          <span>Наименование (ЦСМ/ЦОВП/юр.ГСВ):&emsp;{{Title.lpu.text}}</span></br>
+          <span>Код и ФИО врача:&emsp;({{Title.doctor.code_kdr}}) - {{Title.doctor.name}}</span></br>
+          <span>Отчетный период:
+          <span>{{dateFormat Title.sdate}}</span> -
+          <span>{{dateFormat Title.edate}} г.&emsp;</span>
+        </div>
+        <div class="text-right">
+        </div>
+        <table id="rpt29" class="table table-striped table-bordered" style="width:100%">
+            <thead>
+            <th colspan="3" class="custom-header">
+                <table class="table table-responsive">
+                    <thead class="thead-dark">
+                    <tr>
+                        <th>№</th>
+                        <th>Критерии результатов</th>                        
+                        <th colspan="3" class="last text-center">Данные по работе семейного врача за отчетный месяц</th>
+                    </tr>
+                    <tr>
+                        <th class="last"></th>
+                        <th class="last"></th>
+                        <th class="last text-center">Расчет по формуле</th>
+                        <th class="last text-center">Значение достигнутого уровня для доп. оплаты</th>
+                        <th class="last text-center">Начисленные баллы</th>
+                    </tr>
+                    {{#each qry}}
+                        <tr>
+                            <td>{{this.id}}</td>
+                            <td>{{this.full_name}}</td>
+                            <td class="text-center">
+                                {{#if this.formula}}
+                                    {{#iif this.formula '==' 'ИТОГО'}}
+                                        {{this.formula}}
+                                    {{else}}                                    
+                                        <a href="/report/report28_revision/?row={{this.id}}&{{../options}}" target="_blank">{{this.formula}}</a>
+                                    {{/iif}}
+                                {{/if}}
+                            </td>
+                            <td class="text-center">{{this.leve}}</td>
+                            <td class="text-center">{{this.ball}}</td>
+                        </tr>
+                    {{/each}}
+                    </thead>
+                </table>
+            </thead>
+        </table>
+
+        <div class="text-center"></br>
+            <p><h6>Подготовил(а)&ensp;Должность_______________&ensp;&ensp;ФИО___________________________&ensp;&ensp;Подпись_________&ensp;&ensp;Дата______20__г.</h4></p></br></br>
+            <p><h6>Принял:Клинический руководитель ГСВ:&ensp;&ensp;ФИО___________________________&ensp;&ensp;Подпись_________&ensp;&ensp;Дата______20__г.</h4></p></br></br></br>
+            <p><h6>Ознакомлен&ensp;________________________________&ensp;&ensp;___________________________&ensp;&ensp;</h4></p></br>
+            <p><h6>&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;Место
+                печати</h6></p>
+        </div>
+    </div>
+    <!-- END BLOCK FOR PRINT  -->
+
+    <div>
+        <button class="btn btn-primary print-btn" target-print="printReport">
+            <span class="glyphicon glyphicon-print" aria-hidden="true"></span> Печать
+        </button>
+    </div>
+</div>
+

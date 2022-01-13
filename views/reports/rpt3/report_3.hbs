@@ -1,0 +1,53 @@
+<div>
+  <div>
+    <form id="rptFormParams" action="/report/report_3" method="POST">
+      <div class="page-title">
+        <div class="title_left">
+          <div class="form-group">
+              {{> select_ter}}
+
+              <div class="clearfix"></div>
+              <div class="form-group" style="margin-top: 10px;">
+                  {{> select_doctor}}
+              </div>
+
+              <div class="clearfix"></div>
+              <div class="form-group">
+                  <label for="type_rpt_id">Вид отчета</label>
+                  <select class="form-control" id="type_rpt_id" name="type_rpt">
+                      <option value="general">Общий</option>
+                      <option value="gynecological">Гинекологический</option>
+                  </select>
+              </div>
+
+              <div class="clearfix"></div>
+              <div class="form-group">
+                  <label for="calc_by_id">Подсчет данных</label>
+                  <select class="form-control" id="calc_by_id" name="calc_by">
+                      <option value="diseases">По заболеваниям</option>
+                      <option value="patients">По пациентам</option>
+                  </select>
+              </div>
+
+              <div class="clearfix"></div>
+              <div class="form-group">
+                  <label for="trimestr_id">Триместр</label>
+                  <select class="form-control" id="trimestr_id" name="trimestr">
+                      <option></option>
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                  </select>
+              </div>
+
+              </br>
+              <button type="submit" class="btn btn-primary">Открыть Отчет</button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <div class="clearfix"></div>
+  <div id="rptResult" class="container" style="background: #ffffff; margin-top: 20px; padding: 0px 20px;"></div>
+</div>

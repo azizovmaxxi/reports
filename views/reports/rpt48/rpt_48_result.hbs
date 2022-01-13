@@ -1,0 +1,84 @@
+<div class="table-responsive">
+    <!-- START BLOCK FOR PRINT  -->
+    <div id="printReport">
+        <div class="text-center">
+            <p><b><h4>7.1. Медицинское наблюдение за беременными женщинами</h4></b></p>
+        </div>
+        <div class="text-left lpo-name">
+             <div>ЛПО(ГСВ): {{titleData.lpu_title}} </div>                                
+        </div>
+            <div>
+                <span>Отчетный период:
+                  <span>{{dateFormat titleData.sdate}}</span> -
+                  <span>{{dateFormat titleData.edate}}</span>
+                </span>
+            </div>
+        <div id="printBtnId">
+            <button class="btn btn-primary print-btn" target-print="printReport" id="printBtnId">
+                <span class="glyphicon glyphicon-print" aria-hidden="true"></span> Печать
+            </button>
+            <button class="btn btn-primary" id="exportXLS">
+                <span class="glyphicon glyphicon-export" aria-hidden="true"></span> Экспорт в Excel
+            </button>
+        </div>
+
+        <div class="result-data">
+            {{#if data.length}}
+                <table class="table table-responsive rpt_table">
+                    <thead class="thead-dark">
+                        <tr class="tr" style="background: lightgray">
+                        <th class="th">Наименование</th>
+                        <th class="th">Код <br/> строки</th>
+                        <th class="th">Всего</th>
+                        <th class="th">в т.ч в сроке до 12 недель</th>
+                        <th class="th">из них в организации здравоохранения</th>
+                        </tr>
+                        <tr class="tr" style="background: lightgray">
+                        <th class="th">А</th>
+                        <th class="th">Б</th>
+                        <th class="th">1</th>
+                        <th class="th">2</th>
+                        <th class="th">&nbsp;2.1</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {{#each data}}
+                        <tr class="tr">
+                            <td class="td" style="text-align: left;">{{this.full_name}}</td>
+                            <td class="td">&nbsp;{{this.code}}</td>
+                            <td class="td">{{this.a1}}</td>
+                            <td class="td">{{this.a2}}</td>
+                            <td class="td">{{this.a3}}</td>
+                        </tr>
+                    {{/each}}
+                    </tbody>
+                </table>
+            {{/if}}
+        </div>
+
+    </div>
+    <!-- END BLOCK FOR PRINT  -->
+
+    <div id="printBtnId">
+        <button class="btn btn-primary print-btn" target-print="printReport" id="printBtnId">
+            <span class="glyphicon glyphicon-print" aria-hidden="true"></span> Печать
+        </button>
+    </div>
+</div>
+ 
+<script>
+    $(document).ready(function(){
+        $("#exportXLS").click(function(){
+            let fName = $(".lpo-name").text()
+                .trim()
+                .substr(10);
+            $("#printReport").table2excel({
+                exclude:".noExl",
+                name:"report",
+                filename:fName,
+                fileext:".xls"
+            });
+        });
+    });
+</script>
+<script src="/js/jquery.table2excel.js"></script>

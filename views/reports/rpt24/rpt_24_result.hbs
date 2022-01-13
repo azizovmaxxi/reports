@@ -1,0 +1,92 @@
+<div class="table-responsive">
+    <!-- START BLOCK FOR PRINT  -->
+    <div id="printReport">
+        <div class="text-center">
+            <p><b><h4>Количество пациентов с высоким риском ФР пришедших или не пришедших на повторный визит</h4></b></p>
+        </div>
+        <div class="text-left">
+            <div>ЛПУ: {{titleData.lpu_title}}</div>
+            <div>
+            <span>Отчетный период:
+              <span>{{dateFormat titleData.sdate}}</span> -
+              <span>{{dateFormat titleData.edate}}</span>
+            </span>
+            </div>
+        </div>
+        <div id="printBtnId">
+            <button class="btn btn-primary print-btn" target-print="printReport" id="printBtnId">
+                <span class="glyphicon glyphicon-print" aria-hidden="true"></span> Печать
+            </button>
+        </div>
+
+        <div class="result-data">
+            {{#if data.length}}
+                <table class="table table-responsive rpt_table">
+                    <thead class="thead-dark">
+                        <tr class="tr" style="background: lightgray">
+                            <th class="th" rowspan="2"></th>
+                            <th class="th" rowspan="2">№ Строки</th>
+                            <th class="th" rowspan="2">Всего случаев отмеч. факторы риска</th>
+                            <th class="th" colspan="4">в т. ч. старше 40 лет</th>
+                            <th class="th" >Не пришедших на повторный визит</th>
+                            <th class="th" >Не пришедших на повторный визит (старше 40 лет)</th>
+                        </tr>
+                        <tr class="tr" style="background: lightgray">
+                            <th class="th">Всего</th>
+                            <th class="th">20<30%</th>
+                            <th class="th">30<39%</th>
+                            <th class="th">более 40%</th>
+                            <th class="th">Всего</th>
+                            <th class="th">Всего</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {{#each data}}
+                        <tr class="tr">
+                            <td class="td">Всего</td>
+                            <td class="td">1</td>
+                            <td class="td">{{this.all_count}}</td>
+                            <td class="td">{{this.for_40_all}}</td>
+                            <td class="td">{{this.risk1_40_all}}</td>
+                            <td class="td">{{this.risk2_40_all}}</td>
+                            <td class="td">{{this.risk3_40_all}}</td>
+                            <td class="td">{{this.novisit_all}}</td>
+                            <td class="td">{{this.novisit40_all}}</td>
+                        </tr>
+                        <tr class="tr">
+                            <td class="td">Мужчины</td>
+                            <td class="td">2</td>
+                            <td class="td">{{this.male}}</td>
+                            <td class="td">{{this.for_40_male}}</td>
+                            <td class="td">{{this.risk1_40_male}}</td>
+                            <td class="td">{{this.risk2_40_male}}</td>
+                            <td class="td">{{this.risk3_40_male}}</td>
+                            <td class="td">{{this.novisit_male}}</td>
+                            <td class="td">{{this.novisit40_male}}</td>
+                        </tr>
+                        <tr class="tr">
+                            <td class="td">Женщины</td>
+                            <td class="td">3</td>
+                            <td class="td">{{this.female}}</td>
+                            <td class="td">{{this.for_40_female}}</td>
+                            <td class="td">{{this.risk1_40_female}}</td>
+                            <td class="td">{{this.risk2_40_female}}</td>
+                            <td class="td">{{this.risk3_40_female}}</td>
+                            <td class="td">{{this.novisit_female}}</td>
+                            <td class="td">{{this.novisit40_female}}</td>
+                        </tr>
+                    {{/each}}
+                    </tbody>
+                </table>
+            {{/if}}
+        </div>
+
+    </div>
+    <!-- END BLOCK FOR PRINT  -->
+
+    <div id="printBtnId">
+        <button class="btn btn-primary print-btn" target-print="printReport" id="printBtnId">
+            <span class="glyphicon glyphicon-print" aria-hidden="true"></span> Печать
+        </button>
+    </div>
+</div>

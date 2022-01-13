@@ -1,0 +1,379 @@
+<div>
+    <div>
+        <form id="rptFormParams" action="/report/report_4" method="POST">
+            <div class="page-title">
+                <div class="title_left" style="width: 1100px;">
+                    {{#if (terIsAvailable user 'ter2_id')}}
+                        <div class="form-group">
+                            <div class="col-md-12 col-sm-12">
+                                <label for="ter2_id">Область</label>
+                                <select class="form-control ter-select" id="ter2_id" name="ter2_id"></select>
+                            </div>
+                        </div>
+                    {{/if}}
+
+                    {{#if (terIsAvailable user 'ter3_id')}}
+                        <div class="form-group">
+                            <div class="col-md-12 col-sm-12">
+                                <label for="ter3_id">Район</label>
+                                <select class="form-control ter-select" id="ter3_id" name="ter3_id"></select>
+                            </div>
+                        </div>
+                    {{/if}}
+
+                    {{#if (terIsAvailable user 'lpu_id')}}
+                        <div class="form-group">
+                            <div class="col-md-6 col-sm-12">
+                                <label for="lpu_id">Код ЛПО</label>
+                                <select class="form-control ter-select" id="lpu_id" name="lpu_id"></select>
+                            </div>
+
+                            <div class="col-md-3 col-sm-12">
+                                <label for="">Дата первого посещения c</label>
+                                <input class="form-control" id="sdate" name="sdate" type="date"
+                                       value="{{#if sdate}}{{sdate}}{{else}}2020-01-26{{/if}}">
+                            </div>
+                            <div class="col-md-3 col-sm-12">
+                                <label for="">по</label>
+                                <input class="form-control" id="edate" name="edate" type="date"
+                                           value="{{#if edate}}{{edate}}{{else}}2020-02-26{{/if}}">
+                            </div>
+                        </div>
+                    {{/if}}
+
+                    <div class="clearfix"></div>
+                    <div class="form-group" style="margin-top: 10px;">
+                        <div class="col-md-6 col-sm-12">
+                            {{> select_doctor}}
+                        </div>
+                        <div class="col-md-3 col-sm-12">
+                            {{> select_post_code}}
+                        </div>
+                        <div class="col-md-12 col-sm-12" style="text-align: center">
+                            <div class="col-md-2 col-sm-12">
+                            <label for="visit_id"> По посещениям </label>
+                            <input class="form-control form-check-input" type="checkbox" name="visit" id="visit" value="1" style="height: 20px;">
+                            </div>
+                            <div class="col-md-2 col-sm-12">
+                            <label for="emergency_id"> Неотлож.</label>
+                            <input class="form-control form-check-input" type="checkbox" name="emergency" id="emergency" value="1" style="height: 20px;">
+                            </div>
+                            <div class="col-md-2 col-sm-12">
+                            <label for="emergency_id"> Госпитализация </label>
+                            <input class="form-control form-check-input" type="checkbox" name="hospid" id="hospId" value="1" style="height: 20px;">
+                            </div>
+                            
+                        </div>
+                    </div>
+
+                    <div class="clearfix"></div>
+                    <div class="form-group" style="margin-top: 15px">
+                        <div class="col-md-2 col-sm-12">
+                            <label for="last-name"> Фамилия </label>
+                            <input type="text" id="last_name" name="last_name" class="form-control" placeholder="Фамилия пациента">
+                        </div>
+
+                        <div class="col-md-2 col-sm-12">
+                            <label for="first-name"> Имя </label>
+                            <input type="text" id="first_name" name="first_name" class="form-control" placeholder="Имя пациента">
+                        </div>
+
+                        <div class="col-md-2 col-sm-12">
+                            <label for="mid-name"> Отчество </label>
+                            <input type="text" id="mid_name" name="mid_name" class="form-control" placeholder="Отчество пациента">
+                        </div>
+                        <div class="col-md-2 col-sm-12">
+                            <label for="sex-id">Пол</label>
+                            <select class="form-control" id="sex-id" name="sex_id">
+                                <option></option>
+                                <option value="1">Муж</option>
+                                <option value="0">Жен</option>
+                            </select>
+                        </div>
+
+                        <div class="col-md-2 col-sm-12">
+                            <label for="">Дата рождения с</label>
+                            <input class="form-control" id="birthday-start" name="birthday_start" type="date">
+                        </div>
+
+                        <div class="col-md-2 col-sm-12" style="text-align: center;">
+                            <label for="">Дата рождения по</label>
+                            <input class="form-control" id="birthday-end" name="birthday_end" type="date">
+                        </div>
+                    </div>
+
+                    <div class="clearfix"></div>
+                    <div style="margin-top: 15px">
+                        <div class="col-md-2 col-sm-12">
+                            <label>Диагноз МКБ-10 с</label>
+                            <select class="form-control icd10-select" id="icd10-start" name="icd10_start"></select>
+                        </div>
+                        <div class="col-md-2 col-sm-12">
+                            <label>Диагноз МКБ-10 по</label>
+                            <select class="form-control icd10-select" id="icd10-end" name="icd10_end"></select>
+                        </div>
+
+                        <div class="col-md-2 col-sm-12">
+                            <label for="is-final">Окончательный?</label>
+                            <select class="form-control" id="is-final" name="is_final">
+                                <option></option>
+                                <option value="1">Да</option>
+                                <option value="0">Нет</option>
+                            </select>
+                        </div>
+                        <div class="col-md-2 col-sm-12">
+                            <label for="is-f-life">Впервые?</label>
+                            <select class="form-control" id="is-f-life" name="is_f_life">
+                                <option></option>
+                                <option value="1">Да</option>
+                                <option value="0">Нет</option>
+                            </select>
+                        </div>
+                        <div class="col-md-2 col-sm-12">
+                            <label for="control_ad">Контроль АД (<140/90)</label>
+                            <select class="form-control" id="control_ad" name="control_ad">
+                                <option></option>
+                                <option value="1">Да</option>
+                                <option value="0">Нет</option>
+                            </select>
+                        </div>
+                        <div class="col-md-2 col-sm-12">
+                            <label for="accept_gipotenz">Принимает гипотензив</label>
+                            <select class="form-control" id="accept_gipotenz" name="accept_gipotenz">
+                                <option></option>
+                                <option value="1">Да</option>
+                                <option value="0">Нет</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="clearfix"></div>
+                    <div class="form-group" style="margin-top: 10px;">
+                        <div class="col-md-2 col-sm-12">
+                            <label for="percen">Риск смертности от ССЗ&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                            <select class="form-control" id="percen" name="percen">
+                                <option></option>
+                                <option value="1"><10%</option>
+                                <option value="2">10<20%</option>
+                                <option value="3">20<30%</option>
+                                <option value="4">30<39%</option>
+                                <option value="5">более 40%</option>
+                            </select>
+                        </div>
+
+                        <div class="col-md-2 col-sm-12">
+                            <label for="cervix">Проведен осмотр шейки матки</label>
+                            <select class="form-control" id="cervix" name="cervix">
+                                <option></option>
+                                <option value="1">Да</option>
+                                <option value="0">Нет</option>
+                            </select>
+                        </div>
+                        <div class="col-md-2 col-sm-12">
+                            <label for="cervix_change">Выявлены изменения шейки матки</label>
+                            <select class="form-control" id="cervix_change" name="cervix_change">
+                                <option></option>
+                                <option value="1">Да</option>
+                                <option value="0">Нет</option>
+                            </select>
+                        </div>
+                        <div class="col-md-2 col-sm-12">
+                            <label for="breast">Проведен осмотр молочных желез</label>
+                            <select class="form-control" id="breast" name="breast">
+                                <option></option>
+                                <option value="1">Да</option>
+                                <option value="0">Нет</option>
+                            </select>
+                        </div>
+                        <div class="col-md-2 col-sm-12">
+                            <label for="breast_change">Выявлены изменения молочной железы</label>
+                            <select class="form-control" id="breast_change" name="breast_change">
+                                <option></option>
+                                <option value="1">Да</option>
+                                <option value="0">Нет</option>
+                            </select>
+                        </div>
+                        <div class="col-md-2 col-sm-12">
+                            <label for="is_registered">Взята на учет по беременности в сроке</label>
+                            <input type="number" id="is_registered" name="is_registered" class="form-control" placeholder="Срок">
+                        </div>
+                    </div>
+
+                    <div class="clearfix"></div>
+                    <div class="form-group" style="margin-top: 10px;">
+                        <div class="col-md-2 col-sm-12">
+                            <label for="hiv">Обследована на ВИЧ инфекцию</label>
+                            <select class="form-control" id="hiv" name="hiv" style="margin-top: 24px">
+                                <option></option>
+                                <option value="1">Да</option>
+                                <option value="0">Нет</option>
+                            </select>
+                        </div>
+                        <div class="col-md-2 col-sm-12">
+                            <label for="hiv_result">Имела ВИЧ положительный результат </label>
+                            <select class="form-control" id="hiv_result" name="hiv_result" style="margin-top: 5px;">
+                                <option></option>
+                                <option value="1">Да</option>
+                                <option value="0">Нет</option>
+                            </select>
+                        </div>
+                        <div class="col-md-8 col-sm-12" style="text-align: center;">
+                            <label>Обследована на сифилис:</label>
+                            <div>
+                                <div class="col-md-3">
+                                    <label for="one_preg">в 1 половине берем.</label>
+                                    <select class="form-control" id="one_preg" name="one_preg" style="margin-top: 19px">
+                                        <option></option>
+                                        <option value="1">Да</option>
+                                        <option value="0">Нет</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-3">
+                                    <label for="two_preg">во 2 половине берем.</label>
+                                    <select class="form-control" id="two_preg" name="two_preg" style="margin-top: 19px">
+                                        <option></option>
+                                        <option value="1">Да</option>
+                                        <option value="0">Нет</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-3">
+                                    <label for="positive_result">имела положительный результат</label>
+                                    <select class="form-control" id="positive_result" name="positive_result">
+                                        <option></option>
+                                        <option value="1">Да</option>
+                                        <option value="0">Нет</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-3">
+                                    <label for="course_treatmedt">получила полный курс лечения</label>
+                                    <select class="form-control" id="course_treatmedt" name="course_treatmedt">
+                                        <option></option>
+                                        <option value="1">Да</option>
+                                        <option value="0">Нет</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="clearfix"></div>
+                    <div class="form-group" style="margin-top: 10px;">
+                        <div class="col-md-2 col-sm-12">
+                            <label for="got_acid">Получила фолиевую кислоту</label>
+                            <select class="form-control" id="got_acid" name="got_acid">
+                                <option></option>
+                                <option value="1">Да</option>
+                                <option value="0">Нет</option>
+                            </select>
+                        </div>
+                        <div class="col-md-2 col-sm-12">
+                            <label for="iodine">Препараты йода</label>
+                            <select class="form-control" id="iodine" name="iodine" style="margin-top: 19px">
+                                <option></option>
+                                <option value="1">Да</option>
+                                <option value="0">Нет</option>
+                            </select>
+                        </div>
+
+                        <div class="col-md-2 col-sm-12">
+                            <label for="tested_anemia">Протестирована на анемию</label>
+                            <select class="form-control" id="tested_anemia" name="tested_anemia">
+                                <option></option>
+                                <option value="1">Да</option>
+                                <option value="0">Нет</option>
+                            </select>
+                        </div>
+                        <div class="col-md-2 col-sm-12">
+                            <label for="jda">Оздоровлена, если была ЖДА</label>
+                            <select class="form-control" id="jda" name="jda">
+                                <option></option>
+                                <option value="1">Да</option>
+                                <option value="0">Нет</option>
+                            </select>
+                        </div>
+                        <div class="col-md-2 col-sm-12">
+                            <label for="rh0">Получила анти-Rh0</label>
+                            <select class="form-control" id="rh0" name="rh0" style="margin-top: 19px">
+                                <option></option>
+                                <option value="1">Да</option>
+                                <option value="0">Нет</option>
+                            </select>
+                        </div>
+                        <div class="col-md-2 col-sm-12">
+                            <label for="doctor_visit">Посещена в первые три дня после родов</label>
+                            <select class="form-control" id="doctor_visit" name="doctor_visit">
+                                <option></option>
+                                <option value="1">Врачом</option>
+                                <option value="2">Мед. сестрой</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="clearfix"></div>
+                    <div class="form-group" style="margin-top: 10px;">
+                        <div class="col-md-12 col-sm-12" style="text-align: center;">
+                            <label for="doctor_visit">Получила базовый пакет антенатальных услуг:</label>
+                            <div>
+                                <div class="col-md-2 col-sm-12">
+                                    <label for="protein_urine">белок в моче</label>
+                                    <select class="form-control" id="protein_urine" name="protein_urine" style="margin-top: 19px">
+                                        <option></option>
+                                        <option value="1">Да</option>
+                                        <option value="0">Нет</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-2 col-sm-12">
+                                    <label for="sowing_urine">посев мочи на бактериурию</label>
+                                    <select class="form-control" id="sowing_urine" name="sowing_urine">
+                                        <option></option>
+                                        <option value="1">Да</option>
+                                        <option value="0">Нет</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-2 col-sm-12">
+                                    <label for="ad">измерение АД</label>
+                                    <select class="form-control" id="ad" name="ad" style="margin-top: 19px">
+                                        <option></option>
+                                        <option value="1">Да</option>
+                                        <option value="0">Нет</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-2 col-sm-12">
+                                    <label for="gravidogramm">велась гравидограмма</label>
+                                    <select class="form-control" id="gravidogramm" name="gravidogramm" style="margin-top: 19px">
+                                        <option></option>
+                                        <option value="1">Да</option>
+                                        <option value="0">Нет</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-4 col-sm-12">
+                                    <label for="vistyp_code">Тип визита</label>
+                                    <div style="margin-top: 19px">
+                                        <select class="form-control vistyp_code-select" id="vistyp_code" name="vistyp_code"></select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="clearfix"></div>
+                    <div class="form-group" style="margin-top: 10px;">
+                        <div class="col-md-2 col-sm-12">
+                            <label for="traumtype">Травмы</label>
+                            <select class="form-control traumtype-select" id="traumtype" name="traumtype"></select>
+                        </div>
+                    </div>
+
+                    <div class="clearfix"></div>
+                    <div style="text-align: center; margin-top: 20px;">
+                        <button type="submit" class="btn btn-primary">Открыть Отчет</button>
+                        <button type="reset" class="btn btn-primary">Сбросить</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div class="clearfix"></div>
+    <div id="rptResult" class="container" style="background: #ffffff; margin-top: 20px; padding: 0px 20px;"></div>
+</div>

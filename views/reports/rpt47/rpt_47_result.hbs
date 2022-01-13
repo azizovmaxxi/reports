@@ -1,0 +1,178 @@
+<div class="table-responsive">
+    <!-- START BLOCK FOR PRINT  -->
+    <div id="printReport">
+        <div class="text-center">
+            <p><b><h4>7.0. Контингент беременных, проживающих в районе обслуживание населения</h4></b></p>
+        </div>
+        <div class="text-left lpo-name">
+             <div>ЛПО(ГСВ): {{titleData.lpu_title}} </div>                                
+        </div>
+            <div>
+                <span>Отчетный период:
+                  <span>{{dateFormat titleData.sdate}}</span> -
+                  <span>{{dateFormat titleData.edate}}</span>
+                </span>
+            </div>
+        <div id="printBtnId">
+            <button class="btn btn-primary print-btn" target-print="printReport" id="printBtnId">
+                <span class="glyphicon glyphicon-print" aria-hidden="true"></span> Печать
+            </button>
+            <button class="btn btn-primary" id="exportXLS">
+                <span class="glyphicon glyphicon-export" aria-hidden="true"></span> Экспорт в Excel
+            </button>
+        </div>
+
+        <div class="result-data">
+            {{!-- {{#if data.length}} --}}
+                <table class="table table-responsive rpt_table">
+                    <thead class="thead-dark">
+                        <tr class="tr" style="background: lightgray">
+                        <th colspan="13" class="th">В отчетном периоде</th>   
+                        </tr>
+                        <tr class="tr" style="background: lightgray">
+                        <th class="th" rowspan="2">Наименование</th>
+                        <th class="th" rowspan="2">Код <br/> строки</th>
+                        <th rowspan="2" class="th">Состояло на учете, <br/> на начало отчетного периода</th>
+                        <th colspan="2" class="th">Поступили под медицинское наблюдение</th>
+                        <th rowspan="2" class="th">Кроме того, поступили <br/> из числа наблюдавшихся <br/> другими организациями</th>
+                        <th colspan="5" class="th">Закончили беременность (из числа состоявших под наблюдением на <br/>начало года и поступивших под наблюдение в отчетном периоде</th>
+                        <th class="th" rowspan="2">Выбыло</th>
+                        <th class="th" rowspan="2">Состоит на учете на <br/> конец отчетного периода</th>
+                        </tr>
+                        <tr class="tr" style="background: lightgray">
+                        <th class="th">Всего</th>
+                        <th class="th">в т.ч. до 12-недель</th>
+                        <th class="th">Всего</th>
+                        <th class="th">в т.ч. родами в срок</th>
+                        <th class="th">преждевременными(22-36 недель)</th>
+                        <th class="th">из них очень ранними (22-27 недель)</th>
+                        <th class="th">абортами</th>
+                        </tr>
+                        <tr class="tr" style="background: lightgray">
+                        <th class="th">А</th>
+                        <th class="th">Б</th>
+                        <th class="th">1</th>
+                        <th class="th">2</th>
+                        <th class="th">3</th>
+                        <th class="th">4</th>
+                        <th class="th">5</th>
+                        <th class="th">6</th>
+                        <th class="th">7</th>
+                        <th class="th">7.1</th>
+                        <th class="th">8</th>
+                        <th class="th">9</th>
+                        <th class="th">10</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {{!-- {{#each data}}
+                        <tr class="tr">
+                            <td class="td">{{this.num}}</td>
+                            <td class="td" style="text-align: left;">{{this.full_name}}</td>
+                            <td class="td">&nbsp;{{this.code}}</td>
+                            <td class="td">{{this.icd10}}</td>
+                            <td id="audit" class="td">
+                                {{#if this.c1}}
+                                    <a href="/report/report_revision/?row={{this.num}}&col=1&{{../options}}" target="_blank">{{this.c1}}</a>
+                                {{else}}
+                                        {{this.c1}}
+                                {{/if}}</td>
+                            <td id="audit" class="td">
+                                {{#if this.c2}}
+                                    <a href="/report/report_revision/?row={{this.num}}&col=2&{{../options}}" target="_blank">{{this.c2}}</a>
+                                {{else}}
+                                        {{this.c2}}
+                                {{/if}}</td>
+                            <td id="audit" class="td">
+                                {{#if this.c3}}
+                                    <a href="/report/report_revision/?row={{this.num}}&col=3&{{../options}}" target="_blank">{{this.c3}}</a>
+                                {{else}}
+                                        {{this.c3}}
+                                {{/if}}</td>
+                            <td id="audit" class="td">
+                                {{#if this.c4}}
+                                    <a href="/report/report_revision/?row={{this.num}}&col=4&{{../options}}" target="_blank">{{this.c4}}</a>
+                                {{else}}
+                                        {{this.c4}}
+                                {{/if}}</td>
+                            <td id="audit" class="td">
+                                {{#if this.c5}}
+                                    <a href="/report/report_revision/?row={{this.num}}&col=5&{{../options}}" target="_blank">{{this.c5}}</a>
+                                {{else}}
+                                        {{this.c5}}
+                                {{/if}}</td>
+                            <td id="audit" class="td">
+                                {{#if this.c6}}
+                                    <a href="/report/report_revision/?row={{this.num}}&col=6&{{../options}}" target="_blank">{{this.c6}}</a>
+                                {{else}}
+                                        {{this.c6}}
+                                {{/if}}</td>
+                            <td id="audit" class="td">
+                                {{#if this.c7}}
+                                    <a href="/report/report_revision/?row={{this.num}}&col=7&{{../options}}" target="_blank">{{this.c7}}</a>
+                                {{else}}
+                                        {{this.c7}}
+                                {{/if}}</td>
+                            <td id="audit" class="td">
+                                {{#if this.c8}}
+                                    <a href="/report/report_revision/?row={{this.num}}&col=8&{{../options}}" target="_blank">{{this.c8}}</a>
+                                {{else}}
+                                        {{this.c8}}
+                                {{/if}}</td>
+                            <td id="audit" class="td">
+                                {{#if this.c9}}
+                                    <a href="/report/report_revision/?row={{this.num}}&col=9&{{../options}}" target="_blank">{{this.c9}}</a>
+                                {{else}}
+                                        {{this.c9}}
+                                {{/if}}</td>
+                            <td id="audit" class="td">
+                                {{#if this.c10}}
+                                    <a href="/report/report_revision/?row={{this.num}}&col=10&{{../options}}" target="_blank">{{this.c10}}</a>
+                                {{else}}
+                                        {{this.c10}}
+                                {{/if}}</td>
+                            <td id="audit" class="td">
+                                {{#if this.c11}}
+                                    <a href="/report/report_revision/?row={{this.num}}&col=11&{{../options}}" target="_blank">{{this.c11}}</a>
+                                {{else}}
+                                        {{this.c11}}
+                                {{/if}}</td>
+                            <td id="audit" class="td">
+                                {{#if this.c12}}
+                                    <a href="/report/report_revision/?row={{this.num}}&col=12&{{../options}}" target="_blank">{{this.c12}}</a>
+                                {{else}}
+                                        {{this.c12}}
+                                {{/if}}</td>
+                        </tr>
+                    {{/each}} --}}
+                    </tbody>
+                </table>
+            {{!-- {{/if}} --}}
+        </div>
+
+    </div>
+    <!-- END BLOCK FOR PRINT  -->
+
+    <div id="printBtnId">
+        <button class="btn btn-primary print-btn" target-print="printReport" id="printBtnId">
+            <span class="glyphicon glyphicon-print" aria-hidden="true"></span> Печать
+        </button>
+    </div>
+</div>
+ 
+<script>
+    $(document).ready(function(){
+        $("#exportXLS").click(function(){
+            let fName = $(".lpo-name").text()
+                .trim()
+                .substr(10);
+            $("#printReport").table2excel({
+                exclude:".noExl",
+                name:"report",
+                filename:fName,
+                fileext:".xls"
+            });
+        });
+    });
+</script>
+<script src="/js/jquery.table2excel.js"></script>

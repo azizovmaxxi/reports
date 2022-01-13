@@ -1,0 +1,276 @@
+TypeError: user.toJSON is not a function
+    at getListPatients (/home/administrator/cif_reports/models/get_patient.js:10:36)
+    at getPatient (/home/administrator/cif_reports/models/get_patient.js:57:20)
+    at Layer.handle [as handle_request] (/home/administrator/cif_reports/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/administrator/cif_reports/node_modules/express/lib/router/route.js:137:13)
+    at /home/administrator/cif_reports/middleware/auth_check.js:4:14
+    at Layer.handle [as handle_request] (/home/administrator/cif_reports/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/administrator/cif_reports/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/home/administrator/cif_reports/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/home/administrator/cif_reports/node_modules/express/lib/router/layer.js:95:5)
+    at /home/administrator/cif_reports/node_modules/express/lib/router/index.js:281:22
+    at Function.process_params (/home/administrator/cif_reports/node_modules/express/lib/router/index.js:335:12)
+    at next (/home/administrator/cif_reports/node_modules/express/lib/router/index.js:275:10)
+    at Function.handle (/home/administrator/cif_reports/node_modules/express/lib/router/index.js:174:3)
+    at router (/home/administrator/cif_reports/node_modules/express/lib/router/index.js:47:12)
+    at Layer.handle [as handle_request] (/home/administrator/cif_reports/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/home/administrator/cif_reports/node_modules/express/lib/router/index.js:317:13)
+    at /home/administrator/cif_reports/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/home/administrator/cif_reports/node_modules/express/lib/router/index.js:335:12)
+    at next (/home/administrator/cif_reports/node_modules/express/lib/router/index.js:275:10)
+    at /home/administrator/cif_reports/node_modules/express/lib/router/index.js:635:15
+    at next (/home/administrator/cif_reports/node_modules/express/lib/router/index.js:260:14)
+    at Function.handle (/home/administrator/cif_reports/node_modules/express/lib/router/index.js:174:3)
+TypeError: user.toJSON is not a function
+    at getListPatients (/home/administrator/cif_reports/models/get_patient.js:10:36)
+    at getPatient (/home/administrator/cif_reports/models/get_patient.js:57:20)
+    at Layer.handle [as handle_request] (/home/administrator/cif_reports/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/administrator/cif_reports/node_modules/express/lib/router/route.js:137:13)
+    at /home/administrator/cif_reports/middleware/auth_check.js:4:14
+    at Layer.handle [as handle_request] (/home/administrator/cif_reports/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/administrator/cif_reports/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/home/administrator/cif_reports/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/home/administrator/cif_reports/node_modules/express/lib/router/layer.js:95:5)
+    at /home/administrator/cif_reports/node_modules/express/lib/router/index.js:281:22
+    at Function.process_params (/home/administrator/cif_reports/node_modules/express/lib/router/index.js:335:12)
+    at next (/home/administrator/cif_reports/node_modules/express/lib/router/index.js:275:10)
+    at Function.handle (/home/administrator/cif_reports/node_modules/express/lib/router/index.js:174:3)
+    at router (/home/administrator/cif_reports/node_modules/express/lib/router/index.js:47:12)
+    at Layer.handle [as handle_request] (/home/administrator/cif_reports/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/home/administrator/cif_reports/node_modules/express/lib/router/index.js:317:13)
+    at /home/administrator/cif_reports/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/home/administrator/cif_reports/node_modules/express/lib/router/index.js:335:12)
+    at next (/home/administrator/cif_reports/node_modules/express/lib/router/index.js:275:10)
+    at /home/administrator/cif_reports/node_modules/express/lib/router/index.js:635:15
+    at next (/home/administrator/cif_reports/node_modules/express/lib/router/index.js:260:14)
+    at Function.handle (/home/administrator/cif_reports/node_modules/express/lib/router/index.js:174:3)
+TypeError: user.toJSON is not a function
+    at getListPatients (/home/administrator/cif_reports/models/get_patient.js:10:36)
+    at getPatient (/home/administrator/cif_reports/models/get_patient.js:57:20)
+    at Layer.handle [as handle_request] (/home/administrator/cif_reports/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/administrator/cif_reports/node_modules/express/lib/router/route.js:137:13)
+    at /home/administrator/cif_reports/middleware/auth_check.js:4:14
+    at Layer.handle [as handle_request] (/home/administrator/cif_reports/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/administrator/cif_reports/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/home/administrator/cif_reports/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/home/administrator/cif_reports/node_modules/express/lib/router/layer.js:95:5)
+    at /home/administrator/cif_reports/node_modules/express/lib/router/index.js:281:22
+    at Function.process_params (/home/administrator/cif_reports/node_modules/express/lib/router/index.js:335:12)
+    at next (/home/administrator/cif_reports/node_modules/express/lib/router/index.js:275:10)
+    at Function.handle (/home/administrator/cif_reports/node_modules/express/lib/router/index.js:174:3)
+    at router (/home/administrator/cif_reports/node_modules/express/lib/router/index.js:47:12)
+    at Layer.handle [as handle_request] (/home/administrator/cif_reports/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/home/administrator/cif_reports/node_modules/express/lib/router/index.js:317:13)
+    at /home/administrator/cif_reports/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/home/administrator/cif_reports/node_modules/express/lib/router/index.js:335:12)
+    at next (/home/administrator/cif_reports/node_modules/express/lib/router/index.js:275:10)
+    at /home/administrator/cif_reports/node_modules/express/lib/router/index.js:635:15
+    at next (/home/administrator/cif_reports/node_modules/express/lib/router/index.js:260:14)
+    at Function.handle (/home/administrator/cif_reports/node_modules/express/lib/router/index.js:174:3)
+TypeError: user.toJSON is not a function
+    at getListPatients (/home/administrator/cif_reports/models/get_patient.js:10:36)
+    at getPatient (/home/administrator/cif_reports/models/get_patient.js:57:20)
+    at Layer.handle [as handle_request] (/home/administrator/cif_reports/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/administrator/cif_reports/node_modules/express/lib/router/route.js:137:13)
+    at /home/administrator/cif_reports/middleware/auth_check.js:4:14
+    at Layer.handle [as handle_request] (/home/administrator/cif_reports/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/administrator/cif_reports/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/home/administrator/cif_reports/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/home/administrator/cif_reports/node_modules/express/lib/router/layer.js:95:5)
+    at /home/administrator/cif_reports/node_modules/express/lib/router/index.js:281:22
+    at Function.process_params (/home/administrator/cif_reports/node_modules/express/lib/router/index.js:335:12)
+    at next (/home/administrator/cif_reports/node_modules/express/lib/router/index.js:275:10)
+    at Function.handle (/home/administrator/cif_reports/node_modules/express/lib/router/index.js:174:3)
+    at router (/home/administrator/cif_reports/node_modules/express/lib/router/index.js:47:12)
+    at Layer.handle [as handle_request] (/home/administrator/cif_reports/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/home/administrator/cif_reports/node_modules/express/lib/router/index.js:317:13)
+    at /home/administrator/cif_reports/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/home/administrator/cif_reports/node_modules/express/lib/router/index.js:335:12)
+    at next (/home/administrator/cif_reports/node_modules/express/lib/router/index.js:275:10)
+    at /home/administrator/cif_reports/node_modules/express/lib/router/index.js:635:15
+    at next (/home/administrator/cif_reports/node_modules/express/lib/router/index.js:260:14)
+    at Function.handle (/home/administrator/cif_reports/node_modules/express/lib/router/index.js:174:3)
+TypeError: user.toJSON is not a function
+    at getListPatients (/home/administrator/cif_reports/models/get_patient.js:10:36)
+    at getPatient (/home/administrator/cif_reports/models/get_patient.js:57:20)
+    at Layer.handle [as handle_request] (/home/administrator/cif_reports/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/administrator/cif_reports/node_modules/express/lib/router/route.js:137:13)
+    at /home/administrator/cif_reports/middleware/auth_check.js:4:14
+    at Layer.handle [as handle_request] (/home/administrator/cif_reports/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/administrator/cif_reports/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/home/administrator/cif_reports/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/home/administrator/cif_reports/node_modules/express/lib/router/layer.js:95:5)
+    at /home/administrator/cif_reports/node_modules/express/lib/router/index.js:281:22
+    at Function.process_params (/home/administrator/cif_reports/node_modules/express/lib/router/index.js:335:12)
+    at next (/home/administrator/cif_reports/node_modules/express/lib/router/index.js:275:10)
+    at Function.handle (/home/administrator/cif_reports/node_modules/express/lib/router/index.js:174:3)
+    at router (/home/administrator/cif_reports/node_modules/express/lib/router/index.js:47:12)
+    at Layer.handle [as handle_request] (/home/administrator/cif_reports/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/home/administrator/cif_reports/node_modules/express/lib/router/index.js:317:13)
+    at /home/administrator/cif_reports/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/home/administrator/cif_reports/node_modules/express/lib/router/index.js:335:12)
+    at next (/home/administrator/cif_reports/node_modules/express/lib/router/index.js:275:10)
+    at /home/administrator/cif_reports/node_modules/express/lib/router/index.js:635:15
+    at next (/home/administrator/cif_reports/node_modules/express/lib/router/index.js:260:14)
+    at Function.handle (/home/administrator/cif_reports/node_modules/express/lib/router/index.js:174:3)
+TypeError: user.toJSON is not a function
+    at getListPatients (/home/administrator/cif_reports/models/get_patient.js:10:36)
+    at getPatient (/home/administrator/cif_reports/models/get_patient.js:57:20)
+    at Layer.handle [as handle_request] (/home/administrator/cif_reports/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/administrator/cif_reports/node_modules/express/lib/router/route.js:137:13)
+    at /home/administrator/cif_reports/middleware/auth_check.js:4:14
+    at Layer.handle [as handle_request] (/home/administrator/cif_reports/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/administrator/cif_reports/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/home/administrator/cif_reports/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/home/administrator/cif_reports/node_modules/express/lib/router/layer.js:95:5)
+    at /home/administrator/cif_reports/node_modules/express/lib/router/index.js:281:22
+    at Function.process_params (/home/administrator/cif_reports/node_modules/express/lib/router/index.js:335:12)
+    at next (/home/administrator/cif_reports/node_modules/express/lib/router/index.js:275:10)
+    at Function.handle (/home/administrator/cif_reports/node_modules/express/lib/router/index.js:174:3)
+    at router (/home/administrator/cif_reports/node_modules/express/lib/router/index.js:47:12)
+    at Layer.handle [as handle_request] (/home/administrator/cif_reports/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/home/administrator/cif_reports/node_modules/express/lib/router/index.js:317:13)
+    at /home/administrator/cif_reports/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/home/administrator/cif_reports/node_modules/express/lib/router/index.js:335:12)
+    at next (/home/administrator/cif_reports/node_modules/express/lib/router/index.js:275:10)
+    at /home/administrator/cif_reports/node_modules/express/lib/router/index.js:635:15
+    at next (/home/administrator/cif_reports/node_modules/express/lib/router/index.js:260:14)
+    at Function.handle (/home/administrator/cif_reports/node_modules/express/lib/router/index.js:174:3)
+TypeError: user.toJSON is not a function
+    at getListPatients (/home/administrator/cif_reports/models/get_patient.js:10:36)
+    at getPatient (/home/administrator/cif_reports/models/get_patient.js:57:20)
+    at Layer.handle [as handle_request] (/home/administrator/cif_reports/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/administrator/cif_reports/node_modules/express/lib/router/route.js:137:13)
+    at /home/administrator/cif_reports/middleware/auth_check.js:4:14
+    at Layer.handle [as handle_request] (/home/administrator/cif_reports/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/administrator/cif_reports/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/home/administrator/cif_reports/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/home/administrator/cif_reports/node_modules/express/lib/router/layer.js:95:5)
+    at /home/administrator/cif_reports/node_modules/express/lib/router/index.js:281:22
+    at Function.process_params (/home/administrator/cif_reports/node_modules/express/lib/router/index.js:335:12)
+    at next (/home/administrator/cif_reports/node_modules/express/lib/router/index.js:275:10)
+    at Function.handle (/home/administrator/cif_reports/node_modules/express/lib/router/index.js:174:3)
+    at router (/home/administrator/cif_reports/node_modules/express/lib/router/index.js:47:12)
+    at Layer.handle [as handle_request] (/home/administrator/cif_reports/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/home/administrator/cif_reports/node_modules/express/lib/router/index.js:317:13)
+    at /home/administrator/cif_reports/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/home/administrator/cif_reports/node_modules/express/lib/router/index.js:335:12)
+    at next (/home/administrator/cif_reports/node_modules/express/lib/router/index.js:275:10)
+    at /home/administrator/cif_reports/node_modules/express/lib/router/index.js:635:15
+    at next (/home/administrator/cif_reports/node_modules/express/lib/router/index.js:260:14)
+    at Function.handle (/home/administrator/cif_reports/node_modules/express/lib/router/index.js:174:3)
+TypeError: user.toJSON is not a function
+    at getListPatients (/home/administrator/cif_reports/models/get_patient.js:10:36)
+    at getPatient (/home/administrator/cif_reports/models/get_patient.js:57:20)
+    at Layer.handle [as handle_request] (/home/administrator/cif_reports/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/administrator/cif_reports/node_modules/express/lib/router/route.js:137:13)
+    at /home/administrator/cif_reports/middleware/auth_check.js:4:14
+    at Layer.handle [as handle_request] (/home/administrator/cif_reports/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/administrator/cif_reports/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/home/administrator/cif_reports/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/home/administrator/cif_reports/node_modules/express/lib/router/layer.js:95:5)
+    at /home/administrator/cif_reports/node_modules/express/lib/router/index.js:281:22
+    at Function.process_params (/home/administrator/cif_reports/node_modules/express/lib/router/index.js:335:12)
+    at next (/home/administrator/cif_reports/node_modules/express/lib/router/index.js:275:10)
+    at Function.handle (/home/administrator/cif_reports/node_modules/express/lib/router/index.js:174:3)
+    at router (/home/administrator/cif_reports/node_modules/express/lib/router/index.js:47:12)
+    at Layer.handle [as handle_request] (/home/administrator/cif_reports/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/home/administrator/cif_reports/node_modules/express/lib/router/index.js:317:13)
+    at /home/administrator/cif_reports/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/home/administrator/cif_reports/node_modules/express/lib/router/index.js:335:12)
+    at next (/home/administrator/cif_reports/node_modules/express/lib/router/index.js:275:10)
+    at /home/administrator/cif_reports/node_modules/express/lib/router/index.js:635:15
+    at next (/home/administrator/cif_reports/node_modules/express/lib/router/index.js:260:14)
+    at Function.handle (/home/administrator/cif_reports/node_modules/express/lib/router/index.js:174:3)
+TypeError: user.toJSON is not a function
+    at getListPatients (/home/administrator/cif_reports/models/get_patient.js:10:36)
+    at getPatient (/home/administrator/cif_reports/models/get_patient.js:57:20)
+    at Layer.handle [as handle_request] (/home/administrator/cif_reports/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/administrator/cif_reports/node_modules/express/lib/router/route.js:137:13)
+    at /home/administrator/cif_reports/middleware/auth_check.js:4:14
+    at Layer.handle [as handle_request] (/home/administrator/cif_reports/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/administrator/cif_reports/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/home/administrator/cif_reports/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/home/administrator/cif_reports/node_modules/express/lib/router/layer.js:95:5)
+    at /home/administrator/cif_reports/node_modules/express/lib/router/index.js:281:22
+    at Function.process_params (/home/administrator/cif_reports/node_modules/express/lib/router/index.js:335:12)
+    at next (/home/administrator/cif_reports/node_modules/express/lib/router/index.js:275:10)
+    at Function.handle (/home/administrator/cif_reports/node_modules/express/lib/router/index.js:174:3)
+    at router (/home/administrator/cif_reports/node_modules/express/lib/router/index.js:47:12)
+    at Layer.handle [as handle_request] (/home/administrator/cif_reports/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/home/administrator/cif_reports/node_modules/express/lib/router/index.js:317:13)
+    at /home/administrator/cif_reports/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/home/administrator/cif_reports/node_modules/express/lib/router/index.js:335:12)
+    at next (/home/administrator/cif_reports/node_modules/express/lib/router/index.js:275:10)
+    at /home/administrator/cif_reports/node_modules/express/lib/router/index.js:635:15
+    at next (/home/administrator/cif_reports/node_modules/express/lib/router/index.js:260:14)
+    at Function.handle (/home/administrator/cif_reports/node_modules/express/lib/router/index.js:174:3)
+TypeError: user.toJSON is not a function
+    at getListPatients (/home/administrator/cif_reports/models/get_patient.js:10:36)
+    at getPatient (/home/administrator/cif_reports/models/get_patient.js:57:20)
+    at Layer.handle [as handle_request] (/home/administrator/cif_reports/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/administrator/cif_reports/node_modules/express/lib/router/route.js:137:13)
+    at /home/administrator/cif_reports/middleware/auth_check.js:4:14
+    at Layer.handle [as handle_request] (/home/administrator/cif_reports/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/administrator/cif_reports/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/home/administrator/cif_reports/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/home/administrator/cif_reports/node_modules/express/lib/router/layer.js:95:5)
+    at /home/administrator/cif_reports/node_modules/express/lib/router/index.js:281:22
+    at Function.process_params (/home/administrator/cif_reports/node_modules/express/lib/router/index.js:335:12)
+    at next (/home/administrator/cif_reports/node_modules/express/lib/router/index.js:275:10)
+    at Function.handle (/home/administrator/cif_reports/node_modules/express/lib/router/index.js:174:3)
+    at router (/home/administrator/cif_reports/node_modules/express/lib/router/index.js:47:12)
+    at Layer.handle [as handle_request] (/home/administrator/cif_reports/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/home/administrator/cif_reports/node_modules/express/lib/router/index.js:317:13)
+    at /home/administrator/cif_reports/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/home/administrator/cif_reports/node_modules/express/lib/router/index.js:335:12)
+    at next (/home/administrator/cif_reports/node_modules/express/lib/router/index.js:275:10)
+    at /home/administrator/cif_reports/node_modules/express/lib/router/index.js:635:15
+    at next (/home/administrator/cif_reports/node_modules/express/lib/router/index.js:260:14)
+    at Function.handle (/home/administrator/cif_reports/node_modules/express/lib/router/index.js:174:3)
+TypeError: user.toJSON is not a function
+    at getListPatients (/home/administrator/cif_reports/models/get_patient.js:10:36)
+    at getPatient (/home/administrator/cif_reports/models/get_patient.js:57:20)
+    at Layer.handle [as handle_request] (/home/administrator/cif_reports/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/administrator/cif_reports/node_modules/express/lib/router/route.js:137:13)
+    at /home/administrator/cif_reports/middleware/auth_check.js:4:14
+    at Layer.handle [as handle_request] (/home/administrator/cif_reports/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/administrator/cif_reports/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/home/administrator/cif_reports/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/home/administrator/cif_reports/node_modules/express/lib/router/layer.js:95:5)
+    at /home/administrator/cif_reports/node_modules/express/lib/router/index.js:281:22
+    at Function.process_params (/home/administrator/cif_reports/node_modules/express/lib/router/index.js:335:12)
+    at next (/home/administrator/cif_reports/node_modules/express/lib/router/index.js:275:10)
+    at Function.handle (/home/administrator/cif_reports/node_modules/express/lib/router/index.js:174:3)
+    at router (/home/administrator/cif_reports/node_modules/express/lib/router/index.js:47:12)
+    at Layer.handle [as handle_request] (/home/administrator/cif_reports/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/home/administrator/cif_reports/node_modules/express/lib/router/index.js:317:13)
+    at /home/administrator/cif_reports/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/home/administrator/cif_reports/node_modules/express/lib/router/index.js:335:12)
+    at next (/home/administrator/cif_reports/node_modules/express/lib/router/index.js:275:10)
+    at /home/administrator/cif_reports/node_modules/express/lib/router/index.js:635:15
+    at next (/home/administrator/cif_reports/node_modules/express/lib/router/index.js:260:14)
+    at Function.handle (/home/administrator/cif_reports/node_modules/express/lib/router/index.js:174:3)
+TypeError: user.toJSON is not a function
+    at getListPatients (/home/administrator/cif_reports/models/get_patient.js:10:36)
+    at getPatient (/home/administrator/cif_reports/models/get_patient.js:57:20)
+    at Layer.handle [as handle_request] (/home/administrator/cif_reports/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/administrator/cif_reports/node_modules/express/lib/router/route.js:137:13)
+    at /home/administrator/cif_reports/middleware/auth_check.js:4:14
+    at Layer.handle [as handle_request] (/home/administrator/cif_reports/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/administrator/cif_reports/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/home/administrator/cif_reports/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/home/administrator/cif_reports/node_modules/express/lib/router/layer.js:95:5)
+    at /home/administrator/cif_reports/node_modules/express/lib/router/index.js:281:22
+    at Function.process_params (/home/administrator/cif_reports/node_modules/express/lib/router/index.js:335:12)
+    at next (/home/administrator/cif_reports/node_modules/express/lib/router/index.js:275:10)
+    at Function.handle (/home/administrator/cif_reports/node_modules/express/lib/router/index.js:174:3)
+    at router (/home/administrator/cif_reports/node_modules/express/lib/router/index.js:47:12)
+    at Layer.handle [as handle_request] (/home/administrator/cif_reports/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/home/administrator/cif_reports/node_modules/express/lib/router/index.js:317:13)
+    at /home/administrator/cif_reports/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/home/administrator/cif_reports/node_modules/express/lib/router/index.js:335:12)
+    at next (/home/administrator/cif_reports/node_modules/express/lib/router/index.js:275:10)
+    at /home/administrator/cif_reports/node_modules/express/lib/router/index.js:635:15
+    at next (/home/administrator/cif_reports/node_modules/express/lib/router/index.js:260:14)
+    at Function.handle (/home/administrator/cif_reports/node_modules/express/lib/router/index.js:174:3)

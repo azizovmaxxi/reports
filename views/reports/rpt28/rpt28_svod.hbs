@@ -1,0 +1,98 @@
+
+<div class="table-responsive">
+        <!-- START BLOCK FOR PRINT  -->
+    <div id="printReport">
+        <div class="text-center">
+            <p><b><h5>Свод данных оценки результатов работы семейных врачей/врачей общей практики органицации ПМСП</h5></b></p>
+        </div>
+        <div class="text-left" >
+            <span>Наименование организации (ЦОВП, ЦСМ и самостоятельных юридических ГСВ) &emsp; {{Title.lpu.text}}</span></br>
+            <span style="padding-bottom: 2px;">Число семейных врачей/врачей общей практики (ЦСМ/ЦОВП/юр.ГСВ): штаты ______________________________&emsp;</span> 
+            <span>факт ___________</span></br>
+            <span>Отчетный период:
+            <span>{{dateFormat Title.sdate}}</span> -
+            <span>{{dateFormat Title.edate}} г.&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</span>
+            <span>Дата представления____________________20______г.</span>
+        </div>
+        <div class="text-right">
+        </div>
+        <div style="margin-top:20px">
+            <table class="table table-responsive rpt_table">
+                <thead class="thead-dark">
+                <tr class="tr">
+                    <th class="th-1" rowspan="1">№п/п</th>
+                    <th class="th" rowspan="1">Код ГСВ</th>
+                    <th class="th" rowspan="1">Код врача</th>
+                    <th class="th" rowspan="1">Ф.И.О.врача</th>
+                    <th class="th" rowspan="1">Число нов., осмот-ных семейным врачом в первые 3 дня после выписки из родильного дома</th>
+                    <th class="th" rowspan="1">Доля детей, достигших возраста 1 года и посетивших семейного врача/воп в соот. с утверж. приказом МЗ КР(в 2;3,5;5;6;9;12 мес.), %</th>
+                    <th class="th" rowspan="1">Доля детей в возрасте до 5-лет с диареей, получивших оральные регид-ные средства на уровне ГСВ, %</th>
+                    <th class="th" rowspan="1">Доля детей в возрасте до 5-лет с пневмонией, получивших первую дозу антиб-ков на уровне ГСВ, %</th>
+                    <th class="th" rowspan="1">Доля женщин, вставших на учет по поводу берем-ти в сроке до  12 недель, %</th>
+                    <th class="th" rowspan="1">Доля беременных женщин, получивших фолиевую кислоту, препараты йода и железа в соответ. с клини-ким протоколом, %</th>
+                    <th class="th" rowspan="1">Доля женщин, в сроке берем-сть до 12 недель, обслед-ных на гемоглобин и бактериурию </th>
+                    <th class="th" rowspan="1">Доля детей в возрасте 5-7 месяцев жизни, своевре-но получивших 3-ю Пентавакцину (АКДС-ВГВ-ХИБ) </th>
+                    <th class="th" rowspan="1">Число пациентов с  впервые выявленной гипер-кой болезнью, абс. ч.</th>
+                    <th class="th" rowspan="1">Доля пациентов с гипер-кой болезнью, приним-щих гипо-вные средства, у которых АД не выше 140/90, %</th>
+                    <th class="th" rowspan="1">Доля больных сахарным диабетом 2 типа , у которых контрол-ся уровень глюкозы в  крови натощак и его пок. не превышал 8 ммоль/л</th>
+                    <th class="th" rowspan="1">Число пациентов с  впервые выявлен.  сахарным диабетом, абс. ч.</th>
+                    <th class="th" rowspan="1">Итого</th>
+                </tr>
+                <tr class="tr" style="background: lightgray">
+                    <td class="td"></td>
+                    <td class="td"></td>
+                    <td class="td"></td>
+                    <td class="td"></td>
+                    <td class="td">1</td>
+                    <td class="td">2</td>
+                    <td class="td">3</td>
+                    <td class="td">4</td>
+                    <td class="td">5</td>
+                    <td class="td">6</td>
+                    <td class="td">7</td>
+                    <td class="td">8</td>
+                    <td class="td">9</td>
+                    <td class="td">10</td>
+                    <td class="td">11</td>
+                    <td class="td">12</td>
+                    <td class="td"></td>
+                </tr>
+                {{#each qry}}
+                    <tr class="tr">
+                        <td class="td-1">{{incremented @index}}</td>
+                        <td class="td">{{this.lpu_id}}</td>
+                        <td class="td">{{this.doc_id}}</td>
+                        <td class="td">{{this.fio}}</td>
+                        <td class="td">{{this.c1}}</td>
+                        <td class="td">{{this.c2}}</td>
+                        <td class="td">{{this.c3}}</td>
+                        <td class="td">{{this.c4}}</td>
+                        <td class="td">{{this.c5}}</td>
+                        <td class="td">{{this.c6}}</td>
+                        <td class="td">{{this.c7}}</td>
+                        <td class="td">{{this.c8}}</td>
+                        <td class="td">{{this.c9}}</td>
+                        <td class="td">{{this.c10}}</td>
+                        <td class="td">{{this.c11}}</td>
+                        <td class="td">{{this.c12}}</td>
+                        <td class="td">{{this.c13}}</td>
+                    </tr>
+                {{/each}}
+                </thead>
+            </table>
+        <div class="text-center"></br>
+            <p><h6>Подготовил(а)&ensp;Должность_______________&ensp;&ensp;ФИО___________________________&ensp;&ensp;Подпись_________&ensp;&ensp;Дата______20__г.</h4></p></br></br>
+            <p><h6>Принял:Руководитель ОЗ:&ensp;&ensp;ФИО___________________________&ensp;&ensp;Подпись_________&ensp;&ensp;Дата______20__г.</h4></p></br></br></br>
+            <p><h6>&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;Место
+                печати</h6></p>
+        </div>
+       </div>
+  	</div>
+
+		      <!-- END BLOCK FOR PRINT  -->
+    <div>
+        <button class="btn btn-primary print-btn" target-print="printReport">
+        <span class="glyphicon glyphicon-print" aria-hidden="true"></span> Печать
+        </button>
+    </div>
+</div>

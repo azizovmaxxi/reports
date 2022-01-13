@@ -1,0 +1,29 @@
+<div>
+  <div>
+    <form id="rptFormParams" action="/report/report_58" method="POST">
+      <div class="page-title">
+        <div class="title_left">
+          <div class="form-group">
+              {{> select_ter}}
+              <div class="form-group" style="margin-top: 10px">
+                  <div class="form-check">
+                      <input class="form-check-input" type="checkbox" id="treelpu">
+                      <label class="form-check-label" for="treelpu">
+                          Все ГСВ:
+                      </label>
+                  </div>
+              <div  id="checkTree" class="checkTree form-group">
+                  <input type="hidden" id="gsvname" name="gsvname"/>
+              </div>
+              </div>
+              </br>
+              <button type="submit" class="btn btn-primary">Открыть Отчет</button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <div class="clearfix"></div>
+  <div id="rptResult" class="container" style="background: #ffffff; margin-top: 20px; padding: 0px 20px;"></div>
+</div>

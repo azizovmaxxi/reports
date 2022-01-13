@@ -1,0 +1,181 @@
+<div class="table-responsive">
+    <!-- START BLOCK FOR PRINT  -->
+    <div id="printReport">
+        <div class="text-center">
+            <p><b><h4>{{titleData.rpt_name}}</h4></b></p>
+        </div>
+        
+        <div class="text-left lpo-name">
+             {{#iif titleData.lpu_title '==' 'undefined'}}
+             <div>Регион(область): {{titleData.ter_name}} </div>
+             {{else}}
+             <div>ЛПО(ГСВ): {{titleData.lpu_title}} </div>
+             {{/iif}}
+        </div>
+            <div>
+                <span>Отчетный период:
+                  <span>{{dateFormat titleData.sdate}}</span> -
+                  <span>{{dateFormat titleData.edate}}</span>
+                </span>
+            </div>
+        <div id="printBtnId">
+            <button class="btn btn-primary print-btn" target-print="printReport" id="printBtnId">
+                <span class="glyphicon glyphicon-print" aria-hidden="true"></span> Печать
+            </button>
+            <button class="btn btn-primary" id="exportXLS">
+                <span class="glyphicon glyphicon-export" aria-hidden="true"></span> Экспорт в Excel
+            </button>
+        </div>
+
+        <div class="result-data">
+            {{#if data.length}}
+                <table class="table table-responsive rpt_table">
+                    <thead class="thead-dark">
+                        <tr class="tr" style="background: lightgray">
+                        <th class="th" rowspan="3">№ п\п</th>
+                        <th class="th" rowspan="2">Всего женщин, <br /> закончивших беременность</th>
+                        <th class="th" colspan="11">Число женщин, прошедших тестирование на ВИЧ и <br /> имевших положительный результат теста,
+                        впервые выявленных в отчетном году </th>
+                        </tr>
+                        <tr class="tr" style="background: lightgray">
+                        {{!-- <th class="th" rowspan="2">№ п\п</th>
+                        <th class="th">Всего женщин, <br /> закончивших беременность</th> --}}
+                        <th class="th">Всего</th> 
+                        <th class="th"> до 15 лет</th>
+                        <th class="th">15-17 лет</th>
+                        <th class="th">18-19 лет</th>
+                        <th class="th">20-24 лет</th>
+                        <th class="th">25-29 лет</th>
+                        <th class="th">30-34 лет</th>
+                        <th class="th">35-39 лет</th>
+                        <th class="th">40-44 лет</th>
+                        <th class="th">45-49 лет</th>
+                        <th class="th">старше 49 лет</th>
+                        </tr>
+                        <tr class="tr" style="background: lightgray">
+                        <th class="th">абс.</th> 
+                        <th class="th">абс.</th>
+                        <th class="th">абс.</th>
+                        <th class="th">абс.</th>
+                        <th class="th">абс.</th>
+                        <th class="th">абс.</th>
+                        <th class="th">абс.</th>
+                        <th class="th">абс.</th>
+                        <th class="th">абс.</th>
+                        <th class="th">абс.</th>
+                        <th class="th">абс.</th>
+                        <th class="th">абс.</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {{#each data}}
+                        <tr class="tr">
+                            <td class="td">1</td>
+                            <td class="td">{{this.c1}}</td>
+                            <td class="td">{{this.b1}}</td>
+                            <td class="td">{{this.b2}}</td>
+                            <td class="td">{{this.b3}}</td>
+                            <td class="td">{{this.b4}}</td>
+                            <td class="td">{{this.b5}}</td>
+                            <td class="td">{{this.b6}}</td>
+                            <td class="td">{{this.b7}}</td>
+                            <td class="td">{{this.b8}}</td>
+                            <td class="td">{{this.b9}}</td>
+                            <td class="td">{{this.b10}}</td>
+                            <td class="td">{{this.b11}}</td>
+                        </tr>
+                    {{/each}}
+                    </tbody>
+                </table>
+            {{/if}}
+        </div>
+
+        <div class="result-data">
+            {{#if data.length}}
+                <table class="table table-responsive rpt_table">
+                    <thead class="thead-dark">
+                        <tr class="tr" style="background: lightgray">
+                        <th class="th" rowspan="3">№ п\п</th>
+                        <th class="th" rowspan="2">Всего женщин, <br /> закончивших беременность</th>
+                        <th class="th" colspan="11">Доля женщин, прошедших тестирование на ВИЧ и <br /> имевших положительный результат теста,
+                        впервые выявленных в отчетном году </th>
+                        </tr>
+                        <tr class="tr" style="background: lightgray">
+                        {{!-- <th class="th" rowspan="2">№ п\п</th>
+                        <th class="th">Всего женщин, <br /> закончивших беременность</th> --}}
+                        <th class="th">Всего</th>
+                        <th class="th"> до 15 лет</th>
+                        <th class="th">15-17 лет</th>
+                        <th class="th">18-19 лет</th>
+                        <th class="th">20-24 лет</th>
+                        <th class="th">25-29 лет</th>
+                        <th class="th">30-34 лет</th>
+                        <th class="th">35-39 лет</th>
+                        <th class="th">40-44 лет</th>
+                        <th class="th">45-49 лет</th>
+                        <th class="th">старше 49 лет</th>
+                        </tr>
+                        <tr class="tr" style="background: lightgray">
+                        <th class="th">абс.</th> 
+                        <th class="th">%</th>
+                        <th class="th">%</th>
+                        <th class="th">%</th>
+                        <th class="th">%</th>
+                        <th class="th">%</th>
+                        <th class="th">%</th>
+                        <th class="th">%</th>
+                        <th class="th">%</th>
+                        <th class="th">%</th>
+                        <th class="th">%</th>
+                        <th class="th">%</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {{#each data}}
+                        <tr class="tr">
+                            <td class="td">2</td>
+                            <td class="td">{{this.c1}}</td>
+                            <td class="td">{{this.c2}}%</td>
+                            <td class="td">{{this.c3}}%</td>
+                            <td class="td">{{this.c4}}%</td>
+                            <td class="td">{{this.c5}}%</td>
+                            <td class="td">{{this.c6}}%</td>
+                            <td class="td">{{this.c7}}%</td>
+                            <td class="td">{{this.c8}}%</td>
+                            <td class="td">{{this.c9}}%</td>
+                            <td class="td">{{this.c10}}%</td>
+                            <td class="td">{{this.c11}}%</td>
+                            <td class="td">{{this.c12}}%</td>
+                        </tr>
+                    {{/each}}
+                    </tbody>
+                </table>
+            {{/if}}
+        </div>
+
+    </div>
+    <!-- END BLOCK FOR PRINT  -->
+
+    <div id="printBtnId">
+        <button class="btn btn-primary print-btn" target-print="printReport" id="printBtnId">
+            <span class="glyphicon glyphicon-print" aria-hidden="true"></span> Печать
+        </button>
+    </div>
+</div>
+ 
+<script>
+    $(document).ready(function(){
+        $("#exportXLS").click(function(){
+            let fName = $(".lpo-name").text()
+                .trim()
+                .substr(10);
+            $("#printReport").table2excel({
+                exclude:".noExl",
+                name:"report",
+                filename:fName,
+                fileext:".xls"
+            });
+        });
+    });
+</script>
+<script src="/js/jquery.table2excel.js"></script>

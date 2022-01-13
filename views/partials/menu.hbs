@@ -1,0 +1,82 @@
+<!-- sidebar menu -->
+<div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+  <div class="menu_section">
+    <ul class="nav side-menu">
+      <li>
+          <a>
+              Амбулаторный-КИФ анализ
+              <span class="fa fa-chevron-down"></span>
+          </a>
+          <ul class="nav child_menu">
+              <li>
+                  {{#each sidebarMenu.aReports}}
+                      {{#if this.childs.length}}
+                          {{#if this.visible}}
+                              <li>
+                                  <a>
+                                      {{this.id}}. {{this.full_name}}
+                                      <span class="fa fa-chevron-down"></span>
+                                  </a>
+                                  <ul class="nav child_menu">
+                                      {{#each this.childs}}
+                                          {{#if this.visible}}
+                                              <li>
+                                                  <a href="/report/{{this.system_name}}">{{this.full_name}}</a>
+                                              </li>
+                                          {{/if}}
+                                      {{/each}}
+                                  </ul>
+                              </li>
+                          {{/if}}
+                      {{else}}
+                          {{#if this.visible}}
+                              <li>
+                                  <a href="/report/{{this.system_name}}">{{this.id}}.{{this.full_name}}</a>
+                              </li>
+                          {{/if}}
+                      {{/if}}
+                  {{/each}}
+              </li>
+          </ul>
+      </li>
+      <li>
+        <a>
+            Сестринский-КИФ анализ
+            <span class="fa fa-chevron-down"></span>
+        </a>
+        <ul class="nav child_menu">
+          <li>
+            {{#each sidebarMenu.mReports}}
+                {{#if this.childs.length}}
+                    {{#if this.visible}}
+                        <li>
+                            <a>
+                                {{this.id}}. {{this.full_name}}
+                                <span class="fa fa-chevron-down"></span>
+                            </a>
+                            <ul class="nav child_menu">
+                                {{#each this.childs}}
+                                    {{#if this.visible}}
+                                        <li>
+                                            <a href="/report/{{this.system_name}}">{{this.full_name}}</a>
+                                        </li>
+                                    {{/if}}
+                                {{/each}}
+                            </ul>
+                        </li>
+                    {{/if}}
+                {{else}}
+                    {{#if this.visible}}
+                        <li>
+                            <a href="/report/{{this.system_name}}">{{this.id}}.{{this.full_name}}</a>
+                        </li>
+                    {{/if}}
+                {{/if}}
+            {{/each}}
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</div>
+<!-- /sidebar menu -->

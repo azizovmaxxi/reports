@@ -1,0 +1,78 @@
+<div>
+  <div>
+    <form id="rptFormParams" action="/report/report_2_7" method="POST">
+      <div class="page-title">
+        <div class="title_left">
+          <div class="form-group">
+              {{> select_ter}}
+              
+              <div style="margin-top: 10px">
+                  <span>Возрастная группа</span>
+              <div class="form-group" style="margin-left: 15px;">
+                  <div class="form-check">
+                      <input class="form-check-input" type="radio" name="age" id="age1_id" value="" checked>
+                      <label class="form-check-label" for="age1_id">
+                          Все
+                      </label>
+                  </div>
+                  <div class="form-check">
+                      <input class="form-check-input" type="radio" name="age" id="age2_id" value="_14">
+                      <label class="form-check-label" for="age2_id">
+                          Дети (до 14 лет включительно)
+                      </label>
+                  </div>
+                  <div class="form-check">
+                      <input class="form-check-input" type="radio" name="age" id="age3_id" value="_15_17">
+                      <label class="form-check-label" for="age3_id">
+                          Подростки (15-17 лет)
+                      </label>
+                  </div>
+                  <div class="form-check">
+                      <input class="form-check-input" type="radio" name="age" id="age4_id" value="adult_teenager">
+                      <label class="form-check-label" for="age4_id">
+                          Взрослые и подростки
+                      </label>
+                  </div>
+                  <div class="form-check">
+                      <input class="form-check-input" type="radio" name="age" id="age5_id" value="adult">
+                      <label class="form-check-label" for="age5_id">
+                          Взрослые
+                      </label>
+                  </div>
+              </div>
+              </div>
+
+              <div style="margin-top: 10px">
+                  <span>Пол</span>
+                  <div class="form-group" style="margin-left: 15px;">
+                      <div class="form-check">
+                          <input class="form-check-input" type="radio" name="sex_id" id="sex_id" value="" checked>
+                          <label class="form-check-label" for="sex_id">
+                              Все
+                          </label>
+                      </div>
+                      <div class="form-check">
+                          <input class="form-check-input" type="radio" name="sex_id" id="sex_id_1" value="1">
+                          <label class="form-check-label" for="sex_id_1">
+                              Мужчины
+                          </label>
+                      </div>
+                      <div class="form-check">
+                          <input class="form-check-input" type="radio" name="sex_id" id="sex_id_0" value="0">
+                          <label class="form-check-label" for="sex_id_0">
+                              Женщины
+                          </label>
+                      </div>
+                  </div>
+              </div>
+              </br>
+              <button type="submit" class="btn btn-primary">Открыть Отчет</button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <div class="clearfix"></div>
+  <div id="rptResult" class="container" style="background: #ffffff; margin-top: 20px; padding: 0px 20px;"></div>
+</div>

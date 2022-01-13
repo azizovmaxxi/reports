@@ -1,0 +1,81 @@
+<div class="table-responsive">
+    <!-- START BLOCK FOR PRINT  -->
+    <div id="printReport">
+        <div class="text-center">
+            <p><b><h4>Зарегистрированные травмы</h4></b></p>
+        </div>
+        <div class="text-left">
+            <div>ЛПУ: {{titleData.lpu_title}}</div>
+            <div>
+                <span>Отчетный период:
+                  <span>{{dateFormat titleData.sdate}}</span> -
+                  <span>{{dateFormat titleData.edate}}</span>
+                </span>
+            </div>
+            {{#if titleData.age}}
+                <div> Возрастная категория: <span>{{titleData.age}}</span> </div>
+            {{/if}}
+            {{#if titleData.sex_id}}
+                <div> Пол: <span>{{titleData.sex_id}}</span> </div>
+            {{/if}}
+            {{#if titleData.is_f_life}}
+                <div> Впервые в жизни: Да</div>
+            {{/if}}
+        </div>
+        <div id="printBtnId">
+            <button class="btn btn-primary print-btn" target-print="printReport" id="printBtnId">
+                <span class="glyphicon glyphicon-print" aria-hidden="true"></span> Печать
+            </button>
+        </div>
+
+        <div class="result-data">
+            {{#if data.length}}
+                <table class="table table-responsive rpt_table">
+                    <thead class="thead-dark">
+                        <tr class="tr" style="background: lightgray">
+                            <th class="th" rowspan="2"></th>
+                            <th class="th" rowspan="2">Код строки</th>
+                            <th class="th" rowspan="2">Шифр по МКБ-10 пересмотра</th>
+                            <th class="th" rowspan="2">Всего</th>
+                            <th class="th" colspan="6">из них:</th>
+                            <th class="th" rowspan="2">Умерло от травм</th>
+                        </tr>
+                        <tr class="tr" style="background: lightgray">
+                            <th class="th">Бытовые</th>
+                            <th class="th">Уличные</th>
+                            <th class="th">Дорожно-транспортные</th>
+                            <th class="th">Школьные</th>
+                            <th class="th">Спортивные</th>
+                            <th class="th">Прочие</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {{#each data}}
+                        <tr class="tr">
+                            <td class="td">{{this.full_name}}</td>
+                            <td class="td">{{this.code}}</td>
+                            <td class="td">{{this.icd10}}</td>
+                            <td class="td">{{this.c1}}</td>
+                            <td class="td">{{this.c2}}</td>
+                            <td class="td">{{this.c3}}</td>
+                            <td class="td">{{this.c4}}</td>
+                            <td class="td">{{this.c5}}</td>
+                            <td class="td">{{this.c6}}</td>
+                            <td class="td">{{this.c7}}</td>
+                            <td class="td">0</td>
+                        </tr>
+                    {{/each}}
+                    </tbody>
+                </table>
+            {{/if}}
+        </div>
+
+    </div>
+    <!-- END BLOCK FOR PRINT  -->
+
+    <div id="printBtnId">
+        <button class="btn btn-primary print-btn" target-print="printReport" id="printBtnId">
+            <span class="glyphicon glyphicon-print" aria-hidden="true"></span> Печать
+        </button>
+    </div>
+</div>

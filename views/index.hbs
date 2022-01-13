@@ -1,0 +1,13 @@
+<h3>Профиль</h3>
+
+<div>
+    <p>Имя пользователя</p>
+    <h2>{{user.UserName}}</h2>
+</div>
+
+<div>
+    <p>Роль пользователя:</p>
+    {{#each user.roles}}
+     <h2>{{this.Name}}</h2>
+    {{/each}}
+</div>

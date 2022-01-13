@@ -1,0 +1,282 @@
+<div class="table-responsive">
+    <!-- START BLOCK FOR PRINT  -->
+    <div id="printReport">
+        <div class="text-center">
+            <p><b><h4>Наблюдение по НИЗ(стар. 18 лет, кол. пациентов)</h4></b></p>
+        </div>
+        <div class="text-left">
+            <div>ЛПУ: {{titleData.lpu_title}}</div>
+            <div>
+                <span>Отчетный период:
+                  <span>{{dateFormat titleData.sdate}}</span> -
+                  <span>{{dateFormat titleData.edate}}</span>
+                </span>
+            </div>
+        </div>
+        <div id="printBtnId">
+            <button class="btn btn-primary print-btn" target-print="printReport" id="printBtnId">
+                <span class="glyphicon glyphicon-print" aria-hidden="true"></span> Печать
+            </button>
+        </div>
+
+        <div class="result-data">
+            {{#if data.length}}
+            <table class="table table-responsive rpt_table">
+                <thead class="thead-dark">
+                <tr class="tr" style="background: lightgray">
+                    <th class="th-1" rowspan="2">Контроль АД</th>
+                    <th class="th" rowspan="2">Принимает гипотензивные препараты </th>
+                    <th class="th" colspan="5">Сердечно сосудистый риск</th>
+                    <th class="th" colspan="2">Информирование/ рекомендации</th>
+                </tr>
+                <tr class="tr" style="background: lightgray">
+                    <th class="th">10</th>
+                    <th class="th">10-20</th>
+                    <th class="th">20-30</th>
+                    <th class="th">30-40</th>
+                    <th class="th">40</th>
+                    <th class="th">даны рекомендации</th>
+                    <th class="th">нет</th>
+                </tr>
+                <tr class="tr" style="background: lightgray">
+                    <td class="td">1</td>
+                    <td class="td">2</td>
+                    <td class="td">3</td>
+                    <td class="td">4</td>
+                    <td class="td">5</td>
+                    <td class="td">6</td>
+                    <td class="td">7</td>
+                    <td class="td">8</td>
+                    <td class="td">9</td>
+                </tr>
+                </thead>
+                <tbody>
+                {{#each data}}
+                <tr class="tr">
+                    <td class="td">{{this.t2_c1}}</td>
+                    <td class="td">{{this.t2_c2}}</td>
+                    <td class="td">{{this.t2_c3}}</td>
+                    <td class="td">{{this.t2_c4}}</td>
+                    <td class="td">{{this.t2_c5}}</td>
+                    <td class="td">{{this.t2_c6}}</td>
+                    <td class="td">{{this.t2_c7}}</td>
+                    <td class="td">{{this.t2_c8}}</td>
+                    <td class="td">{{this.t2_c9}}</td>
+                </tr>
+                {{/each}}
+                </tbody>
+            </table>
+            <br>
+
+            <!-- Таблица 3 -->
+            <table class="table table-responsive rpt_table">
+                <thead class="thead-dark">
+                <tr class="tr" style="background: lightgray">
+                    <td class="td" colspan="7">
+                        <p>Курение</p>
+                    </td>
+                    <td class="td" colspan="2" rowspan="2">
+                        <p>Употребление алкоголя</p>
+                    </td>
+                    <td class="td" colspan="2" rowspan="2">
+                        <p>Употребление соли</p>
+                    </td>
+                </tr>
+                <tr class="tr" style="background: lightgray">
+                    <td class="td" rowspan="2" >
+                        <p>курит</p>
+                    </td>
+                    <td class="td" rowspan="2">
+                        <p>не курит</p>
+                    </td>
+                    <td class="td" rowspan="2">
+                        <p>бросил</p>
+                    </td>
+                    <td class="td" colspan="2">
+                        <p>Бросил в течении 12 мес</p>
+                    </td>
+                    <td class="td" colspan="2">
+                        <p>Получает никотин.замещ.терапию</p>
+                    </td>
+                </tr>
+                <tr class="tr" style="background: lightgray">
+                    <td class="td">
+                        <p>да</p>
+                    </td>
+                    <td class="td">
+                        <p>нет</p>
+                    </td>
+                    <td class="td">
+                        <p>да</p>
+                    </td>
+                    <td class="td">
+                        <p>нет</p>
+                    </td>
+                    <td class="td">
+                        <p>употребляли</p>
+                    </td>
+                    <td class="td">
+                        <p>не употребляли</p>
+                    </td>
+                    <td class="td">
+                        <p>5гр. и менее грамм</p>
+                    </td>
+                    <td class="td">
+                        <p>Более&nbsp;&nbsp; 5 гр.</p>
+                    </td>
+                </tr>
+                <tr class="tr" style="background: lightgray">
+                    <td class="td">
+                        <p><strong>1</strong></p>
+                    </td>
+                    <td class="td">
+                        <p><strong>2</strong></p>
+                    </td>
+                    <td class="td">
+                        <p><strong>3</strong></p>
+                    </td>
+                    <td class="td">
+                        <p><strong>4</strong></p>
+                    </td>
+                    <td class="td">
+                        <p><strong>5</strong></p>
+                    </td>
+                    <td class="td">
+                        <p><strong>6</strong></p>
+                    </td>
+                    <td class="td">
+                        <p><strong>7</strong></p>
+                    </td>
+                    <td class="td">
+                        <p><strong>8</strong></p>
+                    </td>
+                    <td class="td">
+                        <p><strong>9</strong></p>
+                    </td>
+                    <td class="td">
+                        <p><strong>10</strong></p>
+                    </td>
+                    <td class="td">
+                        <p><strong>11</strong></p>
+                    </td>
+                </tr>
+                </thead>
+                <tbody>
+                {{#each data}}
+                    <tr class="tr">
+                        <td class="td">{{this.t3_c1}}</td>
+                        <td class="td">{{this.t3_c2}}</td>
+                        <td class="td">{{this.t3_c3}}</td>
+                        <td class="td">{{this.t3_c4}}</td>
+                        <td class="td">{{this.t3_c5}}</td>
+                        <td class="td">{{this.t3_c6}}</td>
+                        <td class="td">{{this.t3_c7}}</td>
+                        <td class="td">{{this.t3_c8}}</td>
+                        <td class="td">{{this.t3_c9}}</td>
+                        <td class="td">{{this.t3_c10}}</td>
+                        <td class="td">{{this.t3_c11}}</td>
+                    </tr>
+                {{/each}}
+                </tbody>
+            </table>
+            <br>
+
+            <!-- Таблица 4 -->
+            <table class="table table-responsive rpt_table">
+                <thead class="thead-dark">
+                    <tr class="tr" style="background: lightgray">
+                        <td class="td" colspan="2">
+                            <p>Физическая активность</p>
+                        </td>
+                        <td class="td" colspan="2">
+                            <p>Употребление фруктов, овощей</p>
+                        </td>
+                        <td class="td" colspan="4">
+                            <p>Проведен осмотр молочных желез</p>
+                        </td>
+                    </tr>
+                    <tr class="tr" style="background: lightgray">
+                        <td class="td" rowspan="2">
+                            <p>более 30 минут в день</p>
+                        </td>
+                        <td class="td" rowspan="2">
+                            <p>нет</p>
+                        </td>
+                        <td class="td" rowspan="2">
+                            <p>употребляет 500 грамм в день</p>
+                        </td>
+                        <td class="td" rowspan="2">
+                            <p>нет</p>
+                        </td>
+                        <td class="td" rowspan="2">
+                            <p>проведен</p>
+                        </td>
+                        <td class="td" rowspan="2">
+                            <p>не проведен</p>
+                        </td>
+                        <td class="td" colspan="2">
+                            <p>Выявлены изменения</p>
+                        </td>
+                    </tr>
+                    <tr class="tr" style="background: lightgray">
+                        <td class="td">
+                            <p>да</p>
+                        </td>
+                        <td class="td">
+                            <p>нет</p>
+                        </td>
+                    </tr>
+                    <tr class="tr" style="background: lightgray">
+                    <td class="td">
+                        <p><strong>1</strong></p>
+                    </td>
+                    <td class="td">
+                        <p><strong>2</strong></p>
+                    </td>
+                    <td class="td">
+                        <p><strong>3</strong></p>
+                    </td>
+                    <td class="td">
+                        <p><strong>4</strong></p>
+                    </td>
+                    <td class="td">
+                        <p><strong>5</strong></p>
+                    </td>
+                    <td class="td">
+                        <p><strong>6</strong></p>
+                    </td>
+                    <td class="td">
+                        <p><strong>7</strong></p>
+                    </td>
+                    <td class="td">
+                        <p><strong>8</strong></p>
+                    </td>
+                </tr>
+                </thead>
+                <tbody>
+                {{#each data}}
+                    <tr class="tr">
+                        <td class="td">{{this.t4_c1}}</td>
+                        <td class="td">{{this.t4_c2}}</td>
+                        <td class="td">{{this.t4_c3}}</td>
+                        <td class="td">{{this.t4_c4}}</td>
+                        <td class="td">{{this.t4_c5}}</td>
+                        <td class="td">{{this.t4_c6}}</td>
+                        <td class="td">{{this.t4_c7}}</td>
+                        <td class="td">{{this.t4_c8}}</td>
+                    </tr>
+                {{/each}}
+                </tbody>
+            </table>
+            {{/if}}
+        </div>
+
+    </div>
+    <!-- END BLOCK FOR PRINT  -->
+
+    <div id="printBtnId">
+        <button class="btn btn-primary print-btn" target-print="printReport" id="printBtnId">
+            <span class="glyphicon glyphicon-print" aria-hidden="true"></span> Печать
+        </button>
+    </div>
+</div>

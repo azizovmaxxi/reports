@@ -1,0 +1,68 @@
+<div class="table-responsive">
+    <!-- START BLOCK FOR PRINT  -->
+    <div id="printReport">
+        <div class="text-center">
+            <p><b><h4>Процедуры, манипуляции, анализы, выполненные специалистом сестринского дела</h4></b></p>
+        </div>
+        <div class="text-left">
+            <div>ЛПУ: {{titleData.lpu_title}}</div>
+            <div>
+                <span>Отчетный период:
+                  <span>{{dateFormat titleData.sdate}}</span> -
+                  <span>{{dateFormat titleData.edate}}</span>
+                </span>
+            </div>
+        </div>
+        <div id="printBtnId">
+            <button class="btn btn-primary print-btn" target-print="printReport" id="printBtnId">
+                <span class="glyphicon glyphicon-print" aria-hidden="true"></span> Печать
+            </button>
+        </div>
+
+        <div class="result-data">
+            {{#each this.data.result_cases}}
+            <div style="margin: 10px 0px 10px 0px; font-size: larger">
+                <strong>Всего</strong>
+                <span style="margin: 0px 5px 0px 5px; text-decoration: underline">{{this.all_cases}}</span>
+                <strong>, в том числе на дому</strong>
+                <span style="margin: 0px 5px 0px 5px; text-decoration: underline">{{this.at_home}}</span>
+            </div>
+            {{/each}}
+
+            <table class="table table-responsive rpt_table">
+                <thead class="thead-dark">
+                    <tr class="tr" style="background: lightgray">
+                        <th class="th-1">1</th>
+                        <th class="th">2</th>
+                        <th class="th">3</th>
+                        <th class="th">4</th>
+                    </tr>
+                    <tr class="tr" style="background: lightgray">
+                        <th class="th-1">№</th>
+                        <th class="th">Коды</th>
+                        <th class="th">Наименование</th>
+                        <th class="th">Количество</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each this.data.list_procedures}}
+                    <tr class="tr">
+                        <td class="td">{{this.c1}}</td>
+                        <td class="td">{{this.c2}}</td>
+                        <td class="td">{{this.c3}}</td>
+                        <td class="td">{{this.c4}}</td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+    <!-- END BLOCK FOR PRINT  -->
+
+    <div id="printBtnId">
+        <button class="btn btn-primary print-btn" target-print="printReport" id="printBtnId">
+            <span class="glyphicon glyphicon-print" aria-hidden="true"></span> Печать
+        </button>
+    </div>
+</div>

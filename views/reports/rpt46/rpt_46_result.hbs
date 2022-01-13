@@ -1,0 +1,116 @@
+<div class="table-responsive">
+    <!-- START BLOCK FOR PRINT  -->
+    <div id="printReport">
+        <div class="text-center">
+            <p><b><h4>6.0. Сведения о зарегистрированных новых случаев заболеваний  пневмонией, ОРВИ, COVID-19</h4></b></p>
+        </div>
+        <div class="text-left lpo-name">
+             <div>ЛПО(ГСВ): {{titleData.lpu_title}} </div>                                
+        </div>
+            <div>
+                <span>Отчетный период:
+                  <span>{{dateFormat titleData.sdate}}</span> -
+                  <span>{{dateFormat titleData.edate}}</span>
+                </span>
+            </div>
+        <div id="printBtnId">
+            <button class="btn btn-primary print-btn" target-print="printReport" id="printBtnId">
+                <span class="glyphicon glyphicon-print" aria-hidden="true"></span> Печать
+            </button>
+            <button class="btn btn-primary" id="exportXLS">
+                <span class="glyphicon glyphicon-export" aria-hidden="true"></span> Экспорт в Excel
+            </button>
+        </div>
+
+        <div class="result-data">
+            {{#if data.length}}
+                <table class="table table-responsive rpt_table">
+                    <thead class="thead-dark">
+                        <tr class="tr" style="background: lightgray">
+                        <th class="th" rowspan="3">Наименование</th>
+                        <th class="th" rowspan="3">Код <br/> строки</th>
+                        <th colspan="2" rowspan="2" class="th">Число больных с пневмонией (J12-J18)</th>
+                        <th colspan="4" class="th">ОРВИ</th>
+                        <th colspan="4" class="th">COVID-19(U07)</th>
+                        </tr>
+                        <tr class="tr" style="background: lightgray">
+                        <th class="th" colspan="2">верхних дыхательных <br/> путей (J 00-J06)</th>
+                        <th class="th" colspan="2">нижних дыхательных <br/> путей(J20-J22)</th>
+                        <th class="th" colspan="2">ПЦР подтвержденный(U07.1)</th>
+                        <th class="th" colspan="2">ПЦР не подтвержденный(U07.2)</th>
+                        </tr>
+                        <tr class="tr" style="background: lightgray">
+                        <th class="th">зарег. всего </th>
+                        <th class="th">из них умерло</th>
+                        <th class="th">зарег. всего</th>
+                        <th class="th">из них умерло</th>                
+                        <th class="th">зарег. всего</th>
+                        <th class="th">из них умерло</th>
+                        <th class="th">зарег. всего</th>
+                        <th class="th">из них умерло</th>
+                        <th class="th">зарег. всего</th>
+                        <th class="th">из них умерло</th>
+                        </tr>
+                        <tr class="tr" style="background: lightgray">
+                        <th class="th">А</th>
+                        <th class="th">Б</th>
+                        <th class="th">1</th>
+                        <th class="th">2</th>
+                        <th class="th">3</th>
+                        <th class="th">4</th>
+                        <th class="th">5</th>
+                        <th class="th">6</th>
+                        <th class="th">7</th>
+                        <th class="th">8</th>
+                        <th class="th">9</th>
+                        <th class="th">10</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {{#each data}}
+                        <tr class="tr">
+                            <td class="td" style="text-align: left;">{{this.full_name}}</td>
+                            <td class="td">&nbsp;{{this.code}}</td>
+                            <td class="td">{{this.a1}}</td>
+                            <td class="td">{{this.a2}}</td>
+                            <td class="td">{{this.a3}}</td>
+                            <td class="td">{{this.a4}}</td>
+                            <td class="td">{{this.a5}}</td>
+                            <td class="td">{{this.a6}}</td>
+                            <td class="td">{{this.a7}}</td>
+                            <td class="td">{{this.a8}}</td>
+                            <td class="td">{{this.a9}}</td>
+                            <td class="td">{{this.a10}}</td>
+                        </tr>
+                    {{/each}}
+                    </tbody>
+                </table>
+            {{/if}}
+        </div>
+
+    </div>
+    <!-- END BLOCK FOR PRINT  -->
+
+    <div id="printBtnId">
+        <button class="btn btn-primary print-btn" target-print="printReport" id="printBtnId">
+            <span class="glyphicon glyphicon-print" aria-hidden="true"></span> Печать
+        </button>
+    </div>
+</div>
+ 
+<script>
+    $(document).ready(function(){
+        $("#exportXLS").click(function(){
+            let fName = $(".lpo-name").text()
+                .trim()
+                .substr(10);
+            $("#printReport").table2excel({
+                exclude:".noExl",
+                name:"report",
+                filename:fName,
+                fileext:".xls"
+            });
+        });
+    });
+</script>
+<script src="/js/jquery.table2excel.js"></script>

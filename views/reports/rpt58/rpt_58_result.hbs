@@ -1,0 +1,83 @@
+<div class="table-responsive">
+    <!-- START BLOCK FOR PRINT  -->
+    <div id="printReport">
+        <div class="text-center">
+            <p><b><h4>Население по возрастам и по полу</h4></b></p>
+        </div>
+        
+        <div class="text-left lpo-name">
+            {{#iif titleData.lpu_title '==' 'undefined'}}
+            <div>ЛПО(ГСВ): {{titleData.gsvname}} </div>
+            {{else}}
+             <div>ЛПО(ГСВ): {{titleData.lpu_title}} </div>              
+            {{/iif}}                    
+        </div>
+            <div>
+                <span>Отчетный период:
+                  <span>{{dateFormat titleData.sdate}}</span> -
+                  <span>{{dateFormat titleData.edate}}</span>
+                </span>
+            </div>
+            <div> Врачи: <span>{{titleData.doctorname}}</span> </div>
+        <div id="printBtnId">
+            <button class="btn btn-primary print-btn" target-print="printReport" id="printBtnId">
+                <span class="glyphicon glyphicon-print" aria-hidden="true"></span> Печать
+            </button>
+            <button class="btn btn-primary" id="exportXLS">
+                <span class="glyphicon glyphicon-export" aria-hidden="true"></span> Экспорт в Excel
+            </button>
+        </div>
+
+        <div class="result-data">
+            {{#if data.length}}
+                <table class="table table-responsive rpt_table">
+                    <thead class="thead-dark">
+                        <tr class="tr" style="background: lightgray">
+                        <th class="th">№ п\п</th>
+                        <th class="th">Возраст</th>
+                        <th class="th">Всего</th>
+                        <th class="th">мужчины</th>
+                        <th class="th">женщины</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {{#each data}}
+                        <tr class="tr">
+                            <td class="td">{{incremented @index}}</td>
+                            <td class="td" style="text-align: left;">{{this.age}}</td>
+                            <td class="td">&nbsp;{{this.total}}</td>
+                            <td class="td">{{this.F}}</td>
+                            <td class="td">{{this.M}}</td>
+                        </tr>
+                    {{/each}}
+                    </tbody>
+                </table>
+            {{/if}}
+        </div>
+
+    </div>
+    <!-- END BLOCK FOR PRINT  -->
+
+    <div id="printBtnId">
+        <button class="btn btn-primary print-btn" target-print="printReport" id="printBtnId">
+            <span class="glyphicon glyphicon-print" aria-hidden="true"></span> Печать
+        </button>
+    </div>
+</div>
+ 
+<script>
+    $(document).ready(function(){
+        $("#exportXLS").click(function(){
+            let fName = $(".lpo-name").text()
+                .trim()
+                .substr(10);
+            $("#printReport").table2excel({
+                exclude:".noExl",
+                name:"report",
+                filename:fName,
+                fileext:".xls"
+            });
+        });
+    });
+</script>
+<script src="/js/jquery.table2excel.js"></script>

@@ -1,0 +1,297 @@
+<div class="table-responsive">
+    <!-- START BLOCK FOR PRINT  -->
+    <div id="printReport">
+        <div class="text-center">
+            <p><b><h4>Форма №12-1. Штаты, деятельность ГСВ по должностям</h4></b></p>
+        </div>
+        <div class="text-left">
+            {{#iif titleData.lpu_title '==' 'undefined'}}
+            <div>ЛПО(ГСВ): {{titleData.gsvname}} </div>
+            {{else}}
+             <div>ЛПО(ГСВ): {{titleData.lpu_title}} </div>              
+            {{/iif}} 
+            <div>
+            <span>Отчетный период:
+              <span>{{dateFormat titleData.sdate}}</span> -
+              <span>{{dateFormat titleData.edate}}</span>
+            </span>
+            </div>
+        </div>
+        <div id="printBtnId">
+            <button class="btn btn-primary print-btn" target-print="printReport" id="printBtnId">
+                <span class="glyphicon glyphicon-print" aria-hidden="true"></span> Печать
+            </button>
+        </div>
+
+        <div class="all-data">
+            {{#if data.length}}
+            <table class="table table-responsive rpt_table">
+                <thead class="thead-dark">
+                <tr class="tr">
+                    <th class="th" rowspan="3">Должность (Код должности)</th>
+                    <th class="th" colspan="6">Посещения</th>
+                    <th class="th" rowspan="3">Число случаев поликлинического обслуживания(Всего)</th>
+                    <th class="th" rowspan="3">В т.ч. по поводу заболевания</th>
+                    <th class="th" rowspan="3">Число направленных на госпитализацию</th>
+                    <th class="th" rowspan="3">Число направленных к узким специалистам по болезни</th>
+                </tr>
+                <tr class="tr">
+                    <th class="th" colspan="2">в ЛПУ</th>
+                    <th class="th" colspan="2">на дому</th>
+                    <th class="th" rowspan="2">Всего</th>
+                    <th class="th" rowspan="2">в т.ч. по болезни</th>
+                </tr>
+                <tr class="tr">
+                    <th class="th">Всего</th>
+                    <th class="th">в т.ч. по болезни</th>
+                    <th class="th">Всего</th>
+                    <th class="th">в т.ч. по болезни</th>
+                </tr>
+                <tr class="tr" style="background: lightgray">
+                    <td class="td">В</td>
+                    <td class="td">1</td>
+                    <td class="td">2</td>
+                    <td class="td">3</td>
+                    <td class="td">4</td>
+                    <td class="td">5</td>
+                    <td class="td">6</td>
+                    <td class="td">7</td>
+                    <td class="td">8</td>
+                    <td class="td">9</td>
+                    <td class="td">10</td>
+                </tr>
+                </thead>
+                <tbody>
+                {{#each data}}
+                    <tr class="tr tr-bold tr-lightblue"><td class="td td-left" colspan="11">{{this.title}}</td></tr>
+                    {{#each this.all}}
+                        <tr class="tr">
+                            <td class="td">{{this.post_name}} <span class="right-span">{{this.post_code}}</span></td>
+                            <td class="td">{{this.a1}}</td>
+                            <td class="td">{{this.a2}}</td>
+                            <td class="td">{{this.a3}}</td>
+                            <td class="td">{{this.a4}}</td>
+                            <td class="td">{{this.a5}}</td>
+                            <td class="td">{{this.a6}}</td>
+                            <td class="td">{{this.a7}}</td>
+                            <td class="td">{{this.a8}}</td>
+                            <td class="td">{{this.a9}}</td>
+                            <td class="td">{{this.a10}}</td>
+                        </tr>
+                    {{/each}}
+                    <tr class="tr tr-bold tr-lightblue">
+                        <td class="td td-right">Итого:</td>
+                        <td class="td">{{this.sum.a1}}</td>
+                        <td class="td">{{this.sum.a2}}</td>
+                        <td class="td">{{this.sum.a3}}</td>
+                        <td class="td">{{this.sum.a4}}</td>
+                        <td class="td">{{this.sum.a5}}</td>
+                        <td class="td">{{this.sum.a6}}</td>
+                        <td class="td">{{this.sum.a7}}</td>
+                        <td class="td">{{this.sum.a8}}</td>
+                        <td class="td">{{this.sum.a9}}</td>
+                        <td class="td">{{this.sum.a10}}</td>
+                    </tr>
+                {{/each}}
+                <tr>
+                    <td class="td" colspan="11"></td>
+                </tr>
+                <tr>
+                    <td class="td td-left">Итого по Узкие специалисты</td>
+                    <td class="td">{{sum_total.narrowSpecialist.a1}}</td>
+                    <td class="td">{{sum_total.narrowSpecialist.a2}}</td>
+                    <td class="td">{{sum_total.narrowSpecialist.a3}}</td>
+                    <td class="td">{{sum_total.narrowSpecialist.a4}}</td>
+                    <td class="td">{{sum_total.narrowSpecialist.a5}}</td>
+                    <td class="td">{{sum_total.narrowSpecialist.a6}}</td>
+                    <td class="td">{{sum_total.narrowSpecialist.a7}}</td>
+                    <td class="td">{{sum_total.narrowSpecialist.a8}}</td>
+                    <td class="td">{{sum_total.narrowSpecialist.a9}}</td>
+                    <td class="td">{{sum_total.narrowSpecialist.a10}}</td>
+                </tr>
+                <tr>
+                    <td class="td td-left">Итого по всем ГСВ</td>
+                    <td class="td">{{sum_total.allGSV.a1}}</td>
+                    <td class="td">{{sum_total.allGSV.a2}}</td>
+                    <td class="td">{{sum_total.allGSV.a3}}</td>
+                    <td class="td">{{sum_total.allGSV.a4}}</td>
+                    <td class="td">{{sum_total.allGSV.a5}}</td>
+                    <td class="td">{{sum_total.allGSV.a6}}</td>
+                    <td class="td">{{sum_total.allGSV.a7}}</td>
+                    <td class="td">{{sum_total.allGSV.a8}}</td>
+                    <td class="td">{{sum_total.allGSV.a9}}</td>
+                    <td class="td">{{sum_total.allGSV.a10}}</td>
+                </tr>
+                <tr>
+                    <td class="td td-left">Итого по {{titleData.csm_name}}</td>
+                    <td class="td">{{sum_total.csm.a1}}</td>
+                    <td class="td">{{sum_total.csm.a2}}</td>
+                    <td class="td">{{sum_total.csm.a3}}</td>
+                    <td class="td">{{sum_total.csm.a4}}</td>
+                    <td class="td">{{sum_total.csm.a5}}</td>
+                    <td class="td">{{sum_total.csm.a6}}</td>
+                    <td class="td">{{sum_total.csm.a7}}</td>
+                    <td class="td">{{sum_total.csm.a8}}</td>
+                    <td class="td">{{sum_total.csm.a9}}</td>
+                    <td class="td">{{sum_total.csm.a10}}</td>
+                </tr>
+                </tbody>
+            </table>
+            {{/if}}
+        </div>
+
+        <div class="svod-csm">
+            {{#if svod_csm.length}}
+                <table class="table table-responsive rpt_table">
+                    <thead class="thead-dark">
+                    <tr class="tr">
+                        <th class="th" rowspan="3">Должность (Код должности)</th>
+                        <th class="th" colspan="6">Посещения</th>
+                        <th class="th" rowspan="3">Число случаев поликлинического обслуживания(Всего)</th>
+                        <th class="th" rowspan="3">В т.ч. по поводу заболевания</th>
+                        <th class="th" rowspan="3">Число направленных на госпитализацию</th>
+                        <th class="th" rowspan="3">Число направленных к узким специалистам по болезни</th>
+                    </tr>
+                    <tr class="tr">
+                        <th class="th" colspan="2">в ЛПУ</th>
+                        <th class="th" colspan="2">на дому</th>
+                        <th class="th" rowspan="2">Всего</th>
+                        <th class="th" rowspan="2">в т.ч. по болезни</th>
+                    </tr>
+                    <tr class="tr">
+                        <th class="th">Всего</th>
+                        <th class="th">в т.ч. по болезни</th>
+                        <th class="th">Всего</th>
+                        <th class="th">в т.ч. по болезни</th>
+                    </tr>
+                    <tr class="tr" style="background: lightgray">
+                        <td class="td">В</td>
+                        <td class="td">1</td>
+                        <td class="td">2</td>
+                        <td class="td">3</td>
+                        <td class="td">4</td>
+                        <td class="td">5</td>
+                        <td class="td">6</td>
+                        <td class="td">7</td>
+                        <td class="td">8</td>
+                        <td class="td">9</td>
+                        <td class="td">10</td>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr class="tr tr-bold tr-lightblue"><td class="td td-left" colspan="11">Общй свод ЦСМ/ЦОВП/ГСВ</td></tr>
+                    {{#each svod_csm}}
+                        <tr class="tr">
+                                <td class="td">{{this.title}}</td>
+                                <td class="td">{{this.sum.a1}}</td>
+                                <td class="td">{{this.sum.a2}}</td>
+                                <td class="td">{{this.sum.a3}}</td>
+                                <td class="td">{{this.sum.a4}}</td>
+                                <td class="td">{{this.sum.a5}}</td>
+                                <td class="td">{{this.sum.a6}}</td>
+                                <td class="td">{{this.sum.a7}}</td>
+                                <td class="td">{{this.sum.a8}}</td>
+                                <td class="td">{{this.sum.a9}}</td>
+                                <td class="td">{{this.sum.a10}}</td>
+                            </tr>
+                    {{/each}}
+                    <tr class="tr tr-bold tr-lightblue">
+                        <td class="td td-right">Итого:</td>
+                        <td class="td">{{sum_total.csm.a1}}</td>
+                        <td class="td">{{sum_total.csm.a2}}</td>
+                        <td class="td">{{sum_total.csm.a3}}</td>
+                        <td class="td">{{sum_total.csm.a4}}</td>
+                        <td class="td">{{sum_total.csm.a5}}</td>
+                        <td class="td">{{sum_total.csm.a6}}</td>
+                        <td class="td">{{sum_total.csm.a7}}</td>
+                        <td class="td">{{sum_total.csm.a8}}</td>
+                        <td class="td">{{sum_total.csm.a9}}</td>
+                        <td class="td">{{sum_total.csm.a10}}</td>
+                    </tr>
+                    </tbody>
+                </table>
+            {{/if}}
+        </div>
+
+        <div class="svod-all-gsv">
+            {{#if svod_all_gsv.length}}
+                <table class="table table-responsive rpt_table">
+                    <thead class="thead-dark">
+                    <tr class="tr">
+                        <th class="th" rowspan="3">Должность (Код должности)</th>
+                        <th class="th" colspan="6">Посещения</th>
+                        <th class="th" rowspan="3">Число случаев поликлинического обслуживания(Всего)</th>
+                        <th class="th" rowspan="3">В т.ч. по поводу заболевания</th>
+                        <th class="th" rowspan="3">Число направленных на госпитализацию</th>
+                        <th class="th" rowspan="3">Число направленных к узким специалистам по болезни</th>
+                    </tr>
+                    <tr class="tr">
+                        <th class="th" colspan="2">в ЛПУ</th>
+                        <th class="th" colspan="2">на дому</th>
+                        <th class="th" rowspan="2">Всего</th>
+                        <th class="th" rowspan="2">в т.ч. по болезни</th>
+                    </tr>
+                    <tr class="tr">
+                        <th class="th">Всего</th>
+                        <th class="th">в т.ч. по болезни</th>
+                        <th class="th">Всего</th>
+                        <th class="th">в т.ч. по болезни</th>
+                    </tr>
+                    <tr class="tr" style="background: lightgray">
+                        <td class="td">В</td>
+                        <td class="td">1</td>
+                        <td class="td">2</td>
+                        <td class="td">3</td>
+                        <td class="td">4</td>
+                        <td class="td">5</td>
+                        <td class="td">6</td>
+                        <td class="td">7</td>
+                        <td class="td">8</td>
+                        <td class="td">9</td>
+                        <td class="td">10</td>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr class="tr tr-bold tr-lightblue"><td class="td td-left" colspan="11">Общий свод по всем ГСВ</td></tr>
+                    {{#each svod_all_gsv}}
+                        <tr class="tr">
+                            <td class="td">{{this.title}}</td>
+                            <td class="td">{{this.sum.a1}}</td>
+                            <td class="td">{{this.sum.a2}}</td>
+                            <td class="td">{{this.sum.a3}}</td>
+                            <td class="td">{{this.sum.a4}}</td>
+                            <td class="td">{{this.sum.a5}}</td>
+                            <td class="td">{{this.sum.a6}}</td>
+                            <td class="td">{{this.sum.a7}}</td>
+                            <td class="td">{{this.sum.a8}}</td>
+                            <td class="td">{{this.sum.a9}}</td>
+                            <td class="td">{{this.sum.a10}}</td>
+                        </tr>
+                    {{/each}}
+                    <tr class="tr tr-bold tr-lightblue">
+                        <td class="td td-right">Итого:</td>
+                        <td class="td">{{sum_total.allGSV.a1}}</td>
+                        <td class="td">{{sum_total.allGSV.a2}}</td>
+                        <td class="td">{{sum_total.allGSV.a3}}</td>
+                        <td class="td">{{sum_total.allGSV.a4}}</td>
+                        <td class="td">{{sum_total.allGSV.a5}}</td>
+                        <td class="td">{{sum_total.allGSV.a6}}</td>
+                        <td class="td">{{sum_total.allGSV.a7}}</td>
+                        <td class="td">{{sum_total.allGSV.a8}}</td>
+                        <td class="td">{{sum_total.allGSV.a9}}</td>
+                        <td class="td">{{sum_total.allGSV.a10}}</td>
+                    </tr>
+                    </tbody>
+                </table>
+            {{/if}}
+        </div>
+
+    </div>
+    <!-- END BLOCK FOR PRINT  -->
+
+    <div id="printBtnId">
+        <button class="btn btn-primary print-btn" target-print="printReport" id="printBtnId">
+            <span class="glyphicon glyphicon-print" aria-hidden="true"></span> Печать
+        </button>
+    </div>
+</div>

@@ -1,0 +1,105 @@
+<div class="table-responsive">
+    <!-- START BLOCK FOR PRINT  -->
+    <div id="printReport">
+        <div class="text-center">
+            <p><b><h4>Отчет по впервые устан-ных случаях ЖДА и эн-го зоба</h4></b></p>
+        </div>
+        <div class="text-left">
+            <div>ЛПУ: {{titleData.lpu_title}}</div>
+            <div>
+                <span>Отчетный период:
+                  <span>{{dateFormat titleData.sdate}}</span> -
+                  <span>{{dateFormat titleData.edate}}</span>
+                </span>
+            </div>
+            <div> Подсчет данных: <span>{{titleData.type_rpt}}</span> </div>
+        </div>
+        <div id="printBtnId">
+            <button class="btn btn-primary print-btn" target-print="printReport" id="printBtnId">
+                <span class="glyphicon glyphicon-print" aria-hidden="true"></span> Печать
+            </button>
+        </div>
+
+        <div class="result-data">
+            {{#if data.length}}
+                <table class="table table-responsive rpt_table">
+                    <thead class="thead-dark">
+                        <tr class="tr" style="background: lightgray">
+                            <th class="th" rowspan="3">Нозология</th>
+                            <th class="th" rowspan="3">Код строки</th>
+                            <th class="th" rowspan="3">Код МКБ-10</th>
+                            <th class="th" colspan="3">зарегистрировано заболеваний</th>
+                            <th class="th" colspan="4">в том числе</th>
+                            <th class="th" colspan="5">Умерло</th>
+                        </tr>
+                        <tr class="tr" style="background: lightgray">
+                            <th class="th" rowspan="2">всего</th>
+                            <th class="th" colspan="2">в том числе</th>
+                            <th class="th" rowspan="2">у детей  до 14 лет</th>
+                            <th class="th" colspan="3">из них</th>
+                            <th class="th" rowspan="2">всего</th>
+                            <th class="th" colspan="4">из них</th>
+                        </tr>
+                        <tr class="tr" style="background: lightgray">
+                            <th class="th">женщины</th>
+                            <th class="th">приезжие из регионов</th>
+                            <th class="th">до 1 года</th>
+                            <th class="th">1 год</th>
+                            <th class="th">2-4 года</th>
+                            <th class="th">дети до 14 лет</th>
+                            <th class="th">до 1 года</th>
+                            <th class="th">1 год</th>
+                            <th class="th">2-4 года</th>
+                        </tr>
+                        <tr class="tr" style="background: #95dbf9">
+                            <th class="th">А</th>
+                            <th class="th">Б</th>
+                            <th class="th">В</th>
+                            <th class="th">1</th>
+                            <th class="th">2</th>
+                            <th class="th">3</th>
+                            <th class="th">4</th>
+                            <th class="th">5</th>
+                            <th class="th">6</th>
+                            <th class="th">7</th>
+                            <th class="th">8</th>
+                            <th class="th">9</th>
+                            <th class="th">10</th>
+                            <th class="th">11</th>
+                            <th class="th">12</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {{#each data}}
+                        <tr class="tr">
+                            <td class="td">{{this.full_name}}</td>
+                            <td class="td">{{this.code}}</td>
+                            <td class="td">{{this.icd10}}</td>
+                            <td class="td">{{this.c1}}</td>
+                            <td class="td">{{this.c2}}</td>
+                            <td class="td">{{this.c3}}</td>
+                            <td class="td">{{this.c4}}</td>
+                            <td class="td">{{this.c5}}</td>
+                            <td class="td">{{this.c6}}</td>
+                            <td class="td">{{this.c7}}</td>
+                            <td class="td">{{this.c8}}</td>
+                            <td class="td">{{this.c9}}</td>
+                            <td class="td">{{this.c10}}</td>
+                            <td class="td">{{this.c11}}</td>
+                            <td class="td">{{this.c12}}</td>
+                        </tr>
+                    {{/each}}
+                    </tbody>
+                </table>
+            {{/if}}
+        </div>
+
+    </div>
+    <!-- END BLOCK FOR PRINT  -->
+
+    <div id="printBtnId">
+        <button class="btn btn-primary print-btn" target-print="printReport" id="printBtnId">
+            <span class="glyphicon glyphicon-print" aria-hidden="true"></span> Печать
+        </button>
+    </div>
+</div>

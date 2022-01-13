@@ -1,0 +1,89 @@
+<div class="table-responsive">
+    <!-- START BLOCK FOR PRINT  -->
+    <div id="printReport">
+        <div class="text-center">
+            <p><b><h4>Количество заполненных КИФ по факторам риска</h4></b></p>
+        </div>
+        <div class="text-left">
+            <div>ЛПУ: {{titleData.lpu_title}}</div>
+            <div>
+                <span>Отчетный период:
+                  <span>{{dateFormat titleData.sdate}}</span> -
+                  <span>{{dateFormat titleData.edate}}</span>
+                </span>
+            </div>
+            <div> Подсчет данных: <span>{{titleData.type_rpt}}</span> </div>
+            <div>{{#if titleData.doctor_name}}<span> | Врач: {{titleData.doctor_name}}</span>{{/if}}</div>
+            <div>{{#if titleData.post_code}}<span> | Код должности врача: {{titleData.post_code}}</span>{{/if}}</div>
+        </div>
+        <div id="printBtnId">
+            <button class="btn btn-primary print-btn" target-print="printReport" id="printBtnId">
+                <span class="glyphicon glyphicon-print" aria-hidden="true"></span> Печать
+            </button>
+        </div>
+
+        <div class="result-data">
+            {{#if data.length}}
+                <table class="table table-responsive rpt_table">
+                    <thead class="thead-dark">
+                        <tr class="tr" style="background: lightgray">
+                            <th class="th" rowspan="2"></th>
+                            <th class="th" rowspan="2">№ Строки</th>
+                            <th class="th" colspan="2">Всего случаев</th>
+                            <th class="th" rowspan="2">Всего отмечено факторы риска</th>
+                            <th class="th" colspan="6">в т.ч старше 40 лет</th>
+                            <th class="th" colspan="6">Процент(старше 40 лет)</th>
+                        </tr>
+                        <tr class="tr" style="background: lightgray">
+                            <th class="th">Всего</th>
+                            <th class="th">В т.ч. старше 40 лет</th>
+                            <th class="th">Всего</th>
+                            <th class="th"><10%</th>
+                            <th class="th">10<20%</th>
+                            <th class="th">20<30%</th>
+                            <th class="th">30<39%</th>
+                            <th class="th">более 40%</th>
+                            <th class="th">Всего</th>
+                            <th class="th"><10%</th>
+                            <th class="th">10<20%</th>
+                            <th class="th">20<30%</th>
+                            <th class="th">30<39%</th>
+                            <th class="th">более 40%</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {{#each data}}
+                        <tr class="tr">
+                            <td class="td">{{this.sex}}</td>
+                            <td class="td">{{this.num}}</td>
+                            <td class="td">{{this.c1}}</td>
+                            <td class="td">{{this.c2}}</td>
+                            <td class="td">{{this.c3}}</td>
+                            <td class="td">{{this.c4}}</td>
+                            <td class="td">{{this.c5}}</td>
+                            <td class="td">{{this.c6}}</td>
+                            <td class="td">{{this.c7}}</td>
+                            <td class="td">{{this.c8}}</td>
+                            <td class="td">{{this.c9}}</td>
+                            <td class="td">{{this.c4_pr}}</td>
+                            <td class="td">{{this.c5_pr}}</td>
+                            <td class="td">{{this.c6_pr}}</td>
+                            <td class="td">{{this.c7_pr}}</td>
+                            <td class="td">{{this.c8_pr}}</td>
+                            <td class="td">{{this.c9_pr}}</td>
+                        </tr>
+                    {{/each}}
+                    </tbody>
+                </table>
+            {{/if}}
+        </div>
+
+    </div>
+    <!-- END BLOCK FOR PRINT  -->
+
+    <div id="printBtnId">
+        <button class="btn btn-primary print-btn" target-print="printReport" id="printBtnId">
+            <span class="glyphicon glyphicon-print" aria-hidden="true"></span> Печать
+        </button>
+    </div>
+</div>

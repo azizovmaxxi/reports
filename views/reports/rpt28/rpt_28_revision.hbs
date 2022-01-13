@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <!-- Meta, title, CSS, favicons, etc. -->
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Амбулаторный КИФ</title>
+
+  <!-- Bootstrap -->
+  <link href="/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link href="/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <!-- NProgress -->
+  <link href="/vendors/nprogress/nprogress.css" rel="stylesheet">
+  <!-- iCheck -->
+  <link href="/vendors/iCheck/skins/flat/green.css" rel="stylesheet">
+  <!-- Datatables -->
+  <link href="/vendors/datatables.net-bs/css/dataTables.bootstrap.min.css" rel="stylesheet">
+  <link href="/vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css" rel="stylesheet">
+  <link href="/vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css" rel="stylesheet">
+  <link href="/vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css" rel="stylesheet">
+  <link href="/vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css" rel="stylesheet">
+  <link href="/vendors/select2/dist/css/select2.css" rel="stylesheet">
+  <link href="/css/custom.css" rel="stylesheet">
+
+  <!-- Custom Theme Style -->
+  <link href="/build/css/custom.min.css" rel="stylesheet">
+    <!-- jQuery -->
+  <script src="/vendors/jquery/dist/jquery.min.js"></script>
+</head>
+
+<body class="nav-md">
+  <div class="container body">
+    <div class="main_container">
+      <!-- top navigation -->
+        <div class="top_nav">
+            <div class="nav_menu">
+                <div class="nav toggle">
+                  <a id="menu_toggle"><i class="fa fa-bars">                    
+                  </i></a>
+                </div> 
+            </div>
+          </div>
+        <!-- /top navigation -->
+
+      <!-- page content -->
+      <div class="right_col" role="main">
+        {{!-- {{{body}}} --}}
+          <div class="clearfix"></div>
+  <div id="rptResult" class="container" style="background: #ffffff; margin-top: 20px; padding: 0px 20px;">
+    <div class="table-responsive">
+    <!-- START BLOCK FOR PRINT  -->
+    <div id="printReport">
+        <div class="text-center">
+            <p><b><h4>КАРТА ОЦЕНКИ РЕЗУЛЬТАТОВ РАБОТЫ СЕМЕЙНОГО ВРАЧА (ВРАЧ СЕМЕЙНОЙ ПРАКТИКИ)</h4></b></p>
+        </div>
+        <div class="text-left">
+            <div>
+                <span>Отчетный период:
+                  <span>{{dateFormat titleData.sdate}}</span> -
+                  <span>{{dateFormat titleData.edate}}</span>
+                </span>
+            </div>
+            <div>Строка: <span>{{titleData.rowname}}</span></div>
+            </br>
+        </div>
+        <div id="printBtnId">
+            <button class="btn btn-primary print-btn" target-print="printReport" id="printBtnId">
+                <span class="glyphicon glyphicon-print" aria-hidden="true"></span> Печать
+            </button>
+        </div>
+
+        <div class="result-data">
+            {{#if data.length}}
+                <table class="table table-responsive rpt_table">
+                    <thead class="thead-dark">
+                        <tr class="tr" style="background: lightgray">
+                        <th class="th">№</th>
+                        <th class="th">Пациент (ФИО, дата рождения)</th>
+                        <th class="th">Адрес</th>
+                        <th class="th">МКБ-10</th>
+                        <th class="th">Дата  обращения</th>
+                        <th class="th">Врач (ФИО, код врача, код долж.)</th>
+                        <th class="th">ЛПУ врача</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {{#each data}}
+                        <tr class="tr">
+                            <td class="td">{{incremented @index}}</td>
+                            <td class="td" style="text-align: left;">{{this.patient}}</td>
+                            <td class="td" style="text-align: left;">{{this.address}}</td>
+                            <td class="td">{{this.icd10}}</td>
+                            <td class="td">{{dateFormat this.f_v_date}}</td>
+                            <td class="td">{{this.doctor}}</td>
+                            <td class="td">{{this.lpu_id}}</td>
+                        </tr>
+                    {{/each}}
+                    </tbody>
+                </table>
+            {{/if}}
+        </div>
+
+    </div>
+    <!-- END BLOCK FOR PRINT  -->
+
+    <div id="printBtnId">
+        <button class="btn btn-primary print-btn" target-print="printReport" id="printBtnId">
+            <span class="glyphicon glyphicon-print" aria-hidden="true"></span> Печать
+        </button>
+    </div>
+    </div>
+  </div>
+    </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap -->
+  <script src="/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+  <!-- FastClick -->
+  <script src="/vendors/fastclick/lib/fastclick.js"></script>
+  <!-- NProgress -->
+  <script src="/vendors/nprogress/nprogress.js"></script>
+  <!-- iCheck -->
+  <script src="/vendors/iCheck/icheck.min.js"></script>
+  <!-- Datatables -->
+  <script src="/vendors/datatables.net/js/jquery.dataTables.min.js"></script>
+  <script src="/vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+  <script src="/vendors/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+  <script src="/vendors/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
+  <script src="/vendors/datatables.net-buttons/js/buttons.flash.min.js"></script>
+  <script src="/vendors/datatables.net-buttons/js/buttons.html5.min.js"></script>
+  <script src="/vendors/datatables.net-buttons/js/buttons.print.min.js"></script>
+  <script src="/vendors/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js"></script>
+  <script src="/vendors/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
+  <script src="/vendors/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+  <script src="/vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>
+  <script src="/vendors/datatables.net-scroller/js/dataTables.scroller.min.js"></script>
+  <script src="/vendors/jszip/dist/jszip.min.js"></script>
+  <script src="/vendors/pdfmake/build/pdfmake.min.js"></script>
+  <script src="/vendors/pdfmake/build/vfs_fonts.js"></script>
+  <script src="/vendors/select2/dist/js/select2.full.js"></script>
+  <script src="/vendors/printJs/print.min.js"></script>
+
+  <!-- Custom Theme Scripts -->
+  <script src="/build/js/custom.min.js"></script>
+
+  <script src="/js/select2_custom.js"></script>
+  <script src="/js/printJsBtn.js"></script>
+  <script src="/js/fetchRptData.js"></script>
+</body>
+</html>

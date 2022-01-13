@@ -1,0 +1,35 @@
+module.exports = {
+  APP: {
+    PORT: 3000,
+    SECRET_KEY: "secretKey"
+  },
+  DB: {
+    DIALECT: "mssql",
+    USER: "username",
+    PASSWORD: "password",
+    HOST: "localhost",
+    PORT: 1433,
+    CATALOG: "catalog",
+    ENCRYPTION: true,
+    REQUEST: {
+        TIMEOUT:300000
+    },
+    CommandTimeout: {
+      TIMEOUT:300000
+    }
+    RETRY: {
+        TIMEOUT: 10
+    },
+    POOL: {
+      MAX: 5,
+      MIN: 0,
+      ACQUIRE: 30000,
+      IDLE: 10000
+    },
+    connectionTimeout: 300000
+  },
+	REDIS_STORE: {
+		HOST: "localhost",
+		PORT: 6379
+	}
+};

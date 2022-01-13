@@ -1,0 +1,40 @@
+<div>
+  {{#if (terIsAvailable user 'ter2_id')}}
+    <div class="form-group">
+      <label for="ter2_id">Область</label>
+      <select class="form-control ter-select" id="ter2_id" name="ter2_id"></select>
+    </div>
+  {{/if}}
+
+  {{#if (terIsAvailable user 'ter3_id')}}
+    <div class="form-group">
+      <label for="ter3_id">Район</label>
+      <select class="form-control ter-select" id="ter3_id" name="ter3_id"></select>
+    </div>
+  {{/if}}
+
+  {{#if (terIsAvailable user 'lpu_id')}}
+    <div class="form-group">
+        <label for="lpu_id">Код ЛПО:</label>
+        <select class="form-control ter-select" id="lpu_id" name="lpu_id"></select>
+    </div>
+  {{/if}}
+
+    <div class="card border-left-primary shadow h-100 py-2">
+    <div class="card-body">
+      <div class="row no-gutters align-items-center">
+        <div class="col mr-2">
+          &ensp;Отчетный период:
+          <span> c&ensp;
+            <input id="sdate" name="sdate" type="date"
+            value="{{#if sdate}}{{sdate}}{{else}}2019-12-26{{/if}}">&ensp;по&ensp;
+
+            <input id="edate" name="edate" type="date"
+            value="{{#if edate}}{{edate}}{{else}}2020-01-26{{/if}}">
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

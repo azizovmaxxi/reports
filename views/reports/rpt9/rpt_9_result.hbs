@@ -1,0 +1,540 @@
+<div class="table-responsive">
+    <!-- START BLOCK FOR PRINT  -->
+    <div id="printReport">
+        <div class="text-center">
+            <p><b><h4>Выписка из амбулаторной карты</h4></b></p>
+        </div>
+        <div class="text-left">
+            <div>ЛПУ: {{titleData.lpu_title}}</div>
+            <div>
+            <span>Отчетный период:
+              <span>{{dateFormat titleData.sdate}}</span> -
+              <span>{{dateFormat titleData.edate}}</span>
+            </span>
+            </div>
+        </div>
+        <div id="printBtnId">
+            <button class="btn btn-primary print-btn" target-print="printReport" id="printBtnId">
+                <span class="glyphicon glyphicon-print" aria-hidden="true"></span> Печать
+            </button>
+        </div>
+
+        <div class="result-data">
+            <div class="patient-card">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                        <div> <strong>Пациент: </strong>{{titleData.patient.full_name}} </div>
+                        <div> <strong>Пол: </strong>{{#iif titleData.patient.sex_id '==' '1'}}Муж{{else}}Жен{{/iif}} </div>
+                        <div> <strong>Дата рождения:</strong> {{titleData.patient.birth_day}} </div>
+                        <div> <strong>ПИН: </strong>{{titleData.patient.pin}} </div>
+                        <div> <strong>Код ГСВ:</strong> {{titleData.patient.gsv_code}}</div>
+                        <div> <strong>Адрес: </strong>{{titleData.patient.address}}</div>
+                    </li>
+                </ul>
+            </div>
+            <div class="cases">
+                {{#if data.length}}
+                <ul class="list-group list-group-flush">
+                    {{#each data}}
+                    <li class="list-group-item" style="margin-top: 10px">
+                        <div class="case" style="margin-bottom: 10px">
+                            Дата обращения: {{dateFormat this.a_case.f_v_date}}
+                            <span style="margin-left: 20px">| Врач: {{this.a_case.doctor}}</span>
+                            <span style="margin-left: 20px">| Неотл?: {{#if this.a_case.emergency}} Да {{else}} Нет {{/if}}</span>
+                            <span style="margin-left: 20px">
+                                | Госпитализация: {{#if this.a_case.hosp_code }} {{this.a_case.hosp_name}}({{this.a_case.hosp_code}}) {{/if}}
+                            </span>
+                        </div>
+                        <div class="embeds-block">
+                            {{#if this.visits.length}}
+                            <div class="case-visits embeds-border">
+                                Число посещений:
+                                <div style="margin-left: 15px;">
+                                    <table>
+                                        <thead>
+                                        <tr>
+                                            <td style="width: 50px;">Код</td>
+                                            <td style="width: 300px;">Наименование</td>
+                                            <td style="width: 50px;">Кол-во</td>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        {{#each this.visits}}
+                                        <tr>
+                                            <td style="width: 50px;">{{this.vistyp_code}}</td>
+                                            <td style="width: 300px;">{{this.full_name}}</td>
+                                            <td style="width: 50px;">{{this.count_v_type}}</td>
+                                        </tr>
+                                        {{/each}}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            {{/if}}
+
+                            {{#if this.diagnosis.length}}
+                            <div class="case-diagnosis embeds-border">
+                                    Диагноз:
+                                    <div style="margin-left: 15px;">
+                                        <table>
+                                            <thead>
+                                            <tr>
+                                                <td style="width: 100px;">МКБ-10</td>
+                                                <td style="width: 100px;"></td>
+                                                <td style="width: 50px;"></td>
+                                                <td></td>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            {{#each this.diagnosis}}
+                                                <tr>
+                                                    <td style="width: 100px;">{{this.icd10}}</td>
+                                                    <td style="width: 100px;">{{#if this.is_final}}оконч. {{else}} предв. {{/if}}</td>
+                                                    <td style="width: 50px;">{{#if this.is_f_life}} "+" {{else}} "--" {{/if}}</td>
+                                                    <td>{{#if this.traum_code}} код травмы: {{this.traum_code}} {{/if}}</td>
+                                                </tr>
+                                            {{/each}}
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            {{/if}}
+
+                            {{#if this.procedures.length}}
+                                <div class="case-procedures embeds-border">
+                                    Процедуры и анализы:
+                                    <div style="margin-left: 15px;">
+                                        <table>
+                                            <thead>
+                                            <tr>
+                                                <td style="width: 50px;">Код</td>
+                                                <td style="width: 300px;">Наименование</td>
+                                                <td style="width: 50px;"></td>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            {{#each this.procedures}}
+                                                <tr>
+                                                    <td style="width: 50px;">{{this.proctyp_code}}</td>
+                                                    <td style="width: 300px;">{{this.full_name}}</td>
+                                                    <td style="width: 50px;">{{this.p_number}}</td>
+                                                </tr>
+                                            {{/each}}
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            {{/if}}
+
+                            {{#if this.narrow_specialists.length}}
+                                <div class="case-narrow_specialists embeds-border">
+                                    Направление к узким специалистам:
+                                    <div style="margin-left: 15px;">
+                                        <table>
+                                            <thead>
+                                            <tr>
+                                                <td style="width: 100px;">МКБ-10</td>
+                                                <td style="width: 200px;">Код специальности</td>
+                                                <td style="width: 300px;">Специальность</td>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            {{#each this.narrow_specialists}}
+                                                <tr>
+                                                    <td style="width: 100px;">{{this.icd10}}</td>
+                                                    <td style="width: 200px;">{{this.post_code}}</td>
+                                                    <td style="width: 300px;">{{this.post_name}}</td>
+                                                </tr>
+                                            {{/each}}
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            {{/if}}
+
+                            {{#if this.contraceptions.length}}
+                                <div class="case-contraceptions embeds-border">
+                                    Контрацепция:
+                                    <div style="margin-left: 15px;">
+                                        <table>
+                                            <thead>
+                                            <tr>
+                                                <td style="width: 50px;"></td>
+                                                <td style="width: 300px;">Наименование</td>
+                                                <td style="width: 100px;"></td>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            {{#each this.contraceptions}}
+                                                <tr>
+                                                    <td style="width: 50px;">{{this.contr_id}}</td>
+                                                    <td style="width: 300px;">{{this.full_name}}</td>
+                                                    <td style="width: 100px;">{{#if this.med_code}} орал.к-в: {{this.med_code}} {{/if}}</td>
+                                                </tr>
+                                            {{/each}}
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            {{/if}}
+
+                            {{#if this.medications.length}}
+                                <div class="case-medications embeds-border">
+                                    Лекарственные препараты:
+                                    <div style="margin-left: 15px;">
+                                        <table>
+                                            <thead>
+                                            <tr>
+                                                <td style="width: 100px;">МКБ-10</td>
+                                                <td style="width: 100px;"></td>
+                                                <td style="width: 300px;">Наименование</td>
+                                                <td style="width: 100px;">Код формы</td>
+                                                <td style="width: 100px;">Код рецепта</td>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            {{#each this.medications}}
+                                                <tr>
+                                                    <td style="width: 100px;">{{this.icd10}}</td>
+                                                    <td style="width: 100px;">{{this.med_code}}</td>
+                                                    <td style="width: 300px;">{{this.full_name}}</td>
+                                                    <td style="width: 100px;">{{this.medshp_code}}</td>
+                                                    <td style="width: 100px;">{{this.prescript_code}}</td>
+                                                </tr>
+                                            {{/each}}
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            {{/if}}
+
+                            {{#if this.a_references.length}}
+                                <div class="case-a_references embeds-border">
+                                    Направлен из:
+                                    <div style="margin-left: 15px;">
+                                        <table>
+                                            <thead>
+                                            <tr>
+                                                <td style="width: 100px;">Код ЛПО</td>
+                                                <td style="width: 200px;">ГСВ</td>
+                                                <td style="width: 200px;">Врач</td>
+                                                <td style="width: 100px;">Дата направления</td>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            {{#each this.a_references}}
+                                                <tr>
+                                                    <td style="width: 100px;">{{this.lpu_code}}</td>
+                                                    <td style="width: 200px;">{{this.lpu_name}}</td>
+                                                    <td style="width: 200px;">{{this.doctor_name}}</td>
+                                                    <td style="width: 200px;">{{dateFormat this.ref_date}}</td>
+                                                </tr>
+                                            {{/each}}
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            {{/if}}
+
+                            {{#if this.pressures.length}}
+                                <div class="case-pressures embeds-border">
+                                    Артериальное давление:
+                                    <div style="margin-left: 15px;">
+                                        <table>
+                                            <thead>
+                                            <tr>
+                                                <td style="width: 200px;">Номер визита</td>
+                                                <td style="width: 100px;">А/Д мин.</td>
+                                                <td style="width: 200px;">А/Д макс.</td>
+                                                <td style="width: 100px;">Врач или медсестра?</td>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            {{#each this.pressures}}
+                                                <tr>
+                                                    <td style="width: 200px;">{{this.visit_num}}</td>
+                                                    <td style="width: 100px;">{{this.pressure_min}}</td>
+                                                    <td style="width: 200px;">{{this.pressure_max}}</td>
+                                                    <td style="width: 200px;">"{{#iif this.dm '==' '1'}}Врач{{else}}Медсестра{{/iif}}"</td>
+                                                </tr>
+                                            {{/each}}
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            {{/if}}
+
+                            {{#if this.lovz.length}}
+                                <div class="case-lovz embeds-border">
+                                    ЛОВЗ:
+                                    <div style="margin-left: 15px;">
+                                        <table>
+                                            <thead>
+                                            <tr>
+                                                <td style="width: 200px;">Состоит на учете</td>
+                                                <td style="width: 100px;">Группа</td>
+                                                <td style="width: 200px;">Признан впервые</td>
+                                                <td style="width: 200px;">Группа</td>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            {{#each this.lovz}}
+                                                <tr>
+                                                    <td style="width: 200px;">{{this.l_registered}}</td>
+                                                    <td style="width: 200px;">{{this.l_group}}</td>
+                                                    <td style="width: 200px;">{{this.recog_first}}</td>
+                                                    <td style="width: 200px;">{{this.recog_group}}</td>
+                                                </tr>
+                                            {{/each}}
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            {{/if}}
+
+                            {{#iif this.risks.length '||' this.pressure_reference.length}}
+                                <div class="case-risks embeds-border">
+                                    Наблюдение по НИЗ:
+                                    <div style="margin-left: 15px;">
+                                        <table>
+                                            <tbody>
+                                            {{#each this.risks}}
+                                                <tr>
+                                                    <td style="width: 200px;">Контроль А/Д (<140/90): {{this.control_ad}}</td>
+                                                    <td style="width: 200px;">Принимает  гипотензивные: {{this.accept_gipotenz}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="width: 200px;">Риск смертности от ССЗ: {{{this.percen}}}</td>
+                                                </tr>
+                                            {{/each}}
+                                            {{#each this.pressure_reference}}
+                                                <tr>
+                                                    <td colspan="2">При выявлении повышенного А/Д,
+                                                        кем был перенаправлен к врачу ГСВ: {{this.ref_ad}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="width: 200px;">Уровень глюкозы в крови: {{this.level_glucose}}</td>
+                                                    <td>Уровень холестерина: {{this.level_cholesterol}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="width: 200px;">Проведен осмотр шейки матки: {{this.cervix}}</td>
+                                                    <td style="width: 200px;">Выявлены изменения: {{this.cervix_change}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="width: 200px;">Проведен осмотр молочных желез: {{this.breast}}</td>
+                                                    <td style="width: 200px;">Выявлены изменения: {{this.breast_change}}</td>
+                                                </tr>
+                                            {{/each}}
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            {{/iif}}
+
+                            {{#if this.mother_health.length}}
+                                <div class="case-mother_health embeds-border">
+                                    Охрана здоровья матери:
+                                    <div style="margin-left: 15px;">
+                                        <table>
+                                            <tbody>
+                                            {{#each this.mother_health}}
+                                                <tr>
+                                                    <td style="width: 220px;">Взята на учет по беременности: <span style="text-decoration:underline">{{this.is_registered}}</span></td>
+                                                    <td style="width: 200px;">Получила фолиевую кислоту: <span style="text-decoration:underline">{{this.got_acid}}</span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="width: 200px;">Препараты йода: <span style="text-decoration:underline">{{this.iodine}}</span></td>
+                                                    <td>Получила анти-Rh0(D): {{this.Rh0}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="width: 200px;">Протестирована на анемию: {{this.tested_anemia}}</td>
+                                                    <td>Оздоровлена, если была ЖДА: {{this.jda}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="2">
+                                                        Посещена в первые три дня после родов: {{#iif this.doctor_visit '==' '1'}}Врачом{{else}}Мед. сестрой{{/iif}}
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="2">
+                                                        <div style="margin-top: 10px;">
+                                                            <div style="text-align: center; text-decoration: underline">Обследована на сифилис:</div>
+                                                            <div>
+                                                                <div>
+                                                                    <span style="margin-right: 15px;">в 1 половине беременности: {{this.one_preg}}</span>
+                                                                    <span style="margin-right: 15px;">во 2 половине беременности: {{this.two_preg}}</span>
+                                                                </div>
+                                                                <div>
+                                                                    <span style="margin-right: 15px;">имела положительный результат: {{this.positive_result}}</span>
+                                                                    <span style="margin-right: 15px;">получила полный курс лечения: {{this.course_treatmedt}}</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="2">
+                                                        <div style="margin-top: 10px;">
+                                                            <div style="text-decoration: underline; text-align: center">ВИЧ</div>
+                                                            <div>
+                                                                <span style="margin-right: 15px;">Обследована на ВИЧ-инфекцию: {{this.hiv}}</span>
+                                                                <span>Имела положительный результат: {{this.hiv_result}}</span>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="2">
+                                                        <div>
+                                                            <div style="text-decoration: underline; text-align: center">
+                                                                Получила базовый пакет антенатальных услуг:
+                                                            </div>
+                                                            <div>
+                                                                <span style="margin-right: 20px">белок в моче: {{this.protein_urine}}</span>
+                                                                <span style="margin-right: 20px">посев мочи на бактериурию: {{this.sowing_urine}}</span>
+                                                            </div>
+                                                            <div>
+                                                                <span style="margin-right: 20px">измерение А/Д: {{this.ad}}</span>
+                                                                <span style="margin-right: 20px">велась гравидограмма: {{this.gravidogramm}}</span>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            {{/each}}
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            {{/if}}
+
+                            {{#if this.chield_health.length}}
+                                <div class="chield_health embeds-border">
+                                    Охрана здоровья детского населения:
+                                    <div style="margin-left: 15px;">
+                                        <table>
+                                            <tbody>
+                                            {{#each this.chield_health}}
+                                                <tr>
+                                                    <td colspan="2">На исключительно грудном вскармливании:
+                                                        {{#if this.three_month}}<span> 3 мес. </span>{{/if}}
+                                                        {{#if this.six_month}}<span> 6 мес. </span>{{/if}}
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="2">На искусственном вскармливании:
+                                                        {{#if this.feeding_yes}}<span> Да </span>{{/if}}
+                                                        {{#if this.feeding_age}}<span style="margin-left: 50px;"> С какого возраста: {{feeding_age}} </span>{{/if}}
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="2">На смешанном вскармливании:
+                                                        {{#if this.breast_feeding_three}}<span> 3 мес. </span>{{/if}}
+                                                        {{#if this.breast_feeding_sex}}<span> 6 мес. </span>{{/if}}
+                                                        {{#if this.breast_feeding_year}}<span> 1 год. </span>{{/if}}
+                                                        {{#if this.breast_feeding_twoear}}<span> 2 год. </span>{{/if}}
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="2" style="text-decoration: underline; text-align: center">
+                                                        Дети до 5 лет получили:
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="2" style="text-decoration: underline; text-align: center">С диареей</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Оральные регидратационные средства: {{this.diarrhea_oral}}</td>
+                                                    <td>Сульфат цинка: {{this.diarrhea_zink}}</td>
+                                                    <td>Антибиотик: {{this.diarrhea_antibiotic}}</td>
+                                                    <td></td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="2">С пневмонией - первую дозу антибиотиков на уровне ПМСП: {{this.pmcp}}</td>
+                                                </tr>
+                                            {{/each}}
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            {{/if}}
+
+                            {{#if this.observation_chield.length}}
+                                <div class="case-observation_chield embeds-border">
+                                    Наблюдение за здоровыми детьми:
+                                    <div style="margin-left: 15px;">
+                                        <table>
+                                            <tbody>
+                                            {{#each this.observation_chield}}
+                                                <tr>
+                                                    <td>
+                                                        До 1 года
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="2">Посещен впервые три дня жизни: {{this.life_three_day}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="2">Посетил врача в возрасте(мес.):
+                                                        {{#if this.age_one}}<span>|{{this.age_one}}|</span>{{/if}}
+                                                        {{#if this.age_two}}<span>|{{this.age_two}}|</span>{{/if}}
+                                                        {{#if this.age_three}}<span>|{{this.age_three}}|</span>{{/if}}
+                                                        {{#if this.age_four}}<span>|{{this.age_four}}|</span>{{/if}}
+                                                        {{#if this.age_five}}<span>|{{this.age_five}}|</span>{{/if}}
+                                                        {{#if this.age_six}}<span>|{{this.age_six}}|</span>{{/if}}
+                                                        {{#if this.age_seven}}<span>|{{this.age_seven}}|</span>{{/if}}
+                                                        {{#if this.age_eight}}<span>|{{this.age_eight}}|</span>{{/if}}
+                                                        {{#if this.age_nine}}<span>|{{this.age_nine}}|</span>{{/if}}
+                                                        {{#if this.age_ten}}<span>|{{this.age_ten}}|</span>{{/if}}
+                                                        {{#if this.age_eleven}}<span>|{{this.age_eleven}}|</span>{{/if}}
+                                                        {{#if this.age_twelve}}<span>|{{this.age_twelve}}|</span>{{/if}}
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="2">От 1 года до 2 лет:
+                                                        <span>{{this.quarter_one}}</span>
+                                                        <span>{{this.quarter_two}}</span>
+                                                        <span>{{this.quarter_three}}</span>
+                                                        <span>{{this.quarter_four}}</span>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="2">От 2 до 3 лет: {{this.two_three_age}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="2">Гулазык:
+                                                        <span>{{this.gulazyk_get}}</span>
+                                                        <span>{{this.gulazyk_notget}}</span>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="2">Проведена дегельментизация:
+                                                        <span>{{this.degelmin}}</span><span>{{this.degelmin_over}}</span>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="2">Наблюдение за подростками(15-17 лет) - осмотрен врачом ГСВ: {{this.doctor_gsv}}</td>
+                                                </tr>
+                                            {{/each}}
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            {{/if}}
+
+                        </div>
+                    </li>
+                    {{/each}}
+                </ul>
+                {{/if}}
+            </div>
+        </div>
+
+    </div>
+    <!-- END BLOCK FOR PRINT  -->
+
+    <div id="printBtnId">
+        <button class="btn btn-primary print-btn" target-print="printReport" id="printBtnId">
+            <span class="glyphicon glyphicon-print" aria-hidden="true"></span> Печать
+        </button>
+    </div>
+</div>

@@ -1,0 +1,147 @@
+<div class="table-responsive">
+    <!-- START BLOCK FOR PRINT  -->
+    <div id="printReport">
+        <div class="text-center">
+            <p><b><h4>15.1.Наблюдение за больными с гипертонической болезнью (I10-I13) </h4></b></p>
+        </div>
+        <div class="text-left lpo-name">
+             <div>ЛПО(ГСВ): {{titleData.lpu_title}} </div>                                
+        </div>
+            <div>
+                <span>Отчетный период:
+                  <span>{{dateFormat titleData.sdate}}</span> -
+                  <span>{{dateFormat titleData.edate}}</span>
+                </span>
+            </div>
+        <div id="printBtnId">
+            <button class="btn btn-primary print-btn" target-print="printReport" id="printBtnId">
+                <span class="glyphicon glyphicon-print" aria-hidden="true"></span> Печать
+            </button>
+            <button class="btn btn-primary" id="exportXLS">
+                <span class="glyphicon glyphicon-export" aria-hidden="true"></span> Экспорт в Excel
+            </button>
+        </div>
+
+        <div class="result-data">
+            {{#if data.length}}
+                <table class="table table-responsive rpt_table">
+                    <thead class="thead-dark">
+                        <tr class="tr" style="background: lightgray">
+                        <th class="th" rowspan="2">Наименование</th>
+                        <th class="th" rowspan="2">Код <br/> строки</th>
+                        <th class="th" colspan="3">Количество  больных с ГБ </th>
+                        <th class="th" colspan="3">количество пациентов с ГБ получающих лекарственную терапию</th>
+                        <th class="th" colspan="3">количество больных с ГБ с уровнем АД менее 140/90</th>
+                        <th class="th" colspan="3">количество пациентов с ГБ и уровнем сердечно сосудистого риска более 30% которым назначены блокаторы РАС , статины и АСК </th>
+                        <th class="th" colspan="3">количество пациентов с ГБ  которым измерялось АД два раз в год</th>
+                        <th class="th" colspan="3">количество больных  которым измерялся уровень холестерина в крови</th>
+                        <th class="th" colspan="3">количество больных которым измерялся уровень сахара в крови</th>
+                        </tr>
+                        <tr class="tr" style="background: lightgray">
+                        <th class="th">всего</th>
+                        <th class="th">муж</th>
+                        <th class="th">жен</th>
+                        <th class="th">всего</th>
+                        <th class="th">муж</th>
+                        <th class="th">жен</th>
+                        <th class="th">всего</th>
+                        <th class="th">муж</th>
+                        <th class="th">жен</th>
+                        <th class="th">всего</th>
+                        <th class="th">муж</th>
+                        <th class="th">жен</th>
+                        <th class="th">всего</th>
+                        <th class="th">муж</th>
+                        <th class="th">жен</th>
+                        <th class="th">всего</th>
+                        <th class="th">муж</th>
+                        <th class="th">жен</th>
+                        <th class="th">всего</th>
+                        <th class="th">муж</th>
+                        <th class="th">жен</th>
+                        </tr>
+                        <tr class="tr" style="background: lightgray">
+                        <th class="th">А</th>
+                        <th class="th">Б</th>
+                        <th class="th">1</th>
+                        <th class="th">2</th>
+                        <th class="th">3</th>
+                        <th class="th">4</th>
+                        <th class="th">5</th>
+                        <th class="th">6</th>
+                        <th class="th">7</th>
+                        <th class="th">8</th>
+                        <th class="th">9</th>
+                        <th class="th">10</th>
+                        <th class="th">11</th>
+                        <th class="th">12</th>
+                        <th class="th">13</th>
+                        <th class="th">14</th>
+                        <th class="th">15</th>
+                        <th class="th">16</th>
+                        <th class="th">17</th>
+                        <th class="th">18</th>
+                        <th class="th">19</th>
+                        <th class="th">20</th>
+                        <th class="th">21</th>
+                        </tr>  
+                    </thead>
+                    <tbody>
+                    {{#each data}}
+                        <tr class="tr">
+                            <td class="td" style="text-align: left;">{{this.full_name}}</td>
+                            <td class="td">&nbsp;{{this.code}}</td>
+                            <td class="td">{{this.a1}}</td>
+                            <td class="td">{{this.a2}}</td>
+                            <td class="td">{{this.a3}}</td>
+                            <td class="td">{{this.a4}}</td>
+                            <td class="td">{{this.a5}}</td>
+                            <td class="td">{{this.a6}}</td>
+                            <td class="td">{{this.a7}}</td>
+                            <td class="td">{{this.a8}}</td>
+                            <td class="td">{{this.a9}}</td>
+                            <td class="td">{{this.a10}}</td>
+                            <td class="td">{{this.a11}}</td>
+                            <td class="td">{{this.a12}}</td>
+                            <td class="td">{{this.a13}}</td>
+                            <td class="td">{{this.a14}}</td>
+                            <td class="td">{{this.a15}}</td>
+                            <td class="td">{{this.a16}}</td>
+                            <td class="td">{{this.a17}}</td>
+                            <td class="td">{{this.a18}}</td>
+                            <td class="td">{{this.a19}}</td>
+                            <td class="td">{{this.a20}}</td>
+                            <td class="td">{{this.a21}}</td>
+                        </tr>
+                    {{/each}} 
+                    </tbody>
+                </table>
+            {{/if}}
+        </div>
+
+    </div>
+    <!-- END BLOCK FOR PRINT  -->
+
+    <div id="printBtnId">
+        <button class="btn btn-primary print-btn" target-print="printReport" id="printBtnId">
+            <span class="glyphicon glyphicon-print" aria-hidden="true"></span> Печать
+        </button>
+    </div>
+</div>
+ 
+<script>
+    $(document).ready(function(){
+        $("#exportXLS").click(function(){
+            let fName = $(".lpo-name").text()
+                .trim()
+                .substr(10);
+            $("#printReport").table2excel({
+                exclude:".noExl",
+                name:"report",
+                filename:fName,
+                fileext:".xls"
+            });
+        });
+    });
+</script>
+<script src="/js/jquery.table2excel.js"></script>

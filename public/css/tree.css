@@ -1,0 +1,49 @@
+.checkTree {
+  font: 1em Arial,sans-serif;
+}
+.checkTree ul{
+  list-style-type: none;
+}
+.checkTree > ul{
+  padding: 0;
+  margin: 0;
+}
+.checkTree li{
+  padding-left: 15px;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+.checkTree li ul{
+  padding-left: 15px;
+}
+.checkTree .checkTree-open,
+.checkTree .checkTree-close{
+  margin-left: -16px;
+  padding: 0 3px;
+}
+.checkTree .checkTree-open:before{
+  content: "◢"
+}
+.checkTree .checkTree-close:before{
+  content: "▷"
+}
+#functions, #function-spread{
+  margin-right: 3px;
+}
+.checkTree{
+  padding: 2px 2px;
+  width: 100%;
+  height: 180px;
+  border: 1px solid #ccc;
+  border-radius: 0;
+  overflow-y: scroll;
+  display: none;
+  background-color: #ffffff;
+}
+.checkTree ul li input,
+.checkTree ul li ul li input
+{
+  margin-right: 5px;
+}

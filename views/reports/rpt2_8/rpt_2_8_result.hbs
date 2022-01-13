@@ -1,0 +1,128 @@
+<div class="table-responsive">
+    <!-- START BLOCK FOR PRINT  -->
+    <div id="printReport">
+        <div class="text-center">
+            <p><b><h4>Показатели смешанного приема врачей ГСВ</h4></b></p>
+        </div>
+        <div class="text-left">
+            <div>ЛПУ: {{titleData.lpu_title}}</div>
+            <div>
+            <span>Отчетный период:
+              <span>{{dateFormat titleData.sdate}}</span> -
+              <span>{{dateFormat titleData.edate}}</span>
+            </span>
+            </div>
+        </div>
+        <div id="printBtnId">
+            <button class="btn btn-primary print-btn" target-print="printReport" id="printBtnId">
+                <span class="glyphicon glyphicon-print" aria-hidden="true"></span> Печать
+            </button>
+        </div>
+
+        <div class="all-data">
+            {{#if data.length}}
+            <table class="table table-responsive rpt_table">
+                <thead class="thead-dark">
+                <tr class="tr">
+                    <th class="th" rowspan="3">Код врача</th>
+                    <th class="th" rowspan="3">Должность</th>
+                    <th class="th" rowspan="3">Врач</th>
+                    <th class="th" colspan="5">Принято ВСЕГО физ.лиц</th>
+                    <th class="th" colspan="5">Принято БОЛЬНЫХ физ.лиц</th>
+                </tr>
+                <tr class="tr">
+                    <th class="th" rowspan="2">Всего</th>
+                    <th class="th" colspan="2">из них лиц, НЕ старше 14л. 11м. 29дн</th>
+                    <th class="th" colspan="2">из них лиц, старше 14л. 11м. 29дн</th>
+                    <th class="th" rowspan="2">Всего</th>
+                    <th class="th" colspan="2">из них лиц, НЕ старше 14л. 11м. 29дн</th>
+                    <th class="th" colspan="2">из них лиц, старше 14л. 11м. 29дн</th>
+                </tr>
+                <tr class="tr">
+                    <th class="th">Абс</th>
+                    <th class="th">%</th>
+                    <th class="th">Абс</th>
+                    <th class="th">%</th>
+                    <th class="th">Абс</th>
+                    <th class="th">%</th>
+                    <th class="th">Абс</th>
+                    <th class="th">%</th>
+                </tr>
+                </thead>
+                <tbody>
+                    <tr class="tr tr-bold tr-lightblue">
+                        <td class="td td-left" colspan="3">Итого по всем ГСВ</td>
+                        <td class="td">{{totalSum.c1}}</td>
+                        <td class="td">{{totalSum.c2}}</td>
+                        <td class="td">{{totalSum.percent_c2}}%</td>
+                        <td class="td">{{totalSum.c3}}</td>
+                        <td class="td">{{totalSum.percent_c3}}%</td>
+                        <td class="td">{{totalSum.c4}}</td>
+                        <td class="td">{{totalSum.c5}}</td>
+                        <td class="td">{{totalSum.percent_c5}}%</td>
+                        <td class="td">{{totalSum.c6}}</td>
+                        <td class="td">{{totalSum.percent_c6}}%</td>
+                    </tr>
+                {{#each data}}
+                    <tr class="tr tr-bold tr-lightblue"><td class="td td-left" colspan="13">{{this.title}}</td></tr>
+                    {{#each this.all}}
+                        <tr class="tr">
+                            <td class="td">{{this.post_code}}</td>
+                            <td class="td">{{this.post_name}}</td>
+                            <td class="td">{{this.doctor_name}}</td>
+                            <td class="td">{{this.c1}}</td>
+                            <td class="td">{{this.c2}}</td>
+                            <td class="td">{{this.percent_c2}}%</td>
+                            <td class="td">{{this.c3}}</td>
+                            <td class="td">{{this.percent_c3}}%</td>
+                            <td class="td">{{this.c4}}</td>
+                            <td class="td">{{this.c5}}</td>
+                            <td class="td">{{this.percent_c5}}%</td>
+                            <td class="td">{{this.c6}}</td>
+                            <td class="td">{{this.percent_c6}}%</td>
+                        </tr>
+                    {{/each}}
+                    <tr class="tr tr-bold tr-lightblue">
+                        <td class="td td-right" colspan="3">Итого:</td>
+                        <td class="td">{{this.sum.c1}}</td>
+                        <td class="td">{{this.sum.c2}}</td>
+                        <td class="td">{{this.sum.percent_c2}}%</td>
+                        <td class="td">{{this.sum.c3}}</td>
+                        <td class="td">{{this.sum.percent_c3}}%</td>
+                        <td class="td">{{this.sum.c4}}</td>
+                        <td class="td">{{this.sum.c5}}</td>
+                        <td class="td">{{this.sum.percent_c5}}%</td>
+                        <td class="td">{{this.sum.c6}}</td>
+                        <td class="td">{{this.sum.percent_c6}}%</td>
+                    </tr>
+                {{/each}}
+                <tr>
+                    <td class="td" colspan="13"></td>
+                </tr>
+                <tr class="tr tr-bold tr-lightblue">
+                    <td class="td td-right" colspan="3">Итого по всем ГСВ</td>
+                    <td class="td">{{totalSum.c1}}</td>
+                    <td class="td">{{totalSum.c2}}</td>
+                    <td class="td">{{totalSum.percent_c2}}%</td>
+                    <td class="td">{{totalSum.c3}}</td>
+                    <td class="td">{{totalSum.percent_c3}}%</td>
+                    <td class="td">{{totalSum.c4}}</td>
+                    <td class="td">{{totalSum.c5}}</td>
+                    <td class="td">{{totalSum.percent_c5}}%</td>
+                    <td class="td">{{totalSum.c6}}</td>
+                    <td class="td">{{totalSum.percent_c6}}%</td>
+                </tr>
+                </tbody>
+            </table>
+            {{/if}}
+        </div>
+
+    </div>
+    <!-- END BLOCK FOR PRINT  -->
+
+    <div id="printBtnId">
+        <button class="btn btn-primary print-btn" target-print="printReport" id="printBtnId">
+            <span class="glyphicon glyphicon-print" aria-hidden="true"></span> Печать
+        </button>
+    </div>
+</div>

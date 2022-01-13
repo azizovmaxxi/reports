@@ -1,0 +1,108 @@
+<div class="table-responsive">
+    <!-- START BLOCK FOR PRINT  -->
+    <div id="printReport">
+        <div class="text-center">
+            <p><b><h4>Поиск по КИФам</h4></b></p>
+        </div>
+        <div class="text-left">
+            <div>ЛПУ: {{titleData.lpu_title}}</div>
+            <div>
+                <span> Дата первого посещения:
+                  <span>{{dateFormat titleData.sdate}}</span> -
+                  <span>{{dateFormat titleData.edate}}</span>
+                </span>
+
+                {{#if titleData.post_code}}<span> || Код должности врача: {{titleData.post_code}}</span>{{/if}}
+                {{#if titleData.last_name}}<span> || Фамилия: {{titleData.last_name}}</span>{{/if}}
+                {{#if titleData.first_name}}<span> || Имя: {{titleData.first_name}}</span>{{/if}}
+                {{#if titleData.mid_name}}<span> || Отчество: {{titleData.mid_name}}</span>{{/if}}
+                {{#if titleData.sex_id}}<span> || Пол: {{#iif titleData.sex_id '==' '1'}}Муж{{else}}Жен{{/iif}}</span>{{/if}}
+                {{#if titleData.birthday}}<span> {{titleData.birthday}}</span>{{/if}}
+                {{#if titleData.icd10}}<span> {{titleData.icd10}}</span> {{/if}}
+                {{#if titleData.is_f_life}}<span> || Впервые в жизни?: {{titleData.is_f_life}}</span> {{/if}}
+                {{#if titleData.is_final}}<span> || Окончательный?: {{titleData.is_final}}</span> {{/if}}
+                {{#if titleData.visit}}<span> || По посещениям: Да</span> {{/if}}
+                {{#if titleData.control_ad}}<span> || Контроль АД(<140/90): {{titleData.control_ad}}</span> {{/if}}
+                {{#if titleData.accept_gipotenz}}<span> || Принимает гипотензивные: {{titleData.accept_gipotenz}}</span> {{/if}}
+                {{#if titleData.percen}}<span> || Риск смертности от ССЗ: {{titleData.percen}}</span> {{/if}}
+                {{#if titleData.cervix}}<span> || Проведен осмотр шейки матки: {{titleData.cervix}}</span> {{/if}}
+                {{#if titleData.cervix_change}}<span> || Выявлены изменения шейки матки: {{titleData.cervix_change}}</span> {{/if}}
+                {{#if titleData.breast}}<span> || Проведен осмотр молочной железы: {{titleData.breast}}</span> {{/if}}
+                {{#if titleData.breast_change}}<span> || Выявлены изменения молочной железы: {{titleData.breast_change}}</span> {{/if}}
+
+                {{#if titleData.is_registered}}<span> || Взята на учет по беременности: {{titleData.is_registered}}</span> {{/if}}
+                {{#if titleData.got_acid}}<span> || Получила фолиевую кислоту: {{titleData.got_acid}}</span> {{/if}}
+                {{#if titleData.iodine}}<span> || Препараты йода: {{titleData.iodine}}</span> {{/if}}
+                {{#if titleData.one_preg}}<span> || Обследована на сифилис в 1-половине берем: {{titleData.one_preg}}</span> {{/if}}
+                {{#if titleData.two_preg}}<span> || Обследована на сифилис в 2-половине берем: {{titleData.two_preg}}</span> {{/if}}
+                {{#if titleData.positive_result}}<span> || Полож. результат сифилис: {{titleData.positive_result}}</span> {{/if}}
+                {{#if titleData.course_treatmedt}}<span> || Получила полный курс лечения от сифилиса: {{titleData.course_treatmedt}}</span> {{/if}}
+                {{#if titleData.hiv}}<span> || Обследована на ВИЧ-инфекцию: {{titleData.hiv}}</span> {{/if}}
+                {{#if titleData.hiv_result}}<span> || Имела положительный ВИЧ: {{titleData.hiv_result}}</span> {{/if}}
+                {{#if titleData.tested_anemia}}<span> || Протестирована на анемию: {{titleData.tested_anemia}}</span> {{/if}}
+                {{#if titleData.jda}}<span> || Оздоровлена, если была ЖДА: {{titleData.jda}}</span> {{/if}}
+                {{#if titleData.rh0}}<span> || Получила анти-Rh0(D): {{titleData.rh0}}</span> {{/if}}
+                {{#if titleData.doctor_visit}}<span> || Посещена в первые три дня после родов: {{titleData.doctor_visit}}</span> {{/if}}
+                {{#if titleData.protein_urine}}<span> || Белок в моче: {{titleData.protein_urine}}</span> {{/if}}
+                {{#if titleData.sowing_urine}}<span> || Посев мочи на бактериур: {{titleData.sowing_urine}}</span> {{/if}}
+                {{#if titleData.ad}}<span> || Измерение АД: {{titleData.ad}}</span> {{/if}}
+                {{#if titleData.gravidogramm}}<span> || Велась гравидограмма: {{titleData.gravidogramm}}</span> {{/if}}
+                {{#if titleData.traumtype}}<span> || Код травмы: {{titleData.traumtype}}</span> {{/if}}
+                {{#if titleData.emergency}}<span> || {{titleData.emergency}}</span> {{/if}}
+                {{#if titleData.hospid}}<span> || {{titleData.hospid}}</span> {{/if}}
+            </div>
+        </div>
+        <div id="printBtnId" style="margin-top: 5px;">
+            <button class="btn btn-primary print-btn" target-print="printReport" id="printBtnId">
+                <span class="glyphicon glyphicon-print" aria-hidden="true"></span> Печать
+            </button>
+        </div>
+
+        <div class="result-data">
+            {{#if data.length}}
+                <table class="table table-responsive rpt_table">
+                    <thead class="thead-dark">
+                    <tr class="tr" style="background: lightgray">
+                        <th class="th">#</th>
+                        <th class="th">Тип посещения</th>
+                        <th class="th">Пациент(ФИО, дата рождения)</th>
+                        <th class="th">Адрес</th>
+                        <th class="th">ЛПУ пац-та</th>
+                        <th class="th">МКБ-10</th>
+                        <th class="th">Дата 1-го посещения</th>
+                        <th class="th">Врач(ФИО, код должности, ЛПУ)</th>
+                        <th class="th">Впервые в жизни?</th>
+                        <th class="th">Окончательный?</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {{#each data}}
+                        <tr class="tr">
+                            <td class="td">{{incremented @index}}</td>
+                            <td class="td">{{this.vistyp_code}}</td>
+                            <td class="td">{{this.last_name}} {{this.first_name}} {{this.mid_name}} {{dateFormat this.birth_day}}</td>
+                            <td class="td">{{this.address}}</td>
+                            <td class="td">{{this.patient_lpu}}</td>
+                            <td class="td">{{this.icd10}}</td>
+                            <td class="td">{{dateFormat this.f_v_date}}</td>
+                            <td class="td">{{this.doctor_name}} {{this.post_code}} {{this.lpu_id}}</td>
+                            <td class="td">{{#if this.is_f_life}} Да {{else}} Нет {{/if}}</td>
+                            <td class="td">{{#if is_final}} Да {{else}} Нет {{/if}}</td>
+                        </tr>
+                    {{/each}}
+                    </tbody>
+                </table>
+                {{else}}
+                <H4>Нет информации по вашему запросу</H4>
+            {{/if}}
+        </div>
+
+    </div>
+    <!-- END BLOCK FOR PRINT  -->
+
+    <div id="printBtnId">
+        <button class="btn btn-primary print-btn" target-print="printReport" id="printBtnId">
+            <span class="glyphicon glyphicon-print" aria-hidden="true"></span> Печать
+        </button>
+    </div>
+</div>
