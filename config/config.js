@@ -5,11 +5,11 @@ module.exports = {
   },
   DB: {
     DIALECT: "mssql",
-    USER: "sa",
-    PASSWORD: "HTtt89jtreS",
-    HOST: "192.168.26.12",
-    PORT: 1434,
-    CATALOG: "person",
+    USER: "0",
+    PASSWORD: "0",
+    HOST: "0",
+    PORT: 0,
+    CATALOG: "0",
     ENCRYPTION: true,
     REQUEST: {
         TIMEOUT:600000
